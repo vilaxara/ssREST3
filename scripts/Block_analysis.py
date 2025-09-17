@@ -62,21 +62,25 @@ def chunkIt(a:int, num:int):
         last += avg
     return out
 
-def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, blocks:int, T:float = 300.00, weights=None):
+def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, blocks:int, T:float = 300.00, weights:np.array=None):
     histo, xedges = np.histogram(
         a, bins=bins, range=[x0, xmax], density=True, weights=weights)
     max = np.max(histo)
     # free_energy=-(0.001987*T)*np.log(histo)
     free_energy = -(0.001987*T)*np.log(histo+.000001)
-    free_energy = free_energy-np.min(free_energy)
+    free_energy = free_energy-np.min(free_energy) # Normalize free energy
     xcenters = xedges[:-1] + np.diff(xedges)/2
     Ind = chunkIt(len(a), blocks)
     block_size = (Ind[0][1]-Ind[0][0])
     hist_blocks = []
     for i in range(0, len(Ind)):
         block_data = a[Ind[i][0]:Ind[i][1]]
-        hist, binedges = np.histogram(block_data, bins=bins, range=[
-                                    x0, xmax], density=True, weights=None)
+        if weights is not None :
+            hist, binedges = np.histogram(block_data, bins=bins, range=[
+                                        x0, xmax], density=True, weights=weights[Ind[i][0]:Ind[i][1]])
+        else :
+            hist, binedges = np.histogram(block_data, bins=bins, range=[
+                                        x0, xmax], density=True)
         hist_blocks.append(hist)
     hist_blocks = np.array(hist_blocks)
     average = np.average(hist_blocks, axis=0)
@@ -87,9 +91,9 @@ def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, block
 
     return free_energy, xcenters, ferr
 
-def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks:int):
+def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks:int, weights:np.array=None):
     histo, xedges = np.histogram(
-        a, bins=bins, range=[x0, xmax], density=True, weights=None)
+        a, bins=bins, range=[x0, xmax], density=True, weights=weights)
     xcenters = xedges[:-1] + np.diff(xedges)/2
     Ind = chunkIt(len(a), blocks)
     block_size = (Ind[0][1]-Ind[0][0])
@@ -97,7 +101,7 @@ def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks:int):
     for i in range(0, len(Ind)):
         block_data = a[Ind[i][0]:Ind[i][1]]
         hist, binedges = np.histogram(block_data, bins=bins, range=[
-                                    x0, xmax], density=True, weights=None)
+                                    x0, xmax], density=True, weights=weights[Ind[i][0]:Ind[i][1]])
         hist_blocks.append(hist)
     hist_blocks = np.array(hist_blocks)
     average = np.average(hist_blocks, axis=0)
@@ -282,3 +286,41 @@ def get_blockerrors_pyblock_nanskip_rw_(Data:np.array, bound_frac:float, Weights
     be_bf = np.asarray(block_errors)/bound_frac
     return ave_bf, be_bf
 
+def free_energy_2D(Y, X, bins=None, T:int=None, y0:float=None, ymax:float=None, x0:float=None,
+                   xmax:float=None, weights=None):
+    """
+    Calculate the 2D free energy surface.
+
+    Parameters:
+        Y, X: np.ndarray
+            Data for the Y and X axes.
+        bins: int
+            Number of bins for the histogram.
+        T: int
+            Temperature for the free energy calculation.
+        y0, ymax: float
+            Range for the Y-axis.
+        x0, xmax: float
+            Range for the X-axis.
+        weights: np.ndarray
+            Weights for the histogram.
+
+    Returns:
+        free_energy: np.ndarray
+            The calculated free energy surface.
+        xedges, yedges: np.ndarray
+            The edges of the bins in X and Y dimensions.
+    """
+    histo, xedges, yedges = np.histogram2d(
+        Y, X, bins, [[y0, ymax], [x0, xmax]], density=True, weights=weights
+    )
+
+    # Prevent log of zero by adding a small constant
+    free_energy = np.log(np.flipud(histo) + 0.000001)
+    free_energy = -(0.001987 * T) * free_energy
+    free_energy = free_energy-np.min(free_energy) # Normalize free energy
+
+    xcenters = xedges[:-1] + np.diff(xedges)/2
+    ycenters = yedges[:-1] + np.diff(yedges)/2
+
+    return free_energy, xcenters, ycenters, histo
