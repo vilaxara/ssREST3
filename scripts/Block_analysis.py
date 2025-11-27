@@ -62,25 +62,21 @@ def chunkIt(a:int, num:int):
         last += avg
     return out
 
-def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, blocks:int, T:float = 300.00, weights:np.array=None):
+def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, blocks:int, T:float = 300.00, weights=None):
     histo, xedges = np.histogram(
         a, bins=bins, range=[x0, xmax], density=True, weights=weights)
     max = np.max(histo)
     # free_energy=-(0.001987*T)*np.log(histo)
     free_energy = -(0.001987*T)*np.log(histo+.000001)
-    free_energy = free_energy-np.min(free_energy) # Normalize free energy
+    free_energy = free_energy-np.min(free_energy)
     xcenters = xedges[:-1] + np.diff(xedges)/2
     Ind = chunkIt(len(a), blocks)
     block_size = (Ind[0][1]-Ind[0][0])
     hist_blocks = []
     for i in range(0, len(Ind)):
         block_data = a[Ind[i][0]:Ind[i][1]]
-        if weights is not None :
-            hist, binedges = np.histogram(block_data, bins=bins, range=[
-                                        x0, xmax], density=True, weights=weights[Ind[i][0]:Ind[i][1]])
-        else :
-            hist, binedges = np.histogram(block_data, bins=bins, range=[
-                                        x0, xmax], density=True)
+        hist, binedges = np.histogram(block_data, bins=bins, range=[
+                                    x0, xmax], density=True, weights=None)
         hist_blocks.append(hist)
     hist_blocks = np.array(hist_blocks)
     average = np.average(hist_blocks, axis=0)
@@ -91,9 +87,9 @@ def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, block
 
     return free_energy, xcenters, ferr
 
-def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks:int, weights:np.array=None):
+def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks:int):
     histo, xedges = np.histogram(
-        a, bins=bins, range=[x0, xmax], density=True, weights=weights)
+        a, bins=bins, range=[x0, xmax], density=True, weights=None)
     xcenters = xedges[:-1] + np.diff(xedges)/2
     Ind = chunkIt(len(a), blocks)
     block_size = (Ind[0][1]-Ind[0][0])
@@ -101,7 +97,7 @@ def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks:int, wei
     for i in range(0, len(Ind)):
         block_data = a[Ind[i][0]:Ind[i][1]]
         hist, binedges = np.histogram(block_data, bins=bins, range=[
-                                    x0, xmax], density=True, weights=weights[Ind[i][0]:Ind[i][1]])
+                                    x0, xmax], density=True, weights=None)
         hist_blocks.append(hist)
     hist_blocks = np.array(hist_blocks)
     average = np.average(hist_blocks, axis=0)
@@ -324,3 +320,135 @@ def free_energy_2D(Y, X, bins=None, T:int=None, y0:float=None, ymax:float=None, 
     ycenters = yedges[:-1] + np.diff(yedges)/2
 
     return free_energy, xcenters, ycenters, histo
+
+
+def blocking_2d_hist(Y, X, y0:float=None, ymax:float=None, x0:float=None,
+                   xmax:float=None, weights=None, chunk_width=10, bin_count=35):
+    """blocking_2d_hist used to produce individual 2D histograms of chunk_width
+    blocks of data. The width needs to be identified from reblocking analysis of
+    each 2D variable. Bin count is up to you, but should be the same for all."""
+    
+    import numpy as np
+    # from Block_analysis import chunkIt
+
+    assert len(Y) == len(X), "Y and X must have the same length"
+    chunks = chunkIt(len(Y), chunk_width)
+    bounds=np.array([[y0, ymax], [x0, xmax]]) + np.array([[-0.01, 0.01], [-0.01, 0.01]])
+    bins = [np.linspace(bounds[0][0], bounds[0][1], bin_count+1),
+            np.linspace(bounds[1][0], bounds[1][1], bin_count+1)]
+    flattened_histos = np.zeros((bin_count**2,len(chunks)))
+    for i, chunk in enumerate(chunks):
+        histo, _, _ = np.histogram2d(
+                            Y[chunk[0]:chunk[1]], 
+                            X[chunk[0]:chunk[1]], 
+                            bins, 
+                            bounds, 
+                            density=False, 
+                            weights=weights[chunk[0]:chunk[1]] if weights is not None else None
+                            )   
+        flattened_histos[:, i] = histo.flatten()
+    xcenters = (bins[0][1:]+bins[0][:-1])/2
+    ycenters = (bins[1][1:]+bins[1][:-1])/2
+
+    return flattened_histos/chunk_width, xcenters, ycenters
+
+def blocking_bootstrap_2d_fe(X, Y, bin_count,y0, ymax, x0, xmax,weights=None):
+
+    import numpy as np
+    import pyblock as pb
+    from scipy.stats import bootstrap
+
+    assert len(Y) == len(X), "Y and X must have the same length"
+
+    if not isinstance(X, np.ndarray):
+        X = np.array(X)
+    if not isinstance(Y, np.ndarray):
+        Y = np.array(Y)
+
+    
+    reblock_data_X = pb.blocking.reblock(X, weights=weights)
+    reblock_data_Y = pb.blocking.reblock(Y, weights=weights)
+
+    opt_X = pb.blocking.find_optimal_block(
+        len(X), reblock_data_X)[0]
+    opt_Y = pb.blocking.find_optimal_block(
+        len(Y), reblock_data_Y)[0]
+
+    # print(opt_X, opt_Y)
+    # block_length = reblock_data_X[opt_X].ndata if \
+    #             reblock_data_X[opt_X].ndata > reblock_data_X[opt_Y].ndata \
+    #                     else reblock_data_Y[opt_Y].ndata
+
+
+    # print('Optimal block size for X:', reblock_data_X[opt_X].ndata)
+    # print('Optimal block size for Y:', reblock_data_Y[opt_Y].ndata)
+
+    # block_length = input("Enter the desired block length: ")
+    # block_length = int(block_length)
+    # if block_length <= 0:
+    #     raise ValueError("Block length must be a positive integer.")
+    block_length = reblock_data_X[opt_X].ndata if \
+                reblock_data_X[opt_X].ndata > reblock_data_Y[opt_Y].ndata \
+                        else reblock_data_Y[opt_Y].ndata
+    
+    skip = len(X) % block_length
+    
+    # print('Block length:', block_length)
+    # print('Skip:', skip)
+
+    options = {'Y':Y[skip:], 'X':X[skip:], 'y0':y0, 'ymax':ymax, 'x0':x0, 'xmax':xmax, 
+                'chunk_width':block_length, 'bin_count':bin_count, 'weights': weights,}
+
+    hist_2d_for_fe, xcenters, ycenters = blocking_2d_hist(**options)
+
+    def fe2D(x): 
+        p = np.sum(x, axis=-1)/len(x)
+        fe = -(0.001987*300)*np.log(p+0.000000001)
+        return fe
+
+    bootstrap_results = bootstrap((hist_2d_for_fe.T,), fe2D, n_resamples=1000, method='percentile')
+
+    return bootstrap_results, xcenters, ycenters
+
+def free_energy_2D_blockerror(Y, X, bins=None, T:int=None, y0:float=None, ymax:float=None, x0:float=None,
+                   xmax:float=None, weights=None, blocks=10):
+    
+    histo, xedges, yedges = np.histogram2d(
+        Y, X, bins, [[y0, ymax], [x0, xmax]], density=True, weights=weights
+    )
+    # max = np.max(histo)
+    # free_energy=-(0.001987*T)*np.log(histo)
+    free_energy = -(0.001987*T)*np.log(np.flipud(histo)+.000001)
+    free_energy = free_energy-np.min(free_energy)
+
+    xcenters = xedges[:-1] + np.diff(xedges)/2
+    ycenters = yedges[:-1] + np.diff(yedges)/2
+
+    Ind = chunkIt(len(Y), blocks)
+    block_size = (Ind[0][1]-Ind[0][0])
+    hist_blocks = []
+    # for i in range(0, len(Ind)):
+    for i in np.arange(0, blocks):
+
+        block_data_Y = Y[Ind[i][0]:Ind[i][1]]
+        block_data_X = X[Ind[i][0]:Ind[i][1]]
+
+        if weights is not None: block_weights = weights[Ind[i][0]:Ind[i][1]]
+        else: block_weights = None
+
+        hist, xedges, yedges = np.histogram2d(
+            block_data_Y, block_data_X, bins, [[y0, ymax], [x0, xmax]], density=True, weights=block_weights
+        )
+        # hist, binedges = np.histogram(block_data, bins=bins, range=[
+        #                             x0, xmax], density=True, weights=weights[Ind[i][0]:Ind[i][1]])
+        hist_blocks.append(hist)
+        
+    hist_blocks = np.array(hist_blocks)
+    average = np.average(hist_blocks, axis=0)
+    variance = np.var(hist_blocks, axis=0)
+    N = len(hist_blocks)
+    error = np.sqrt(variance / N)
+    ferr = -(0.001987*T)*(error / average)
+
+    return free_energy, xcenters, ycenters, ferr, error
+

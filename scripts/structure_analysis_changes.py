@@ -787,7 +787,7 @@ def kd_timecourse_rw_(box_size:float, contact_matrix:np.array, simulation_time:f
     Kd_lower = Kd_calc(np.asarray(err_lower), Concentration)*1000
         
         
-    return np.column_stack((t2, Kd, Kd_upper, Kd_lower, boundfrac_by_frame)) 
+    return np.column_stack((t2, Kd, Kd_upper, Kd_lower, boundfrac_by_frame, err_upper, err_lower)) 
     
 
 class contact_matrix(initial):
