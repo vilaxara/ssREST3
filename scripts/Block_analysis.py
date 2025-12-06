@@ -62,7 +62,11 @@ def chunkIt(a:int, num:int):
         last += avg
     return out
 
-def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, blocks:int, T:float = 300.00, weights=None):
+def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, blocks_no:int=None, T:float = 300.00, print:bool=False ,weights=None):
+
+    import numpy as np
+    import pyblock as pb
+
     histo, xedges = np.histogram(
         a, bins=bins, range=[x0, xmax], density=True, weights=weights)
     max = np.max(histo)
@@ -70,8 +74,20 @@ def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, block
     free_energy = -(0.001987*T)*np.log(histo+.000001)
     free_energy = free_energy-np.min(free_energy)
     xcenters = xedges[:-1] + np.diff(xedges)/2
+
+    if blocks_no : blocks = blocks_no
+    else :
+        reblock_data = pb.blocking.reblock(a, weights=weights)
+        opt_block = pb.blocking.find_optimal_block(len(a), reblock_data)[0]
+        blocks = reblock_data[opt_block].ndata
+
+        if print : print(f'opt_block = {opt_block}; blocks = {blocks}')
+
     Ind = chunkIt(len(a), blocks)
     block_size = (Ind[0][1]-Ind[0][0])
+
+    if print : print(f'block_size = {block_size}') 
+    
     hist_blocks = []
     for i in range(0, len(Ind)):
         block_data = a[Ind[i][0]:Ind[i][1]]
@@ -87,12 +103,27 @@ def free_energy_1D_blockerror( a:np.array, x0:float, xmax:float, bins:int, block
 
     return free_energy, xcenters, ferr
 
-def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks:int):
+def histo_blockerror(a:np.array, x0:float, xmax:float, bins:int, blocks_no:int=None, print:bool=False,weights=None):
+
+    import numpy as np
+    import pyblock as pb
+    
     histo, xedges = np.histogram(
         a, bins=bins, range=[x0, xmax], density=True, weights=None)
     xcenters = xedges[:-1] + np.diff(xedges)/2
+
+    if blocks_no : blocks = blocks_no
+    else :
+        reblock_data = pb.blocking.reblock(a, weights=weights)
+        opt_block = pb.blocking.find_optimal_block(len(a), reblock_data)[0]
+        blocks = reblock_data[opt_block].ndata
+
+        if print : print(f'opt_block = {opt_block}; blocks = {blocks}')
+
     Ind = chunkIt(len(a), blocks)
     block_size = (Ind[0][1]-Ind[0][0])
+    if print : print(f'block_size = {block_size}') 
+
     hist_blocks = []
     for i in range(0, len(Ind)):
         block_data = a[Ind[i][0]:Ind[i][1]]
@@ -411,7 +442,16 @@ def blocking_bootstrap_2d_fe(X, Y, bin_count,y0, ymax, x0, xmax,weights=None):
     return bootstrap_results, xcenters, ycenters
 
 def free_energy_2D_blockerror(Y, X, bins=None, T:int=None, y0:float=None, ymax:float=None, x0:float=None,
-                   xmax:float=None, weights=None, blocks=10):
+                   xmax:float=None, weights=None, blocks_no=None): # blocks_no=10
+    import numpy as np
+    import pyblock as pb
+
+    assert len(Y) == len(X), "Y and X must have the same length"
+
+    if not isinstance(X, np.ndarray):
+        X = np.array(X)
+    if not isinstance(Y, np.ndarray):
+        Y = np.array(Y)
     
     histo, xedges, yedges = np.histogram2d(
         Y, X, bins, [[y0, ymax], [x0, xmax]], density=True, weights=weights
@@ -423,6 +463,20 @@ def free_energy_2D_blockerror(Y, X, bins=None, T:int=None, y0:float=None, ymax:f
 
     xcenters = xedges[:-1] + np.diff(xedges)/2
     ycenters = yedges[:-1] + np.diff(yedges)/2
+
+    if blocks_no : blocks = blocks_no
+    else:
+        reblock_data_X = pb.blocking.reblock(X, weights=weights)
+        reblock_data_Y = pb.blocking.reblock(Y, weights=weights)
+
+        opt_X = pb.blocking.find_optimal_block(
+            len(X), reblock_data_X)[0]
+        opt_Y = pb.blocking.find_optimal_block(
+            len(Y), reblock_data_Y)[0]
+        
+        blocks = reblock_data_X[opt_X].ndata if \
+                    reblock_data_X[opt_X].ndata > reblock_data_Y[opt_Y].ndata \
+                            else reblock_data_Y[opt_Y].ndata
 
     Ind = chunkIt(len(Y), blocks)
     block_size = (Ind[0][1]-Ind[0][0])
