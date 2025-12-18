@@ -1,0 +1,5182 @@
+;
+;	File 'topol.top' was generated
+;	By user: BATMAN (501)
+;	On host: JK.local
+;	At date: Fri Apr  8 16:11:02 2022
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2019.4 (-:
+;	
+;	Executable:   /usr/local/gromacs/bin/gmx
+;	Data prefix:  /usr/local/gromacs
+;	Working dir:  /Users/BATMAN/Work/idp_projects/a_sync_prot_only
+;	Command line:
+;	  gmx pdb2gmx -f temp.pdb -o processed.pdb -ff a99SBdisp -ter yes
+;	Force field was read from current directory or a relative path - path added.
+;
+
+; Include forcefield parameters
+******************************************************************** 
+* The original ffamber ports were written by Eric J. Sorin,        * 
+* CSU Long Beach, Dept. of Chem & Biochem, and have now been       * 
+* integrated with the standard gromacs distribution.               * 
+* (Please don't blame Eric for errors we might have introduced.)   * 
+* For the implementation/validation, please read/cite:             *  
+* Sorin & Pande (2005). Biophys. J. 88(4), 2472-2493.              * 
+* For related material and updates, please consult                 * 
+* http://chemistry.csulb.edu/ffamber/                              * 
+******************************************************************** 
+
+
+[ defaults ] 
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+1               2               yes             0.5     0.8333 
+
+[ atomtypes ] 
+; name      at.num  mass     charge ptype  sigma      epsilon
+Br 35 79.90 0.0000 A 0.00000e+00 0.00000e+00 
+Br_ Br 79.90 0.0000 A 0 0  ; scaled
+C 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+C_ C 12.01 0.0000 A 0.339967 0.287251  ; scaled
+C6 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+C6_ C6 12.01 0.0000 A 0.339967 0.287251  ; scaled
+C5 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+C5_ C5 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CA 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CA_ CA 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CB 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CB_ CB 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CC 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CC_ CC 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CK 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CK_ CK 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CM 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CM_ CM 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CN 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CN_ CN 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CQ 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CQ_ CQ 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CR 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CR_ CR 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CT 6 12.01 0.0000 A 3.39967e-01 4.57730e-01 
+CT_ CT 12.01 0.0000 A 0.339967 0.36541  ; scaled
+C1 6 12.01 0.0000 A 3.39967e-01 4.57730e-01 
+C1_ C1 12.01 0.0000 A 0.339967 0.36541  ; scaled
+C3 6 12.01 0.0000 A 3.39967e-01 4.57730e-01 
+C3_ C3 12.01 0.0000 A 0.339967 0.36541  ; scaled
+C4 6 12.01 0.0000 A 3.39967e-01 4.57730e-01 
+C4_ C4 12.01 0.0000 A 0.339967 0.36541  ; scaled
+C7 6 12.01 0.0000 A 3.39967e-01 4.57730e-01 
+C7_ C7 12.01 0.0000 A 0.339967 0.36541  ; scaled
+C8 6 12.01 0.0000 A 3.39967e-01 4.57730e-01 
+C8_ C8 12.01 0.0000 A 0.339967 0.36541  ; scaled
+C9 6 12.01 0.0000 A 3.39967e-01 4.57730e-01 
+C9_ C9 12.01 0.0000 A 0.339967 0.36541  ; scaled
+CV 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CV_ CV 12.01 0.0000 A 0.339967 0.287251  ; scaled
+CW 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+CW_ CW 12.01 0.0000 A 0.339967 0.287251  ; scaled
+C* 6 12.01 0.0000 A 3.39967e-01 3.59824e-01 
+C*_ C* 12.01 0.0000 A 0.339967 0.287251  ; scaled
+C0 20 40.08 0.0000 A 3.05240e-01 1.92376e+00 
+C0_ C0 40.08 0.0000 A 0.30524 1.53576  ; scaled
+F 9 19.00 0.0000 A 3.11815e-01 2.55224e-01 
+F_ F 19.00 0.0000 A 0.311815 0.203748  ; scaled
+H 1 1.008 0.0000 A 1.06908e-01 6.56888e-02 
+H_ H 1.008 0.0000 A 0.106908 0.05244  ; scaled
+HB 1 1.008 0.0000 A 1.06908e-01 6.56888e-02 
+HB_ HB 1.008 0.0000 A 0.106908 0.05244  ; scaled
+HC 1 1.008 0.0000 A 2.64953e-01 6.56888e-02 
+HC_ HC 1.008 0.0000 A 0.264953 0.05244  ; scaled
+H1 1 1.008 0.0000 A 2.47135e-01 6.56888e-02 
+H1_ H1 1.008 0.0000 A 0.247135 0.05244  ; scaled
+H2 1 1.008 0.0000 A 2.29317e-01 6.56888e-02 
+H2_ H2 1.008 0.0000 A 0.229317 0.05244  ; scaled
+H3 1 1.008 0.0000 A 2.11499e-01 6.56888e-02 
+H3_ H3 1.008 0.0000 A 0.211499 0.05244  ; scaled
+HA 1 1.008 0.0000 A 2.59964e-01 6.27600e-02 
+HA_ HA 1.008 0.0000 A 0.259964 0.0501019  ; scaled
+H4 1 1.008 0.0000 A 2.51055e-01 6.27600e-02 
+H4_ H4 1.008 0.0000 A 0.251055 0.0501019  ; scaled
+H5 1 1.008 0.0000 A 2.42146e-01 6.27600e-02 
+H5_ H5 1.008 0.0000 A 0.242146 0.0501019  ; scaled
+HO 1 1.008 0.0000 A 0.00000e+00 0.00000e+00 
+HO_ HO 1.008 0.0000 A 0 0  ; scaled
+HS 1 1.008 0.0000 A 1.06908e-01 6.56888e-02 
+HS_ HS 1.008 0.0000 A 0.106908 0.05244  ; scaled
+HW 1 1.008 0.0000 A 0.00000e+00 0.00000e+00 
+HW_ HW 1.008 0.0000 A 0 0  ; scaled
+HP 1 1.008 0.0000 A 1.95998e-01 6.56888e-02 
+HP_ HP 1.008 0.0000 A 0.195998 0.05244  ; scaled
+I 53 126.9 0.0000 A 4.18722e-01 1.67360e+00 
+I_ I 126.9 0.0000 A 0.418722 1.33605  ; scaled
+Cl 17 35.45 0.0000 A 4.40104e-01 4.18400e-01 
+Cl_ Cl 35.45 0.0000 A 0.440104 0.334013  ; scaled
+Na 11 22.99 0.0000 A 3.32840e-01 1.15897e-02 
+Na_ Na 22.99 0.0000 A 0.33284 0.00925217  ; scaled
+IB 0 131.0 0.0000 A 8.90899e-01 4.18400e-01 
+IB_ IB 131.0 0.0000 A 0.890899 0.334013  ; scaled
+MG 12 24.305 0.0000 A 1.41225e-01 3.74342e+00 
+MG_ MG 24.305 0.0000 A 0.141225 2.98841  ; scaled
+N 7 14.01 0.0000 A 3.25000e-01 7.11280e-01 
+N_ N 14.01 0.0000 A 0.325 0.567822  ; scaled
+NA 7 14.01 0.0000 A 3.25000e-01 7.11280e-01 
+NA_ NA 14.01 0.0000 A 0.325 0.567822  ; scaled
+NB 7 14.01 0.0000 A 3.25000e-01 7.11280e-01 
+NB_ NB 14.01 0.0000 A 0.325 0.567822  ; scaled
+NC 7 14.01 0.0000 A 3.25000e-01 7.11280e-01 
+NC_ NC 14.01 0.0000 A 0.325 0.567822  ; scaled
+N2 7 14.01 0.0000 A 3.25000e-01 7.11280e-01 
+N2_ N2 14.01 0.0000 A 0.325 0.567822  ; scaled
+N3 7 14.01 0.0000 A 3.25000e-01 7.11280e-01 
+N3_ N3 14.01 0.0000 A 0.325 0.567822  ; scaled
+N* 7 14.01 0.0000 A 3.25000e-01 7.11280e-01 
+N*_ N* 14.01 0.0000 A 0.325 0.567822  ; scaled
+O 8 16.00 0.0000 A 2.95992e-01 8.78640e-01 
+O_ O 16.00 0.0000 A 0.295992 0.701427  ; scaled
+OB 8 16.00 0.0000 A 2.95992e-01 8.78640e-01 
+OB_ OB 16.00 0.0000 A 0.295992 0.701427  ; scaled
+OW 8 16.00 0.0000 A 3.15061e-01 6.36386e-01 
+OW_ OW 16.00 0.0000 A 0.315061 0.508033  ; scaled
+OH 8 16.00 0.0000 A 3.06647e-01 8.80314e-01 
+OH_ OH 16.00 0.0000 A 0.306647 0.702763  ; scaled
+O3 8 16.00 0.0000 A 3.06647e-01 8.80314e-01 
+O3_ O3 16.00 0.0000 A 0.306647 0.702763  ; scaled
+OS 8 16.00 0.0000 A 3.00001e-01 7.11280e-01 
+OS_ OS 16.00 0.0000 A 0.300001 0.567822  ; scaled
+O2 8 16.00 0.0000 A 2.95992e-01 8.78640e-01 
+O2_ O2 16.00 0.0000 A 0.295992 0.701427  ; scaled
+P 15 30.97 0.0000 A 3.74177e-01 8.36800e-01 
+P_ P 30.97 0.0000 A 0.374177 0.668026  ; scaled
+S 16 32.06 0.0000 A 3.56359e-01 1.04600e+00 
+S_ S 32.06 0.0000 A 0.356359 0.835032  ; scaled
+SH 16 32.06 0.0000 A 3.56359e-01 1.04600e+00 
+SH_ SH 32.06 0.0000 A 0.356359 0.835032  ; scaled
+CU 29 63.55 0.0000 A 3.39967e-01 3.59824e-01 
+CU_ CU 63.55 0.0000 A 0.339967 0.287251  ; scaled
+FE 26 55.00 0.0000 A 0.00000e+00 0.00000e+00 
+FE_ FE 55.00 0.0000 A 0 0  ; scaled
+K 19 39.10 0.0000 A 4.73602e-01 1.37235e-03 
+K_ K 39.10 0.0000 A 0.473602 0.00109556  ; scaled
+Rb 37 85.47 0.0000 A 5.26699e-01 7.11280e-04 
+Rb_ Rb 85.47 0.0000 A 0.526699 0.000567822  ; scaled
+Cs 55 132.91 0.0000 A 6.04920e-01 3.37230e-04 
+Cs_ Cs 132.91 0.0000 A 0.60492 0.000269214  ; scaled
+; spc water - use only with spc.itp & settles
+OW_spc 8 15.9994 0.0000 A 3.16557e-01 6.50629e-01 
+OW_spc_ OW_spc 15.9994 0.0000 A 0.316557 0.519404  ; scaled
+HW_spc 1 1.0080 0.0000 A 0.00000e+00 0.00000e+00 
+HW_spc_ HW_spc 1.0080 0.0000 A 0 0  ; scaled
+Li 3 6.94 0.0000 A 2.02590e-01 7.65672e-02 
+Li_ Li 6.94 0.0000 A 0.20259 0.0611244  ; scaled
+Zn 30 65.4 0.0000 A 1.95998e-01 5.23000e-02 
+Zn_ Zn 65.4 0.0000 A 0.195998 0.0417516  ; scaled
+;tip4p-EW
+HW_tip4pew 1 1.008 0.0000 A 0.00000e+00 0.00000e+00 
+HW_tip4pew_ HW_tip4pew 1.008 0.0000 A 0 0  ; scaled
+OW_tip4pew 8 16.00 0.0000 A 3.16435e-01 6.80946e-01 
+OW_tip4pew_ OW_tip4pew 16.00 0.0000 A 0.316435 0.543606  ; scaled
+; tip4p
+HW_tip4p 1 1.008 0.0000 A 0.00000e+00 0.00000e+00 
+HW_tip4p_ HW_tip4p 1.008 0.0000 A 0 0  ; scaled
+OW_tip4p 8 16.00 0.0000 A 3.15365e-01 6.48520e-01 
+OW_tip4p_ OW_tip4p 16.00 0.0000 A 0.315365 0.51772  ; scaled
+;tip5p
+HW_tip5p 1 1.008 0.0000 A 0.00000e+00 0.00000e+00 
+HW_tip5p_ HW_tip5p 1.008 0.0000 A 0 0  ; scaled
+OW_tip5p 8 16.00 0.0000 A 3.12000e-01 6.69440e-01 
+OW_tip5p_ OW_tip5p 16.00 0.0000 A 0.312 0.534421  ; scaled
+;tip4pd
+HW_tip4pd 1 1.008 0.0000 A 0.00000e+00 0.00000e+00 
+HW_tip4pd_ HW_tip4pd 1.008 0.0000 A 0 0  ; scaled
+OW_tip4pd 8 16.00 0.0000 A 3.16500e-01 9.98989e-01 
+OW_tip4pd_ OW_tip4pd 16.00 0.0000 A 0.3165 0.797503  ; scaled
+; dummy defs
+; MW=Dummy mass for tip4p/EW/5p water extra point charge
+MW 0 0.0000 0.0000 A 0.00000e+00 0.00000e+00 
+MW_ MW 0.0000 0.0000 A 0 0  ; scaled
+; Dummy masses for rigid CH3 and NH3 groups
+MCH3 0 0.0000 0.0000 A 0.00000e+00 0.00000e+00 
+MCH3_ MCH3 0.0000 0.0000 A 0 0  ; scaled
+MNH3 0 0.0000 0.0000 A 0.00000e+00 0.00000e+00 
+MNH3_ MNH3 0.0000 0.0000 A 0 0  ; scaled
+
+[ nonbond_params ] 
+; i    j    funct    sigma   epsilon
+OB HB 1 0.150 1.2552 
+OB_ HB 1 0.15 1.1215  ; scaled
+OB HB_ 1 0.15 1.1215  ; scaled
+OB_ HB_ 1 0.15 1.00204  ; scaled
+
+[ bondtypes ] 
+; i    j  func       b0          kb
+ C   C1      1    0.15220  265265.6   ; Amber99Sb-disp
+ C1  H1      1    0.10900  284512.0   ; Amber99Sb-disp
+ C1  N       1    0.14490  282001.6   ; Amber99Sb-disp
+ C1  N3      1    0.14710  307105.6   ; Amber99Sb-disp
+ HO  O3      1    0.09600  462750.4   ; Amber99Sb-disp
+ C8  O3      1    0.14100  267776.0   ; Amber99Sb-disp
+ C8  OH      1    0.14100  267776.0   ; Amber99Sb-disp
+ CT  C8      1    0.15260  259408.0   ; Amber99Sb-disp
+ CT  C9      1    0.15260  259408.0   ; Amber99Sb-disp
+ C9  HC      1    0.10900  284512.0   ; Amber99Sb-disp
+ C9  H1      1    0.10900  284512.0   ; Amber99Sb-disp
+ C9  S       1    0.18100  189953.6   ; Amber99Sb-disp
+ C9  C       1    0.15220  265265.6   ; Amber99Sb-disp
+ C8  H1      1    0.10900  284512.0   ; Amber99Sb-disp
+ C8  HC      1    0.10900  284512.0   ; Amber99Sb-disp
+ OW  HW      1    0.09572  462750.4   ; Amber99Sb-disp
+ HW  HW      1    0.15136  462750.4   ; Amber99Sb-disp
+ C   C       1    0.15250  259408.0   ; Amber99Sb-disp
+ C   CA      1    0.14090  392459.2   ; Amber99Sb-disp
+ C   CB      1    0.14190  374049.6   ; Amber99Sb-disp
+ C   CM      1    0.14440  343088.0   ; Amber99Sb-disp
+ C   CT      1    0.15220  265265.6   ; Amber99Sb-disp
+ C   N       1    0.13350  410032.0   ; Amber99Sb-disp
+ C   N*      1    0.13830  354803.2   ; Amber99Sb-disp
+ C   NA      1    0.13880  349782.4   ; Amber99Sb-disp
+ C   NC      1    0.13580  382417.6   ; Amber99Sb-disp
+ C   O       1    0.12290  476976.0   ; Amber99Sb-disp
+ C   OB      1    0.12290  476976.0   ; Amber99Sb-disp
+ C   O2      1    0.12500  548940.8   ; Amber99Sb-disp
+ C   OH      1    0.13640  376560.0   ; Amber99Sb-disp
+ C   OS      1    0.13230  376560.0   ; Amber99Sb-disp
+ C   H4      1    0.10800  307105.6   ; Amber99Sb-disp
+ C   H5      1    0.10800  307105.6   ; Amber99Sb-disp
+ CA  CA      1    0.14000  392459.2   ; Amber99Sb-disp
+ CA  CB      1    0.14040  392459.2   ; Amber99Sb-disp
+ CA  CM      1    0.14330  357313.6   ; Amber99Sb-disp
+ CA  CN      1    0.14000  392459.2   ; Amber99Sb-disp
+ CA  CT      1    0.15100  265265.6   ; Amber99Sb-disp
+ CA  HA      1    0.10800  307105.6   ; Amber99Sb-disp
+ CA  H4      1    0.10800  307105.6   ; Amber99Sb-disp
+ CA  N2      1    0.13400  402500.8   ; Amber99Sb-disp
+ CA  NA      1    0.13810  357313.6   ; Amber99Sb-disp
+ CA  NC      1    0.13390  404174.4   ; Amber99Sb-disp
+ CA  OH      1    0.13640  376560.0   ; Amber99Sb-disp
+ CB  CB      1    0.13700  435136.0   ; Amber99Sb-disp
+ CB  N*      1    0.13740  364844.8   ; Amber99Sb-disp
+ CB  NB      1    0.13910  346435.2   ; Amber99Sb-disp
+ CB  NC      1    0.13540  385764.8   ; Amber99Sb-disp
+ CK  H5      1    0.10800  307105.6   ; Amber99Sb-disp
+ CK  N*      1    0.13710  368192.0   ; Amber99Sb-disp
+ CK  NB      1    0.13040  442667.2   ; Amber99Sb-disp
+ CM  CM      1    0.13500  459403.2   ; Amber99Sb-disp
+ CM  CT      1    0.15100  265265.6   ; Amber99Sb-disp
+ CM  HA      1    0.10800  307105.6   ; Amber99Sb-disp
+ CM  H4      1    0.10800  307105.6   ; Amber99Sb-disp
+ CM  H5      1    0.10800  307105.6   ; Amber99Sb-disp
+ CM  N*      1    0.13650  374886.4   ; Amber99Sb-disp
+ CM  OS      1    0.12400  401664.0   ; Amber99Sb-disp
+ CQ  H5      1    0.10800  307105.6   ; Amber99Sb-disp
+ CQ  NC      1    0.13240  420073.6   ; Amber99Sb-disp
+ CT  CT      1    0.15260  259408.0   ; Amber99Sb-disp
+ CT  HC      1    0.10900  284512.0   ; Amber99Sb-disp
+ CT  H1      1    0.10900  284512.0   ; Amber99Sb-disp
+ CT  H2      1    0.10900  284512.0   ; Amber99Sb-disp
+ CT  H3      1    0.10900  284512.0   ; Amber99Sb-disp
+ CT  HP      1    0.10900  284512.0   ; Amber99Sb-disp
+ CT  N*      1    0.14750  282001.6   ; Amber99Sb-disp
+ CT  N2      1    0.14630  282001.6   ; Amber99Sb-disp
+ CT  OH      1    0.14100  267776.0   ; Amber99Sb-disp
+ CT  OS      1    0.14100  267776.0   ; Amber99Sb-disp
+ C*  HC      1    0.10800  307105.6   ; Amber99Sb-disp
+ C*  CB      1    0.14590  324678.4   ; Amber99Sb-disp
+ C*  CT      1    0.14950  265265.6   ; Amber99Sb-disp
+ C*  CW      1    0.13520  456892.8   ; Amber99Sb-disp
+ CB  CN      1    0.14190  374049.6   ; Amber99Sb-disp
+ CC  CT      1    0.15040  265265.6   ; Amber99Sb-disp
+ CC  CV      1    0.13750  428441.6   ; Amber99Sb-disp
+ CC  CW      1    0.13710  433462.4   ; Amber99Sb-disp
+ CC  NA      1    0.13850  353129.6   ; Amber99Sb-disp
+ CC  NB      1    0.13940  343088.0   ; Amber99Sb-disp
+ CN  NA      1    0.13800  358150.4   ; Amber99Sb-disp
+ CR  H5      1    0.10800  307105.6   ; Amber99Sb-disp
+ CR  NA      1    0.13430  399153.6   ; Amber99Sb-disp
+ CR  NB      1    0.13350  408358.4   ; Amber99Sb-disp
+ CT  N       1    0.14490  282001.6   ; Amber99Sb-disp
+ CT  N3      1    0.14710  307105.6   ; Amber99Sb-disp
+ CT  S       1    0.18100  189953.6   ; Amber99Sb-disp
+ CT  SH      1    0.18100  198321.6   ; Amber99Sb-disp
+ CV  H4      1    0.10800  307105.6   ; Amber99Sb-disp
+ CV  NB      1    0.13940  343088.0   ; Amber99Sb-disp
+ CW  H4      1    0.10800  307105.6   ; Amber99Sb-disp
+ CW  NA      1    0.13810  357313.6   ; Amber99Sb-disp
+ O2  P       1    0.14800  439320.0   ; Amber99Sb-disp
+ OH  P       1    0.16100  192464.0   ; Amber99Sb-disp
+ OS  P       1    0.16100  192464.0   ; Amber99Sb-disp
+ H   N2      1    0.10100  363171.2   ; Amber99Sb-disp
+ H   N*      1    0.10100  363171.2   ; Amber99Sb-disp
+ H   NA      1    0.10100  363171.2   ; Amber99Sb-disp
+ H   N       1    0.10100  363171.2   ; Amber99Sb-disp
+ HB  N       1    0.10100  363171.2   ; Amber99Sb-disp
+ H   N3      1    0.10100  363171.2   ; Amber99Sb-disp
+ HO  OH      1    0.09600  462750.4   ; Amber99Sb-disp
+ HO  OS      1    0.09600  462750.4   ; Amber99Sb-disp
+ HS  SH      1    0.13360  229283.2   ; Amber99Sb-disp
+ S   S       1    0.20380  138908.8   ; Amber99Sb-disp
+ F   CT      1    0.13800  307105.6   ; Amber99Sb-disp
+ Cl  CT      1    0.17660  194137.6   ; Amber99Sb-disp
+ Br  CT      1    0.19440  133051.2   ; Amber99Sb-disp
+ I   CT      1    0.21660  123846.4   ; Amber99Sb-disp
+ F   CA      1    0.13590  323004.8   ; Amber99Sb-disp
+ Cl  CA      1    0.17270  161502.4   ; Amber99Sb-disp
+ I   CA      1    0.20750  143092.8   ; Amber99Sb-disp
+ Br  CA      1    0.18900  143929.6   ; Amber99Sb-disp
+ C7  CT      1    0.15260  259408.0   ; Amber99Sb-disp
+ C   C7      1    0.15220  265265.6   ; Amber99Sb-disp
+ C7  H1      1    0.10900  284512.0   ; Amber99Sb-disp
+ C7  HP      1    0.10900  284512.0   ; Amber99Sb-disp
+ C7  N       1    0.14490  282001.6   ; Amber99Sb-disp
+ C7  N3      1    0.14710  307105.6   ; Amber99Sb-disp
+ C3  HC      1    0.10900  284512.0   ; Amber99Sb-disp
+ C4  HC      1    0.10900  284512.0   ; Amber99Sb-disp
+ CT  C3      1    0.15260  259408.0   ; Amber99Sb-disp
+ CT  C4      1    0.15260  259408.0   ; Amber99Sb-disp
+ C6  O2      1    0.12500  548940.8   ; Amber99Sb-disp
+ CC  O2      1    0.12500  548940.8   ; Amber99Sb-disp
+ C5  O       1    0.12290  476976.0   ; Amber99Sb-disp
+ C5  N       1    0.13350  410032.0   ; Amber99Sb-disp
+ C5  CT      1    0.15220  265265.6   ; Amber99Sb-disp
+ C6  CT      1    0.15220  265265.6   ; Amber99Sb-disp
+ C1  HP      1    0.10900  284512.0   ; Amber99Sb-disp
+
+[ constrainttypes ] 
+; this section is implemented manually from bond * angle values
+
+; constraints for rigid CH3 groups
+ MCH3   CT      2    0.166426 
+ MCH3   S       2    0.193875 
+ MCH3   MCH3    2    0.092163 
+; constraints for rigid NH3 groups
+ MNH3   CT      2    0.158254 
+ MNH3   MNH3    2    0.080229 
+
+; angle-derived constraints for OH and SH groups in proteins
+; The constraint A-C is calculated from the angle A-B-C and bonds A-B, B-C.
+  C     HO      2    0.195074 
+  CA    HO      2    0.195074 
+  CT    HO      2    0.194132 
+  CT    HS      2    0.235935 
+
+
+[ angletypes ] 
+;  i    j    k  func       th0       cth
+ C1  C   OH     1    110.000  669.440   ; Amber99Sb-disp
+ C1  C   O      1    120.400  669.440   ; Amber99Sb-disp
+ C1  C   OB     1    120.400  669.440   ; Amber99Sb-disp
+ C1  C   O2     1    117.000  585.760   ; Amber99Sb-disp
+ C1  C   N      1    116.600  585.760   ; Amber99Sb-disp
+ H1  C1  H1     1    109.500  292.880   ; Amber99Sb-disp
+ H1  C1  N      1    109.500  418.400   ; Amber99Sb-disp
+ H1  C1  N3     1    109.500  418.400   ; Amber99Sb-disp
+ C   C1  H1     1    109.500  418.400   ; Amber99Sb-disp
+ C   C1  N      1    110.100  527.184   ; Amber99Sb-disp
+ C   C1  N3     1    111.200  669.440   ; Amber99Sb-disp
+ C   N   C1     1    121.900  418.400   ; Amber99Sb-disp
+ C1  N   H      1    118.040  418.400   ; Amber99Sb-disp
+ C1  N   HB     1    118.040  418.400   ; Amber99Sb-disp
+ C1  N3  H      1    109.500  418.400   ; Amber99Sb-disp
+ H1  C8  H1     1    109.500  292.880   ; Amber99Sb-disp
+ H1  C8  O3     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C8  O3     1    109.500  418.400   ; Amber99Sb-disp
+ C8  O3  HO     1    108.500  460.240   ; Amber99Sb-disp
+ H1  C8  OH     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C8  OH     1    109.500  418.400   ; Amber99Sb-disp
+ C8  OH  HO     1    108.500  460.240   ; Amber99Sb-disp
+ CT  C8  CT     1    109.500  334.720   ; Amber99Sb-disp
+ CT  C8  H1     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C8  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C9  H1     1    109.500  418.400   ; Amber99Sb-disp
+ H1  C9  S      1    109.500  418.400   ; Amber99Sb-disp
+ CT  C9  S      1    114.700  418.400   ; Amber99Sb-disp
+ C9  S   CT     1     98.900  518.816   ; Amber99Sb-disp
+ CT  C9  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C9  CT     1    109.500  334.720   ; Amber99Sb-disp
+ C9  CT  CT     1    109.500  334.720   ; Amber99Sb-disp
+ HC  C9  HC     1    109.500  292.880   ; Amber99Sb-disp
+ C9  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C9  CT  H1     1    109.500  418.400   ; Amber99Sb-disp
+ H1  C9  H1     1    109.500  292.880   ; Amber99Sb-disp
+ C9  C   O      1    120.400  669.440   ; Amber99Sb-disp
+ C9  C   O2     1    117.000  585.760   ; Amber99Sb-disp
+ C9  C   OH     1    110.000  669.440   ; Amber99Sb-disp
+ C9  C   N      1    116.600  585.760   ; Amber99Sb-disp
+ C   C9  CT     1    111.100  527.184   ; Amber99Sb-disp
+ C   C9  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C9  CT  N2     1    111.200  669.440   ; Amber99Sb-disp
+ C8  CT  N      1    109.700  669.440   ; Amber99Sb-disp
+ C   CT  C8     1    111.100  527.184   ; Amber99Sb-disp
+ C8  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C8  CT  H1     1    109.500  418.400   ; Amber99Sb-disp
+ H4  C   N      1    120.000  418.400   ; Amber99Sb-disp
+ HW  OW  HW     1    104.520  836.800   ; Amber99Sb-disp
+ HW  HW  OW     1    127.740    0.000   ; Amber99Sb-disp
+ C   C   O      1    120.000  669.440   ; Amber99Sb-disp
+ C   C   OH     1    120.000  669.440   ; Amber99Sb-disp
+ CA  C   CA     1    120.000  527.184   ; Amber99Sb-disp
+ CA  C   OH     1    120.000  585.760   ; Amber99Sb-disp
+ CB  C   NA     1    111.300  585.760   ; Amber99Sb-disp
+ CB  C   O      1    128.800  669.440   ; Amber99Sb-disp
+ CM  C   NA     1    114.100  585.760   ; Amber99Sb-disp
+ CM  C   O      1    125.300  669.440   ; Amber99Sb-disp
+ CT  C   O      1    120.400  669.440   ; Amber99Sb-disp
+ CT  C   OB     1    120.400  669.440   ; Amber99Sb-disp
+ CT  C   O2     1    117.000  585.760   ; Amber99Sb-disp
+ CT  C   N      1    116.600  585.760   ; Amber99Sb-disp
+ CT  C   CT     1    117.000  527.184   ; Amber99Sb-disp
+ CT  C   OS     1    115.000  669.440   ; Amber99Sb-disp
+ CT  C   OH     1    110.000  669.440   ; Amber99Sb-disp
+ N*  C   NA     1    115.400  585.760   ; Amber99Sb-disp
+ N*  C   NC     1    118.600  585.760   ; Amber99Sb-disp
+ N*  C   O      1    120.900  669.440   ; Amber99Sb-disp
+ NA  C   O      1    120.600  669.440   ; Amber99Sb-disp
+ NC  C   O      1    122.500  669.440   ; Amber99Sb-disp
+ N   C   O      1    122.900  669.440   ; Amber99Sb-disp
+ N   C   OB     1    122.900  669.440   ; Amber99Sb-disp
+ O   C   O      1    126.000  669.440   ; Amber99Sb-disp
+ O   C   OH     1    120.000  669.440   ; Amber99Sb-disp
+ O   C   OS     1    125.000  669.440   ; Amber99Sb-disp
+ O2  C   O2     1    126.000  669.440   ; Amber99Sb-disp
+ H4  C   C      1    120.000  418.400   ; Amber99Sb-disp
+ H4  C   CM     1    115.000  418.400   ; Amber99Sb-disp
+ H4  C   CT     1    115.000  418.400   ; Amber99Sb-disp
+ H4  C   O      1    120.000  418.400   ; Amber99Sb-disp
+ H4  C   OH     1    120.000  418.400   ; Amber99Sb-disp
+ H5  C   N      1    120.000  418.400   ; Amber99Sb-disp
+ H5  C   O      1    119.000  418.400   ; Amber99Sb-disp
+ H5  C   OH     1    107.000  418.400   ; Amber99Sb-disp
+ H5  C   OS     1    107.000  418.400   ; Amber99Sb-disp
+ C   CA  CA     1    120.000  527.184   ; Amber99Sb-disp
+ C   CA  HA     1    120.000  418.400   ; Amber99Sb-disp
+ CA  CA  CA     1    120.000  527.184   ; Amber99Sb-disp
+ CA  CA  CB     1    120.000  527.184   ; Amber99Sb-disp
+ CA  CA  CT     1    120.000  585.760   ; Amber99Sb-disp
+ CA  CA  HA     1    120.000  418.400   ; Amber99Sb-disp
+ CA  CA  H4     1    120.000  418.400   ; Amber99Sb-disp
+ CA  CA  OH     1    120.000  585.760   ; Amber99Sb-disp
+ CA  CA  CN     1    120.000  527.184   ; Amber99Sb-disp
+ CB  CA  HA     1    120.000  418.400   ; Amber99Sb-disp
+ CB  CA  H4     1    120.000  418.400   ; Amber99Sb-disp
+ CB  CA  N2     1    123.500  585.760   ; Amber99Sb-disp
+ CB  CA  NC     1    117.300  585.760   ; Amber99Sb-disp
+ CM  CA  N2     1    120.100  585.760   ; Amber99Sb-disp
+ CM  CA  NC     1    121.500  585.760   ; Amber99Sb-disp
+ CN  CA  HA     1    120.000  418.400   ; Amber99Sb-disp
+ NA  CA  NC     1    123.300  585.760   ; Amber99Sb-disp
+ N2  CA  NA     1    116.000  585.760   ; Amber99Sb-disp
+ N2  CA  NC     1    119.300  585.760   ; Amber99Sb-disp
+ N2  CA  N2     1    120.000  585.760   ; Amber99Sb-disp
+ F   CA  CA     1    121.000  585.760   ; Amber99Sb-disp
+ Cl  CA  CA     1    118.800  585.760   ; Amber99Sb-disp
+ I   CA  CA     1    118.800  585.760   ; Amber99Sb-disp
+ C   CB  CB     1    119.200  527.184   ; Amber99Sb-disp
+ C   CB  NB     1    130.000  585.760   ; Amber99Sb-disp
+ CA  CB  CB     1    117.300  527.184   ; Amber99Sb-disp
+ CA  CB  NB     1    132.400  585.760   ; Amber99Sb-disp
+ CB  CB  N*     1    106.200  585.760   ; Amber99Sb-disp
+ CB  CB  NB     1    110.400  585.760   ; Amber99Sb-disp
+ CB  CB  NC     1    127.700  585.760   ; Amber99Sb-disp
+ C*  CB  CA     1    134.900  527.184   ; Amber99Sb-disp
+ C*  CB  CN     1    108.800  527.184   ; Amber99Sb-disp
+ CA  CB  CN     1    116.200  527.184   ; Amber99Sb-disp
+ N*  CB  NC     1    126.200  585.760   ; Amber99Sb-disp
+ H5  CK  N*     1    123.050  418.400   ; Amber99Sb-disp
+ H5  CK  NB     1    123.050  418.400   ; Amber99Sb-disp
+ N*  CK  NB     1    113.900  585.760   ; Amber99Sb-disp
+ C   CM  CM     1    120.700  527.184   ; Amber99Sb-disp
+ C   CM  CT     1    119.700  585.760   ; Amber99Sb-disp
+ C   CM  HA     1    119.700  418.400   ; Amber99Sb-disp
+ C   CM  H4     1    119.700  418.400   ; Amber99Sb-disp
+ CA  CM  CM     1    117.000  527.184   ; Amber99Sb-disp
+ CA  CM  HA     1    123.300  418.400   ; Amber99Sb-disp
+ CA  CM  H4     1    123.300  418.400   ; Amber99Sb-disp
+ CM  CM  CT     1    119.700  585.760   ; Amber99Sb-disp
+ CM  CM  HA     1    119.700  418.400   ; Amber99Sb-disp
+ CM  CM  H4     1    119.700  418.400   ; Amber99Sb-disp
+ CM  CM  N*     1    121.200  585.760   ; Amber99Sb-disp
+ CM  CM  OS     1    125.000  669.440   ; Amber99Sb-disp
+ H4  CM  N*     1    119.100  418.400   ; Amber99Sb-disp
+ H4  CM  OS     1    113.000  418.400   ; Amber99Sb-disp
+ HA  CM  HA     1    120.000  292.880   ; Amber99Sb-disp
+ HA  CM  CT     1    120.000  418.400   ; Amber99Sb-disp
+ NC  CQ  NC     1    129.100  585.760   ; Amber99Sb-disp
+ H5  CQ  NC     1    115.450  418.400   ; Amber99Sb-disp
+ H1  CT  H1     1    109.500  292.880   ; Amber99Sb-disp
+ H1  CT  N*     1    109.500  418.400   ; Amber99Sb-disp
+ H1  CT  OH     1    109.500  418.400   ; Amber99Sb-disp
+ H1  CT  OS     1    109.500  418.400   ; Amber99Sb-disp
+ H1  CT  CM     1    109.500  418.400   ; Amber99Sb-disp
+ H1  CT  N      1    109.500  418.400   ; Amber99Sb-disp
+ H1  CT  S      1    109.500  418.400   ; Amber99Sb-disp
+ H1  CT  SH     1    109.500  418.400   ; Amber99Sb-disp
+ H1  CT  N2     1    109.500  418.400   ; Amber99Sb-disp
+ H2  CT  H2     1    109.500  292.880   ; Amber99Sb-disp
+ H2  CT  N*     1    109.500  418.400   ; Amber99Sb-disp
+ H2  CT  OS     1    109.500  418.400   ; Amber99Sb-disp
+ HP  CT  HP     1    109.500  292.880   ; Amber99Sb-disp
+ HP  CT  N3     1    109.500  418.400   ; Amber99Sb-disp
+ HC  CT  HC     1    109.500  292.880   ; Amber99Sb-disp
+ HC  CT  CM     1    109.500  418.400   ; Amber99Sb-disp
+ C   CT  H1     1    109.500  418.400   ; Amber99Sb-disp
+ C   CT  HP     1    109.500  418.400   ; Amber99Sb-disp
+ C   CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C   CT  N      1    110.100  527.184   ; Amber99Sb-disp
+ C   CT  N3     1    111.200  669.440   ; Amber99Sb-disp
+ C   CT  CT     1    111.100  527.184   ; Amber99Sb-disp
+ C   CT  OS     1    109.500  502.080   ; Amber99Sb-disp
+ CA  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CC  CT  CT     1    113.100  527.184   ; Amber99Sb-disp
+ CC  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CM  CT  CT     1    111.000  527.184   ; Amber99Sb-disp
+ CM  CT  OS     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  CT     1    109.500  334.720   ; Amber99Sb-disp
+ CT  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  H1     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  H2     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  HP     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  N*     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  OH     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  OS     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  S      1    114.700  418.400   ; Amber99Sb-disp
+ CT  CT  SH     1    108.600  418.400   ; Amber99Sb-disp
+ CT  CT  CA     1    114.000  527.184   ; Amber99Sb-disp
+ CT  CT  N2     1    111.200  669.440   ; Amber99Sb-disp
+ CT  CT  N      1    109.700  669.440   ; Amber99Sb-disp
+ CT  CT  N3     1    111.200  669.440   ; Amber99Sb-disp
+ C*  CT  CT     1    115.600  527.184   ; Amber99Sb-disp
+ C*  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ OS  CT  OS     1    101.000 1338.880   ; Amber99Sb-disp
+ OS  CT  N*     1    109.500  418.400   ; Amber99Sb-disp
+ F   CT  F      1    109.100  644.336   ; Amber99Sb-disp
+ F   CT  H1     1    109.500  418.400   ; Amber99Sb-disp
+ F   CT  CT     1    109.000  418.400   ; Amber99Sb-disp
+ F   CT  H2     1    109.500  418.400   ; Amber99Sb-disp
+ Cl  CT  CT     1    108.500  418.400   ; Amber99Sb-disp
+ Cl  CT  H1     1    108.500  418.400   ; Amber99Sb-disp
+ I   CT  CT     1    106.000  418.400   ; Amber99Sb-disp
+ CT  CC  NA     1    120.000  585.760   ; Amber99Sb-disp
+ CT  CC  CV     1    120.000  585.760   ; Amber99Sb-disp
+ CT  CC  NB     1    120.000  585.760   ; Amber99Sb-disp
+ CV  CC  NA     1    120.000  585.760   ; Amber99Sb-disp
+ CW  CC  NA     1    120.000  585.760   ; Amber99Sb-disp
+ CW  CC  NB     1    120.000  585.760   ; Amber99Sb-disp
+ CT  CC  CW     1    120.000  585.760   ; Amber99Sb-disp
+ H5  CR  NA     1    120.000  418.400   ; Amber99Sb-disp
+ H5  CR  NB     1    120.000  418.400   ; Amber99Sb-disp
+ NA  CR  NA     1    120.000  585.760   ; Amber99Sb-disp
+ NA  CR  NB     1    120.000  585.760   ; Amber99Sb-disp
+ CC  CV  H4     1    120.000  418.400   ; Amber99Sb-disp
+ CC  CV  NB     1    120.000  585.760   ; Amber99Sb-disp
+ H4  CV  NB     1    120.000  418.400   ; Amber99Sb-disp
+ CC  CW  H4     1    120.000  418.400   ; Amber99Sb-disp
+ CC  CW  NA     1    120.000  585.760   ; Amber99Sb-disp
+ C*  CW  H4     1    120.000  418.400   ; Amber99Sb-disp
+ C*  CW  NA     1    108.700  585.760   ; Amber99Sb-disp
+ H4  CW  NA     1    120.000  418.400   ; Amber99Sb-disp
+ CB  C*  CT     1    128.600  585.760   ; Amber99Sb-disp
+ CB  C*  CW     1    106.400  527.184   ; Amber99Sb-disp
+ CT  C*  CW     1    125.000  585.760   ; Amber99Sb-disp
+ CA  CN  CB     1    122.700  527.184   ; Amber99Sb-disp
+ CA  CN  NA     1    132.800  585.760   ; Amber99Sb-disp
+ CB  CN  NA     1    104.400  585.760   ; Amber99Sb-disp
+ C   N   CT     1    121.900  418.400   ; Amber99Sb-disp
+ C   N   H      1    120.000  418.400   ; Amber99Sb-disp
+ C   N   HB     1    120.000  418.400   ; Amber99Sb-disp
+ CT  N   H      1    118.040  418.400   ; Amber99Sb-disp
+ CT  N   HB     1    118.040  418.400   ; Amber99Sb-disp
+ CT  N   CT     1    118.000  418.400   ; Amber99Sb-disp
+ H   N   H      1    120.000  292.880   ; Amber99Sb-disp
+ C   N*  CM     1    121.600  585.760   ; Amber99Sb-disp
+ C   N*  CT     1    117.600  585.760   ; Amber99Sb-disp
+ C   N*  H      1    119.200  418.400   ; Amber99Sb-disp
+ CB  N*  CK     1    105.400  585.760   ; Amber99Sb-disp
+ CB  N*  CT     1    125.800  585.760   ; Amber99Sb-disp
+ CB  N*  H      1    125.800  418.400   ; Amber99Sb-disp
+ CK  N*  CT     1    128.800  585.760   ; Amber99Sb-disp
+ CK  N*  H      1    128.800  418.400   ; Amber99Sb-disp
+ CM  N*  CT     1    121.200  585.760   ; Amber99Sb-disp
+ CM  N*  H      1    121.200  418.400   ; Amber99Sb-disp
+ CA  N2  H      1    120.000  418.400   ; Amber99Sb-disp
+ CA  N2  CT     1    123.200  418.400   ; Amber99Sb-disp
+ CT  N2  H      1    118.400  418.400   ; Amber99Sb-disp
+ H   N2  H      1    120.000  292.880   ; Amber99Sb-disp
+ CT  N3  H      1    109.500  418.400   ; Amber99Sb-disp
+ CT  N3  CT     1    109.500  418.400   ; Amber99Sb-disp
+ H   N3  H      1    109.500  292.880   ; Amber99Sb-disp
+ C   NA  C      1    126.400  585.760   ; Amber99Sb-disp
+ C   NA  CA     1    125.200  585.760   ; Amber99Sb-disp
+ C   NA  H      1    116.800  418.400   ; Amber99Sb-disp
+ CA  NA  H      1    118.000  418.400   ; Amber99Sb-disp
+ CC  NA  CR     1    120.000  585.760   ; Amber99Sb-disp
+ CC  NA  H      1    120.000  418.400   ; Amber99Sb-disp
+ CR  NA  CW     1    120.000  585.760   ; Amber99Sb-disp
+ CR  NA  H      1    120.000  418.400   ; Amber99Sb-disp
+ CW  NA  H      1    120.000  418.400   ; Amber99Sb-disp
+ CN  NA  CW     1    111.600  585.760   ; Amber99Sb-disp
+ CN  NA  H      1    123.100  418.400   ; Amber99Sb-disp
+ CB  NB  CK     1    103.800  585.760   ; Amber99Sb-disp
+ CC  NB  CR     1    117.000  585.760   ; Amber99Sb-disp
+ CR  NB  CV     1    117.000  585.760   ; Amber99Sb-disp
+ C   NC  CA     1    120.500  585.760   ; Amber99Sb-disp
+ CA  NC  CB     1    112.200  585.760   ; Amber99Sb-disp
+ CA  NC  CQ     1    118.600  585.760   ; Amber99Sb-disp
+ CB  NC  CQ     1    111.000  585.760   ; Amber99Sb-disp
+ C   OH  HO     1    113.000  418.400   ; Amber99Sb-disp
+ CA  OH  HO     1    113.000  418.400   ; Amber99Sb-disp
+ CT  OH  HO     1    108.500  460.240   ; Amber99Sb-disp
+ HO  OH  P      1    108.500  376.560   ; Amber99Sb-disp
+ C   OS  CT     1    117.000  502.080   ; Amber99Sb-disp
+ CM  OS  CT     1    117.000  502.080   ; Amber99Sb-disp
+ CT  OS  CT     1    109.500  502.080   ; Amber99Sb-disp
+ CT  OS  P      1    120.500  836.800   ; Amber99Sb-disp
+ P   OS  P      1    120.500  836.800   ; Amber99Sb-disp
+ O2  P   OH     1    108.230  376.560   ; Amber99Sb-disp
+ O2  P   O2     1    119.900 1171.520   ; Amber99Sb-disp
+ O2  P   OS     1    108.230  836.800   ; Amber99Sb-disp
+ OH  P   OS     1    102.600  376.560   ; Amber99Sb-disp
+ OS  P   OS     1    102.600  376.560   ; Amber99Sb-disp
+ CT  S   CT     1     98.900  518.816   ; Amber99Sb-disp
+ CT  S   S      1    103.700  569.024   ; Amber99Sb-disp
+ CT  SH  HS     1     96.000  359.824   ; Amber99Sb-disp
+ HS  SH  HS     1     92.070  292.880   ; Amber99Sb-disp
+ C7  C   O      1    120.400  669.440   ; Amber99Sb-disp
+ C7  C   OB     1    120.400  669.440   ; Amber99Sb-disp
+ C7  C   O2     1    117.000  585.760   ; Amber99Sb-disp
+ C7  C   N      1    116.600  585.760   ; Amber99Sb-disp
+ H1  C7  H1     1    109.500  292.880   ; Amber99Sb-disp
+ H1  C7  N      1    109.500  418.400   ; Amber99Sb-disp
+ HP  C7  HP     1    109.500  292.880   ; Amber99Sb-disp
+ HP  C7  N3     1    109.500  418.400   ; Amber99Sb-disp
+ C   C7  H1     1    109.500  418.400   ; Amber99Sb-disp
+ C   C7  HP     1    109.500  418.400   ; Amber99Sb-disp
+ C   C7  N      1    110.100  527.184   ; Amber99Sb-disp
+ C   C7  N3     1    111.200  669.440   ; Amber99Sb-disp
+ C   N   C7     1    121.900  418.400   ; Amber99Sb-disp
+ C7  N   H      1    118.040  418.400   ; Amber99Sb-disp
+ C7  N   HB     1    118.040  418.400   ; Amber99Sb-disp
+ C7  N3  H      1    109.500  418.400   ; Amber99Sb-disp
+ C7  N   CT     1    118.000  418.400   ; Amber99Sb-disp
+ C7  N3  CT     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C7  N3     1    111.200  669.440   ; Amber99Sb-disp
+ CT  C7  HP     1    109.500  418.400   ; Amber99Sb-disp
+ C7  CT  CT     1    109.500  334.720   ; Amber99Sb-disp
+ C7  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C7  N      1    109.700  669.440   ; Amber99Sb-disp
+ C   C7  CT     1    111.100  527.184   ; Amber99Sb-disp
+ CT  C7  H1     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C5  O      1    120.400  669.440   ; Amber99Sb-disp
+ CT  C6  O2     1    117.000  585.760   ; Amber99Sb-disp
+ CT  CC  O2     1    117.000  585.760   ; Amber99Sb-disp
+ CT  C5  N      1    116.600  585.760   ; Amber99Sb-disp
+ N   C5  O      1    122.900  669.440   ; Amber99Sb-disp
+ O2  C6  O2     1    126.000  669.440   ; Amber99Sb-disp
+ O2  CC  O2     1    126.000  669.440   ; Amber99Sb-disp
+ HC  C3  HC     1    109.500  292.880   ; Amber99Sb-disp
+ C5  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C6  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C5  CT  CT     1    111.100  527.184   ; Amber99Sb-disp
+ C6  CT  CT     1    111.100  527.184   ; Amber99Sb-disp
+ CT  C4  CT     1    109.500  334.720   ; Amber99Sb-disp
+ CT  CT  C4     1    109.500  334.720   ; Amber99Sb-disp
+ C4  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C4  HC     1    109.500  418.400   ; Amber99Sb-disp
+ CT  CT  C3     1    109.500  334.720   ; Amber99Sb-disp
+ CT  C3  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C3  CT  HC     1    109.500  418.400   ; Amber99Sb-disp
+ C5  N   H      1    120.000  418.400   ; Amber99Sb-disp
+ C5  N   HB     1    120.000  418.400   ; Amber99Sb-disp
+ HP  C1  HP     1    109.500  292.880   ; Amber99Sb-disp
+ HP  C1  N3     1    109.500  418.400   ; Amber99Sb-disp
+ C   C1  HP     1    109.500  418.400   ; Amber99Sb-disp
+ CT  C1  HP     1    109.500  418.400   ; Amber99Sb-disp
+
+[ dihedraltypes ] 
+;i  j   k  l	 func      phase      kd      pn
+; LINE(616)  C   C1  N   O     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(617)  C   C1  N   OB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(618)  C   C1  N   H     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(619)  C   C1  N   HB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(620)  C9  O   C   OH    4     180.0     43.93200     2   ; Amber99Sb-disp
+; LINE(621)  CB  CK  N*  CT    4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(622)  C   CM  N*  CT    4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(623)  CT  O   C   OH    4     180.0     43.93200     2   ; Amber99Sb-disp
+; LINE(624)  CT  CV  CC  NA    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(625)  CT  CW  CC  NB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(626)  CT  CC  CW  NB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(627)  CT  CW  CC  NA    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(628)  CB  CT  C*  CW    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(629)  CA  CA  CA  CT    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(630)  C   CM  CM  CT    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(631)  CM  N2  CA  NC    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(632)  CB  N2  CA  NC    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(633)  N2  NA  CA  NC    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(634)  CA  CA  C   OH    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(635)  CA  CA  CA  OH    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(636)  H5  O   C   OH    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(637)  H5  O   C   OS    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(638)  CM  CT  CM  HA    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(639)  Br  CA  CA  CA    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(640)  CM  H4  C   O     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(641)  C   CT  N   H     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(642)  C   CT  N   HB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(643)  C   CT  N   O     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(644)  C   C7  N   O     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(645)  C   CT  N   OB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(646)  C   C7  N   OB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(647)  C   C7  N   H     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(648)  C   C7  N   HB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(649)  C5  CT  N   O     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(650)  C5  CT  N   OB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(651)  C5  CT  N   H     4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(652)  C5  CT  N   HB    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(653)  X   CT  N   C1    4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(654)  X   CT  N   C7    4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(655)  X   O2  C6  O2    4     180.0     43.93200     2   ; Amber99Sb-disp
+; LINE(656)  X   O2  C   O2    4     180.0     43.93200     2   ; Amber99Sb-disp
+; LINE(657)  X   N2  CA  N2    4     180.0     43.93200     2   ; Amber99Sb-disp
+; LINE(658)  X   CT  N   CT    4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(659)  X   X   C   O     4     180.0     43.93200     2   ; Amber99Sb-disp
+; LINE(660)  X   X   C   OB    4     180.0     43.93200     2   ; Amber99Sb-disp
+; LINE(661)  X   X   N   H     4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(662)  X   X   N2  H     4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(663)  X   X   NA  H     4     180.0      4.18400     2   ; Amber99Sb-disp
+; LINE(664)  X   X   CA  HA    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(665)  X   X   CW  H4    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(666)  X   X   CR  H5    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(667)  X   X   CV  H4    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(668)  X   X   CQ  H5    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(669)  X   X   CK  H5    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(670)  X   X   CM  H4    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(671)  X   X   CM  HA    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(672)  X   X   CA  H4    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(673)  X   X   CA  H5    4     180.0      4.60240     2   ; Amber99Sb-disp
+; LINE(674)  X   X   C5  O     4     180.0     43.93200     2   ; Amber99Sb-disp
+
+[ dihedraltypes ] 
+;i   j   k   l	   func	
+; LINE(678)  C8  CT  C   N     9       0.0      0.83680     1   ; Amber99Sb-disp
+; LINE(679)  C8  CT  C   N     9       0.0      0.83680     2   ; Amber99Sb-disp
+; LINE(680)  C8  CT  C   N     9       0.0      1.67360     3   ; Amber99Sb-disp
+; LINE(681)  C8  CT  N   C     9       0.0      8.36800     1   ; Amber99Sb-disp
+; LINE(682)  C8  CT  N   C     9       0.0      8.36800     2   ; Amber99Sb-disp
+; LINE(683)  C8  CT  N   C     9       0.0      1.67360     3   ; Amber99Sb-disp
+; LINE(684)  C   CT  C8  O3    9     180.0      4.18400     1   ; Amber99Sb-disp
+; LINE(685)  C   CT  C8  OH    9     180.0      3.76560     1   ; Amber99Sb-disp
+; LINE(686)  C   CT  CT  C4    9       0.0      2.39074     1   ; Amber99Sb-disp
+; LINE(687)  C   CT  CT  C4    9     180.0      1.49913     2   ; Amber99Sb-disp
+; LINE(688)  C   CT  CT  C4    9       0.0      0.56400     3   ; Amber99Sb-disp
+; LINE(689)  C   CT  CT  C5    9       0.0      0.71421     1   ; Amber99Sb-disp
+; LINE(690)  C   CT  CT  C5    9     180.0      2.49241     2   ; Amber99Sb-disp
+; LINE(691)  C   CT  CT  C5    9       0.0      0.49580     3   ; Amber99Sb-disp
+; LINE(692)  C   CT  CT  C5    9     180.0      1.74556     4   ; Amber99Sb-disp
+; LINE(693)  C   CT  CT  C5    9       0.0      0.43597     5   ; Amber99Sb-disp
+; LINE(694)  C   CT  CT  C5    9     180.0      0.42142     6   ; Amber99Sb-disp
+; LINE(695)  C   CT  CT  C*    9       0.0      1.21336     1   ; Amber99Sb-disp
+; LINE(696)  C   CT  CT  C9    9       0.0      1.25520     1   ; Amber99Sb-disp
+; LINE(697)  C   CT  CT  CA    9       0.0      2.17568     1   ; Amber99Sb-disp
+; LINE(698)  C   CT  CT  CC    9       0.0      2.92880     1   ; Amber99Sb-disp
+; LINE(699)  C   CT  CT  SH    9     180.0      0.66944     1   ; Amber99Sb-disp
+; LINE(700)  Cl  CT  CT  Cl    9     180.0      1.88280     1   ; Amber99Sb-disp
+; LINE(701)  CM  CM  C   O     9     180.0      9.10020     2   ; Amber99Sb-disp
+; LINE(702)  CM  CM  C   O     9       0.0      1.25520     3   ; Amber99Sb-disp
+; LINE(703)  C   N   C1  C     9       0.0      0.35267     1   ; Amber99Sb-disp
+; LINE(704)  C   N   C1  C     9       0.0      1.59541     2   ; Amber99Sb-disp
+; LINE(705)  C   N   C1  C     9     180.0      0.08381     3   ; Amber99Sb-disp
+; LINE(706)  C   N   C1  C     9       0.0      0.32396     4   ; Amber99Sb-disp
+; LINE(707)  C   N   C7  C     9       0.0      1.12968     2   ; Amber99Sb-disp
+; LINE(708)  C   N   C7  C     9       0.0      1.75728     3   ; Amber99Sb-disp
+; LINE(709)  C   N   CT  C     9     180.0      0.14226     1   ; Amber99Sb-disp
+; LINE(710)  C   N   CT  C     9       0.0      1.40164     2   ; Amber99Sb-disp
+; LINE(711)  C   N   CT  C     9       0.0      2.27610     3   ; Amber99Sb-disp
+; LINE(712)  C   N   CT  C     9       0.0      0.33472     4   ; Amber99Sb-disp
+;CT  C4  CT  CT    9     180.0      0.83680     1  ; Amber99Sb-disp
+;CT  C4  CT  CT    9     180.0      1.04600     2  ; Amber99Sb-disp
+;CT  C4  CT  CT    9       0.0      0.75312     3  ; Amber99Sb-disp
+; LINE(716)  CT  C7  C   N     9       0.0      0.83680     1   ; Amber99Sb-disp
+; LINE(717)  CT  C7  C   N     9       0.0      0.83680     2   ; Amber99Sb-disp
+; LINE(718)  CT  C7  C   N     9       0.0      1.67360     3   ; Amber99Sb-disp
+; LINE(719)  CT  C7  N   C     9       0.0      8.36800     1   ; Amber99Sb-disp
+; LINE(720)  CT  C7  N   C     9       0.0      8.36800     2   ; Amber99Sb-disp
+; LINE(721)  CT  C7  N   C     9       0.0      1.67360     3   ; Amber99Sb-disp
+; LINE(722)  CT  C9  C   O2    9     180.0      2.51040     2   ; Amber99Sb-disp
+; LINE(723)  CT  C9  C   O     9     180.0      2.51040     2   ; Amber99Sb-disp
+; LINE(724)  CT  C9  C   OB    9     180.0      2.51040     2   ; Amber99Sb-disp
+; LINE(725)  CT  CM  CM  CT    9     180.0     27.82360     2   ; Amber99Sb-disp
+; LINE(726)  CT  CM  CM  CT    9     180.0      7.94960     1   ; Amber99Sb-disp
+; LINE(727)  CT  CT  C4  CT    9       0.0      0.62760     3   ; Amber99Sb-disp
+; LINE(728)  CT  CT  C5  O     9     180.0      4.18400     1   ; Amber99Sb-disp
+; LINE(729)  CT  CT  C6  O2    9     180.0      0.77822     4   ; Amber99Sb-disp
+; LINE(730)  CT  CT  C6  O2    9     180.0      1.48114     6   ; Amber99Sb-disp
+; LINE(731)  CT  CT  C6  O2    9     180.0      3.65263     2   ; Amber99Sb-disp
+; LINE(732)  CT  CT  C*  CW    9       0.0      5.02080     1   ; Amber99Sb-disp
+; LINE(733)  CT  CT  C   N     9       0.0      0.83680     1   ; Amber99Sb-disp
+; LINE(734)  CT  CT  C   N     9       0.0      0.83680     2   ; Amber99Sb-disp
+; LINE(735)  CT  CT  C   N     9       0.0      1.67360     3   ; Amber99Sb-disp
+; LINE(736)  CT  CT  CT  C3    9       0.0      0.62760     3   ; Amber99Sb-disp
+; LINE(737)  CT  CT  CT  C7    9       0.0      0.75312     3   ; Amber99Sb-disp
+; LINE(738)  CT  CT  CT  C7    9     180.0      0.83680     1   ; Amber99Sb-disp
+; LINE(739)  CT  CT  CT  C7    9     180.0      1.04600     2   ; Amber99Sb-disp
+; LINE(740)  CT  CT  CT  CT    9       0.0      0.62760     3   ; Amber99Sb-disp
+; LINE(741)  CT  CT  N   C     9       0.0      1.67360     3   ; Amber99Sb-disp
+; LINE(742)  CT  CT  N   C     9       0.0      8.36800     1   ; Amber99Sb-disp
+; LINE(743)  CT  CT  N   C     9       0.0      8.36800     2   ; Amber99Sb-disp
+; LINE(744)  CT  CT  OS  C     9       0.0      1.60247     3   ; Amber99Sb-disp
+; LINE(745)  CT  CT  OS  C     9     180.0      3.34720     1   ; Amber99Sb-disp
+; LINE(746)  CT  CT  OS  CT    9       0.0      1.60247     3   ; Amber99Sb-disp
+; LINE(747)  CT  CT  OS  CT    9     180.0      0.41840     2   ; Amber99Sb-disp
+; LINE(748)  CT  CT  SH  HS    9       0.0      0.83680     3   ; Amber99Sb-disp
+; LINE(749)  CT  CT  SH  HS    9       0.0      2.09200     2   ; Amber99Sb-disp
+; LINE(750)  CT  OS  CT  N*    9       0.0      1.60247     3   ; Amber99Sb-disp
+; LINE(751)  CT  OS  CT  N*    9       0.0      2.71960     2   ; Amber99Sb-disp
+; LINE(752)  CT  OS  CT  OS    9       0.0      0.41840     3   ; Amber99Sb-disp
+; LINE(753)  CT  OS  CT  OS    9     180.0      3.55640     2   ; Amber99Sb-disp
+; LINE(754)  CT  OS  CT  OS    9     180.0      5.64840     1   ; Amber99Sb-disp
+; LINE(755)  CT  S   S   CT    9       0.0     14.64400     2   ; Amber99Sb-disp
+; LINE(756)  CT  S   S   CT    9       0.0      2.51040     3   ; Amber99Sb-disp
+; LINE(757)  F   CT  CT  F     9     180.0      5.02080     1   ; Amber99Sb-disp
+; LINE(758)  H1  C1  C   O     9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(759)  H1  C1  C   O     9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(760)  H1  C7  C   O     9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(761)  H1  C7  C   O     9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(762)  H1  CT  C   O     9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(763)  H1  CT  C   O     9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(764)  H1  C1  C   OB    9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(765)  H1  C1  C   OB    9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(766)  H1  C7  C   OB    9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(767)  H1  C7  C   OB    9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(768)  H1  CT  C   OB    9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(769)  H1  CT  C   OB    9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(770)  H1  CT  CT  Br    9       0.0      2.30120     1   ; Amber99Sb-disp
+; LINE(771)  H1  CT  CT  Cl    9       0.0      1.04600     1   ; Amber99Sb-disp
+; LINE(772)  H1  CT  CT  F     9       0.0      0.79496     1   ; Amber99Sb-disp
+; LINE(773)  H1  CT  CT  OH    9       0.0      1.04600     1   ; Amber99Sb-disp
+; LINE(774)  H1  CT  CT  OS    9       0.0      1.04600     1   ; Amber99Sb-disp
+; LINE(775)  HC  C3  CT  CT    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(776)  HC  C4  CT  CT    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(777)  HC  C4  CT  HC    9       0.0      0.62760     3   ; Amber99Sb-disp
+; LINE(778)  HC  CT  C3  HC    9       0.0      0.62760     3   ; Amber99Sb-disp
+; LINE(779)  HC  CT  C4  CT    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(780)  HC  CT  C5  O     9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(781)  HC  CT  C5  O     9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(782)  HC  CT  CM  CM    9       0.0      4.81160     1   ; Amber99Sb-disp
+; LINE(783)  HC  CT  CM  CM    9     180.0      1.58992     3   ; Amber99Sb-disp
+; LINE(784)  HC  CT  C   O     9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(785)  HC  CT  C   O     9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(786)  HC  CT  C   OB    9       0.0      3.34720     1   ; Amber99Sb-disp
+; LINE(787)  HC  CT  C   OB    9     180.0      0.33472     3   ; Amber99Sb-disp
+; LINE(788)  HC  CT  CT  Br    9       0.0      2.30120     1   ; Amber99Sb-disp
+; LINE(789)  HC  CT  CT  C3    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(790)  HC  CT  CT  C4    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(791)  HC  CT  CT  C7    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(792)  HC  CT  CT  Cl    9       0.0      1.04600     1   ; Amber99Sb-disp
+; LINE(793)  HC  CT  CT  CT    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(794)  HC  CT  CT  F     9       0.0      0.79496     1   ; Amber99Sb-disp
+; LINE(795)  HC  CT  CT  HC    9       0.0      0.62760     3   ; Amber99Sb-disp
+; LINE(796)  HC  CT  CT  OH    9       0.0      1.04600     1   ; Amber99Sb-disp
+; LINE(797)  HC  CT  CT  OS    9       0.0      1.04600     1   ; Amber99Sb-disp
+; LINE(798)  H   N   C5  O     9       0.0      8.36800     1   ; Amber99Sb-disp
+; LINE(799)  H   N   C5  O     9     180.0     10.46000     2   ; Amber99Sb-disp
+; LINE(800)  H   N   C   O     9       0.0      8.36800     1   ; Amber99Sb-disp
+; LINE(801)  H   N   C   O     9     180.0     10.46000     2   ; Amber99Sb-disp
+; LINE(802)  HB  N   C   OB    9       0.0      8.36800     1   ; Amber99Sb-disp
+; LINE(803)  HB  N   C   OB    9     180.0     10.46000     2   ; Amber99Sb-disp
+; LINE(804)  HO  O3  C8  CT    9       0.0      0.35982     1   ; Amber99Sb-disp
+; LINE(805)  HO  O3  C8  CT    9       0.0      0.41840     3   ; Amber99Sb-disp
+; LINE(806)  HO  O3  C8  CT    9     180.0      0.68199     2   ; Amber99Sb-disp
+; LINE(807)  HO  O3  C8  H1    9       0.0      0.41840     3   ; Amber99Sb-disp
+; LINE(808)  HO  OH  C8  CT    9       0.0      0.25104     2   ; Amber99Sb-disp
+; LINE(809)  HO  OH  C8  CT    9       0.0      0.83680     3   ; Amber99Sb-disp
+; LINE(810)  HO  OH  C8  CT    9       0.0      3.13800     1   ; Amber99Sb-disp
+; LINE(811)  HO  OH  C   O     9       0.0      7.94960     1   ; Amber99Sb-disp
+; LINE(812)  HO  OH  C   O     9     180.0      9.62320     2   ; Amber99Sb-disp
+; LINE(813)  HO  OH  CT  CT    9       0.0      0.66944     3   ; Amber99Sb-disp
+; LINE(814)  HO  OH  CT  CT    9       0.0      1.04600     1   ; Amber99Sb-disp
+; LINE(815)  N3  CT  CT  C3    9       0.0      0.81630     1   ; Amber99Sb-disp
+; LINE(816)  N3  CT  CT  C3    9     180.0      3.53925     2   ; Amber99Sb-disp
+; LINE(817)  N3  CT  CT  C6    9     180.0     11.02568     1   ; Amber99Sb-disp
+; LINE(818)  N3  CT  CT  C6    9     180.0      4.98022     2   ; Amber99Sb-disp
+; LINE(819)  N3  CT  CT  C6    9     180.0      0.02845     3   ; Amber99Sb-disp
+; LINE(820)  N3  CT  CT  C6    9       0.0      1.76858     4   ; Amber99Sb-disp
+; LINE(821)  N3  CT  CT  C6    9       0.0      0.96943     5   ; Amber99Sb-disp
+; LINE(822)  N3  CT  CT  C6    9     180.0      0.89009     6   ; Amber99Sb-disp
+; LINE(823)  N   C1  C   N     9     180.0      2.69445     1   ; Amber99Sb-disp
+; LINE(824)  N   C1  C   N     9     180.0      6.68666     2   ; Amber99Sb-disp
+; LINE(825)  N   C1  C   N     9     180.0      1.67111     3   ; Amber99Sb-disp
+; LINE(826)  N   C1  C   N     9       0.0      0.31419     4   ; Amber99Sb-disp
+; LINE(827)  N   C5  CT  CT    9     180.0      4.37772     1   ; Amber99Sb-disp
+; LINE(828)  N   C5  CT  CT    9     180.0      0.75730     2   ; Amber99Sb-disp
+; LINE(829)  N   C5  CT  CT    9     180.0      0.14811     3   ; Amber99Sb-disp
+; LINE(830)  N   C5  CT  CT    9       0.0      0.41966     4   ; Amber99Sb-disp
+; LINE(831)  N   C5  CT  CT    9       0.0      0.54308     5   ; Amber99Sb-disp
+; LINE(832)  N   C5  CT  CT    9     180.0      0.44373     6   ; Amber99Sb-disp
+; LINE(833)  N   C7  C   N     9     180.0      1.88280     1   ; Amber99Sb-disp
+; LINE(834)  N   C7  C   N     9     180.0      6.61072     2   ; Amber99Sb-disp
+; LINE(835)  N   C7  C   N     9     180.0      2.30120     3   ; Amber99Sb-disp
+; LINE(836)  N   CT  C8  CT    9       0.0      0.25104     1   ; Amber99Sb-disp
+; LINE(837)  N   CT  C8  CT    9     180.0      2.09200     2   ; Amber99Sb-disp
+; LINE(838)  N   CT  C8  CT    9       0.0      0.62760     3   ; Amber99Sb-disp
+; LINE(839)  N   CT  C8  CT    9     180.0      0.27196     4   ; Amber99Sb-disp
+; LINE(840)  N   CT  C8  O3    9     180.0      0.33472     1   ; Amber99Sb-disp
+; LINE(841)  N   CT  C8  OH    9     180.0      1.04600     1   ; Amber99Sb-disp
+; LINE(842)  N   CT  C   N     9     360.0      0.82425     1   ; Amber99Sb-disp
+; LINE(843)  N   CT  C   N     9     180.0      6.04588     2   ; Amber99Sb-disp
+; LINE(844)  N   CT  C   N     9     180.0      2.00414     3   ; Amber99Sb-disp
+; LINE(845)  N   CT  C   N     9     360.0      0.07991     4   ; Amber99Sb-disp
+; LINE(846)  N   CT  C   N     9     360.0      0.01674     5   ; Amber99Sb-disp
+; LINE(847)  N   CT  CT  C3    9       0.0      0.81630     1   ; Amber99Sb-disp
+; LINE(848)  N   CT  CT  C3    9     180.0      3.53925     2   ; Amber99Sb-disp
+; LINE(849)  N   CT  CT  C5    9     180.0      2.63592     1   ; Amber99Sb-disp
+; LINE(850)  N   CT  CT  C6    9     180.0     12.05410     1   ; Amber99Sb-disp
+; LINE(851)  N   CT  CT  C6    9     180.0      5.06682     2   ; Amber99Sb-disp
+; LINE(852)  N   CT  CT  C6    9       0.0      0.25941     3   ; Amber99Sb-disp
+; LINE(853)  N   CT  CT  C6    9       0.0      1.02508     4   ; Amber99Sb-disp
+; LINE(854)  N   CT  CT  C6    9       0.0      0.54810     5   ; Amber99Sb-disp
+; LINE(855)  N   CT  CT  C6    9     180.0      0.59413     6   ; Amber99Sb-disp
+; LINE(856)  N   CT  CT  C9    9       0.0      0.41840     1   ; Amber99Sb-disp
+; LINE(857)  N   CT  CT  CC    9     180.0      1.67360     1   ; Amber99Sb-disp
+; LINE(858)  N   CT  CT  SH    9     180.0      2.30120     1   ; Amber99Sb-disp
+; LINE(859)  N   CT  CT  SH    9     180.0      2.63592     2   ; Amber99Sb-disp
+; LINE(860)  N   CT  CT  SH    9     180.0      0.25104     3   ; Amber99Sb-disp
+; LINE(861)  N   CT  CT  SH    9     180.0      0.12552     4   ; Amber99Sb-disp
+; LINE(862)  O   C   OS  CT    9     180.0      5.85760     1   ; Amber99Sb-disp
+; LINE(863)  O   C   OS  CT    9     180.0     11.29680     2   ; Amber99Sb-disp
+; LINE(864)  OH  CT  CT  OH    9       0.0      0.60250     3   ; Amber99Sb-disp
+; LINE(865)  OH  CT  CT  OH    9       0.0      4.91620     2   ; Amber99Sb-disp
+; LINE(866)  OH  P   OS  CT    9       0.0      1.04600     3   ; Amber99Sb-disp
+; LINE(867)  OH  P   OS  CT    9       0.0      5.02080     2   ; Amber99Sb-disp
+; LINE(868)  OS  CT  CT  OH    9       0.0      0.60250     3   ; Amber99Sb-disp
+; LINE(869)  OS  CT  CT  OH    9       0.0      4.91620     2   ; Amber99Sb-disp
+; LINE(870)  OS  CT  CT  OS    9       0.0      4.91620     2   ; Amber99Sb-disp
+; LINE(871)  OS  CT  CT  OS    9       0.0      0.60250     3   ; Amber99Sb-disp
+; LINE(872)  OS  CT  N*  CK    9       0.0     10.46000     1   ; Amber99Sb-disp
+; LINE(873)  OS  CT  N*  CM    9       0.0     10.46000     1   ; Amber99Sb-disp
+; LINE(874)  OS  P   OS  CT    9       0.0      5.02080     2   ; Amber99Sb-disp
+; LINE(875)  OS  P   OS  CT    9       0.0      1.04600     3   ; Amber99Sb-disp
+; LINE(876)  N   CT  CT  CA    9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(877)  N   CT  CT  C*    9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(878)  CT  CT  C9  S     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(879)  CT  CT  C9  CT    9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(880)  X   C1  N3  X     9       0.0      0.65084     3   ; Amber99Sb-disp
+; LINE(881)  X   C5  N   X     9     180.0     10.46000     2   ; Amber99Sb-disp
+; LINE(882)  X   C7  CT  X     9       0.0      0.65084     3   ; Amber99Sb-disp
+; LINE(883)  X   C7  N3  X     9       0.0      0.65084     3   ; Amber99Sb-disp
+; LINE(884)  X   C8  O3  X     9       0.0      0.69873     3   ; Amber99Sb-disp
+; LINE(885)  X   C8  OH  X     9       0.0      0.69873     3   ; Amber99Sb-disp
+; LINE(886)  X   C9  S   X     9       0.0      1.39327     3   ; Amber99Sb-disp
+; LINE(887)  X   CA  CA  X     9     180.0     15.16700     2   ; Amber99Sb-disp
+; LINE(888)  X   CA  CB  X     9     180.0     14.64400     2   ; Amber99Sb-disp
+; LINE(889)  X   CA  CM  X     9     180.0     10.66920     2   ; Amber99Sb-disp
+; LINE(890)  X   CA  CN  X     9     180.0     15.16700     2   ; Amber99Sb-disp
+; LINE(891)  X   CA  N2  X     9     180.0     10.04160     2   ; Amber99Sb-disp
+; LINE(892)  X   CA  NA  X     9     180.0      6.27600     2   ; Amber99Sb-disp
+; LINE(893)  X   CA  NC  X     9     180.0     20.08320     2   ; Amber99Sb-disp
+; LINE(894)  X   CA  OH  X     9     180.0      3.76560     2   ; Amber99Sb-disp
+; LINE(895)  X   CB  CB  X     9     180.0     22.80280     2   ; Amber99Sb-disp
+; LINE(896)  X   CB  CN  X     9     180.0     12.55200     2   ; Amber99Sb-disp
+; LINE(897)  X   CB  NB  X     9     180.0     10.66920     2   ; Amber99Sb-disp
+; LINE(898)  X   CB  NC  X     9     180.0     17.36360     2   ; Amber99Sb-disp
+; LINE(899)  X   CB  N*  X     9     180.0      6.90360     2   ; Amber99Sb-disp
+; LINE(900)  X   C   CA  X     9     180.0     15.16700     2   ; Amber99Sb-disp
+; LINE(901)  X   C   CB  X     9     180.0     12.55200     2   ; Amber99Sb-disp
+; LINE(902)  X   C*  CB  X     9     180.0      7.00820     2   ; Amber99Sb-disp
+; LINE(903)  X   CC  CV  X     9     180.0     21.54760     2   ; Amber99Sb-disp
+; LINE(904)  X   CC  CW  X     9     180.0     22.48900     2   ; Amber99Sb-disp
+; LINE(905)  X   C   CM  X     9     180.0      9.10020     2   ; Amber99Sb-disp
+; LINE(906)  X   CC  NA  X     9     180.0      5.85760     2   ; Amber99Sb-disp
+; LINE(907)  X   CC  NB  X     9     180.0     10.04160     2   ; Amber99Sb-disp
+; LINE(908)  X   C*  CW  X     9     180.0     27.30060     2   ; Amber99Sb-disp
+; LINE(909)  X   C   C   X     9     180.0     15.16700     2   ; Amber99Sb-disp
+; LINE(910)  X   CK  NB  X     9     180.0     41.84000     2   ; Amber99Sb-disp
+; LINE(911)  X   CK  N*  X     9     180.0      7.11280     2   ; Amber99Sb-disp
+; LINE(912)  X   CM  CM  X     9     180.0     27.82360     2   ; Amber99Sb-disp
+; LINE(913)  X   CM  N*  X     9     180.0      7.74040     2   ; Amber99Sb-disp
+; LINE(914)  X   CM  OS  X     9     180.0      4.39320     2   ; Amber99Sb-disp
+; LINE(915)  X   C   NA  X     9     180.0      5.64840     2   ; Amber99Sb-disp
+; LINE(916)  X   C   NC  X     9     180.0     16.73600     2   ; Amber99Sb-disp
+; LINE(917)  X   CN  NA  X     9     180.0      6.38060     2   ; Amber99Sb-disp
+; LINE(918)  X   C   N   X     9     180.0     10.46000     2   ; Amber99Sb-disp
+; LINE(919)  X   C   N*  X     9     180.0      6.06680     2   ; Amber99Sb-disp
+; LINE(920)  X   C   OH  X     9     180.0      9.62320     2   ; Amber99Sb-disp
+; LINE(921)  X   C   OS  X     9     180.0     11.29680     2   ; Amber99Sb-disp
+; LINE(922)  X   C   O   X     9     180.0     11.71520     2   ; Amber99Sb-disp
+; LINE(923)  X   C   OB  X     9     180.0     11.71520     2   ; Amber99Sb-disp
+; LINE(924)  X   CQ  NC  X     9     180.0     28.45120     2   ; Amber99Sb-disp
+; LINE(925)  X   CR  NA  X     9     180.0      9.72780     2   ; Amber99Sb-disp
+; LINE(926)  X   CR  NB  X     9     180.0     20.92000     2   ; Amber99Sb-disp
+; LINE(927)  X   CT  C8  X     9       0.0      0.64852     3   ; Amber99Sb-disp
+; LINE(928)  X   CT  C9  X     9       0.0      0.64852     3   ; Amber99Sb-disp
+; LINE(929)  X   CT  CT  X     9       0.0      0.65084     3   ; Amber99Sb-disp
+; LINE(930)  X   CT  N3  X     9       0.0      0.65084     3   ; Amber99Sb-disp
+; LINE(931)  X   CT  OH  X     9       0.0      0.69733     3   ; Amber99Sb-disp
+; LINE(932)  X   CT  OS  X     9       0.0      1.60387     3   ; Amber99Sb-disp
+; LINE(933)  X   CT  SH  X     9       0.0      1.04600     3   ; Amber99Sb-disp
+; LINE(934)  X   CT  S   X     9       0.0      1.39467     3   ; Amber99Sb-disp
+; LINE(935)  X   CV  NB  X     9     180.0     10.04160     2   ; Amber99Sb-disp
+; LINE(936)  X   CW  NA  X     9     180.0      6.27600     2   ; Amber99Sb-disp
+; LINE(937)  X   OH  P   X     9       0.0      1.04600     3   ; Amber99Sb-disp
+; LINE(938)  X   OS  P   X     9       0.0      1.04600     3   ; Amber99Sb-disp
+; LINE(939)  X   C1  N   X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(940)  X   C   C1  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(941)  X   C   C9  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(942)  X   C   CT  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(943)  X   CA  CT  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(944)  X   CC  CT  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(945)  X   CM  CT  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(946)  X   CT  N   X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(947)  X   CT  N*  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(948)  X   CT  N2  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(949)  X   C*  CT  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(950)  X   C7  N   X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(951)  X   C   C7  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(952)  X   C5  CT  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+; LINE(953)  X   C6  CT  X     9       0.0      0.00000     0   ; Amber99Sb-disp
+
+
+;#include "./FAS_GMX.itp"
+
+[ moleculetype ] 
+; Name            nrexcl
+Protein_chain_A     3 
+
+[ atoms ] 
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue 121 NASP rtp NASP q  0.0
+1 N3_ 121 NASP N 1 0.0698703 14.01 
+2 H_ 121 NASP H1 2 0.196566 1.008 
+3 H_ 121 NASP H2 3 0.196566 1.008 
+4 H_ 121 NASP H3 4 0.196566 1.008 
+5 CT_ 121 NASP CA 5 0.0260897 12.01 
+6 HP_ 121 NASP HA 6 0.101946 1.008 
+7 CT_ 121 NASP CB 7 -0.0209968 12.01 
+8 HC_ 121 NASP HB1 8 -0.0150998 1.008 
+9 HC_ 121 NASP HB2 9 -0.0150998 1.008 
+10 C6_ 121 NASP CG 10 0.732119 12.01 
+11 O2_ 121 NASP OD1 11 -0.722291 16 
+12 O2_ 121 NASP OD2 12 -0.722291 16 
+13 C_ 121 NASP C 13 0.502226 12.01 
+14 OB_ 121 NASP O 14 -0.526172 16 ; qtot 0
+; residue 122 ASN rtp ASN  q  0.0
+15 N_ 122 ASN N 15 -0.37142 14.01 
+16 HB_ 122 ASN H 16 0.242938 1.008 
+17 CT_ 122 ASN CA 17 0.0127768 12.01 
+18 H1_ 122 ASN HA 18 0.0936369 1.008 
+19 CT_ 122 ASN CB 19 -0.18236 12.01 
+20 HC_ 122 ASN HB1 20 0.0712105 1.008 
+21 HC_ 122 ASN HB2 21 0.0712105 1.008 
+22 C5_ 122 ASN CG 22 0.637053 12.01 
+23 O_ 122 ASN OD1 23 -0.529924 16 
+24 N_ 122 ASN ND2 24 -0.821199 14.01 
+25 H_ 122 ASN HD21 25 0.374905 1.008 
+26 H_ 122 ASN HD22 26 0.374905 1.008 
+27 C_ 122 ASN C 27 0.533677 12.01 
+28 OB_ 122 ASN O 28 -0.507408 16 ; qtot 0
+; residue 123 GLU rtp GLU  q -1.0
+29 N_ 123 GLU N 29 -0.37142 14.01 
+30 HB_ 123 GLU H 30 0.242938 1.008 
+31 CT_ 123 GLU CA 31 -0.203341 12.01 
+32 H1_ 123 GLU HA 32 0.138083 1.008 
+33 CT_ 123 GLU CB 33 0.103653 12.01 
+34 HC_ 123 GLU HB1 34 -0.00555478 1.008 
+35 HC_ 123 GLU HB2 35 -0.00555478 1.008 
+36 C9_ 123 GLU CG 36 -0.0730815 12.01 
+37 HC_ 123 GLU HG1 37 -0.00549849 1.008 
+38 HC_ 123 GLU HG2 38 -0.00549849 1.008 
+39 C_ 123 GLU CD 39 0.651003 12.01 
+40 O2_ 123 GLU OE1 40 -0.692739 16 
+41 O2_ 123 GLU OE2 41 -0.692739 16 
+42 C_ 123 GLU C 42 0.533677 12.01 
+43 OB_ 123 GLU O 43 -0.507408 16 ; qtot -1
+; residue 124 ALA rtp ALA  q  0.0
+44 N_ 124 ALA N 44 -0.37142 14.01 
+45 HB_ 124 ALA H 45 0.242938 1.008 
+46 CT_ 124 ALA CA 46 0.0301103 12.01 
+47 H1_ 124 ALA HA 47 0.0735336 1.008 
+48 CT_ 124 ALA CB 48 -0.16306 12.01 
+49 HC_ 124 ALA HB1 49 0.053877 1.008 
+50 HC_ 124 ALA HB2 50 0.053877 1.008 
+51 HC_ 124 ALA HB3 51 0.053877 1.008 
+52 C_ 124 ALA C 52 0.533677 12.01 
+53 OB_ 124 ALA O 53 -0.507408 16 ; qtot -1
+; residue 125 TYR rtp TYR  q  0.0
+54 N_ 125 TYR N 54 -0.37142 14.01 
+55 HB_ 125 TYR H 55 0.242938 1.008 
+56 CT_ 125 TYR CA 56 -0.00125087 12.01 
+57 H1_ 125 TYR HA 57 0.078269 1.008 
+58 CT_ 125 TYR CB 58 -0.0135809 12.01 
+59 HC_ 125 TYR HB1 59 0.0263577 1.008 
+60 HC_ 125 TYR HB2 60 0.0263577 1.008 
+61 CA_ 125 TYR CG 61 -0.00098283 12.01 
+62 CA_ 125 TYR CD1 62 -0.170298 12.01 
+63 HA_ 125 TYR HD1 63 0.151803 1.008 
+64 CA_ 125 TYR CE1 64 -0.209164 12.01 
+65 HA_ 125 TYR HE1 65 0.147961 1.008 
+66 C_ 125 TYR CZ 66 0.288237 12.01 
+67 OH_ 125 TYR OH 67 -0.498474 16 
+68 HO_ 125 TYR HH 68 0.356678 1.008 
+69 CA_ 125 TYR CE2 69 -0.209164 12.01 
+70 HA_ 125 TYR HE2 70 0.147961 1.008 
+71 CA_ 125 TYR CD2 71 -0.170298 12.01 
+72 HA_ 125 TYR HD2 72 0.151803 1.008 
+73 C_ 125 TYR C 73 0.533677 12.01 
+74 OB_ 125 TYR O 74 -0.507408 16 ; qtot -1
+; residue 126 GLU rtp GLU  q -1.0
+75 N_ 126 GLU N 75 -0.37142 14.01 
+76 HB_ 126 GLU H 76 0.242938 1.008 
+77 CT_ 126 GLU CA 77 -0.203341 12.01 
+78 H1_ 126 GLU HA 78 0.138083 1.008 
+79 CT_ 126 GLU CB 79 0.103653 12.01 
+80 HC_ 126 GLU HB1 80 -0.00555478 1.008 
+81 HC_ 126 GLU HB2 81 -0.00555478 1.008 
+82 C9_ 126 GLU CG 82 -0.0730815 12.01 
+83 HC_ 126 GLU HG1 83 -0.00549849 1.008 
+84 HC_ 126 GLU HG2 84 -0.00549849 1.008 
+85 C_ 126 GLU CD 85 0.651003 12.01 
+86 O2_ 126 GLU OE1 86 -0.692739 16 
+87 O2_ 126 GLU OE2 87 -0.692739 16 
+88 C_ 126 GLU C 88 0.533677 12.01 
+89 OB_ 126 GLU O 89 -0.507408 16 ; qtot -2
+; residue 127 MET rtp MET  q  0.0
+90 N_ 127 MET N 90 -0.37142 14.01 
+91 HB_ 127 MET H 91 0.242938 1.008 
+92 CT_ 127 MET CA 92 -0.0211755 12.01 
+93 H1_ 127 MET HA 93 0.0786264 1.008 
+94 CT_ 127 MET CB 94 0.0305571 12.01 
+95 HC_ 127 MET HB1 95 0.0215329 1.008 
+96 HC_ 127 MET HB2 96 0.0215329 1.008 
+97 C9_ 127 MET CG 97 0.00160827 12.01 
+98 H1_ 127 MET HG1 98 0.0393132 1.008 
+99 H1_ 127 MET HG2 99 0.0393132 1.008 
+100 S_ 127 MET SD 100 -0.244546 32.06 
+101 CT_ 127 MET CE 101 -0.0478906 12.01 
+102 H1_ 127 MET HE1 102 0.0611142 1.008 
+103 H1_ 127 MET HE2 103 0.0611142 1.008 
+104 H1_ 127 MET HE3 104 0.0611142 1.008 
+105 C_ 127 MET C 105 0.533677 12.01 
+106 OB_ 127 MET O 106 -0.507408 16 ; qtot -2
+; residue 128 PRO rtp PRO  q  0.0
+107 N_ 128 PRO N 107 -0.227659 14.01 
+108 CT_ 128 PRO CD 108 0.0171549 12.01 
+109 H1_ 128 PRO HD1 109 0.0349351 1.008 
+110 H1_ 128 PRO HD2 110 0.0349351 1.008 
+111 CT_ 128 PRO CG 111 0.0168868 12.01 
+112 HC_ 128 PRO HG1 112 0.0190312 1.008 
+113 HC_ 128 PRO HG2 113 0.0190312 1.008 
+114 CT_ 128 PRO CB 114 -0.00625437 12.01 
+115 HC_ 128 PRO HB1 115 0.0226051 1.008 
+116 HC_ 128 PRO HB2 116 0.0226051 1.008 
+117 C7_ 128 PRO CA 117 -0.0237666 12.01 
+118 H1_ 128 PRO HA 118 0.0572722 1.008 
+119 C_ 128 PRO C 119 0.526797 12.01 
+120 OB_ 128 PRO O 120 -0.513573 16 ; qtot -2
+; residue 129 SER rtp SER  q +0.4
+121 N_ 129 SER N 121 -0.37142 14.01 
+122 HB_ 129 SER H 122 0.242938 1.008 
+123 CT_ 129 SER CA 123 -0.0222477 12.01 
+124 H1_ 129 SER HA 124 0.0753205 1.008 
+125 C8_ 129 SER CB 125 0.18915 12.01 
+126 H1_ 129 SER HB1 126 0.0314506 1.008 
+127 H1_ 129 SER HB2 127 0.0314506 1.008 
+128 OH_ 129 SER OG 128 -0.584873 16 
+129 HO_ 129 SER HG1 129 0.381964 1.008 
+;   130         HO    129    SER    HG1    129     0.4275      1.008
+130 C_ 129 SER C 130 0.533677 12.01 
+131 OB_ 129 SER O 131 -0.507408 16 ; qtot -1.573
+; residue 130 GLU rtp GLU  q -1.0
+132 N_ 130 GLU N 132 -0.37142 14.01 
+133 HB_ 130 GLU H 133 0.242938 1.008 
+134 CT_ 130 GLU CA 134 -0.203341 12.01 
+135 H1_ 130 GLU HA 135 0.138083 1.008 
+136 CT_ 130 GLU CB 136 0.103653 12.01 
+137 HC_ 130 GLU HB1 137 -0.00555478 1.008 
+138 HC_ 130 GLU HB2 138 -0.00555478 1.008 
+139 C9_ 130 GLU CG 139 -0.0730815 12.01 
+140 HC_ 130 GLU HG1 140 -0.00549849 1.008 
+141 HC_ 130 GLU HG2 141 -0.00549849 1.008 
+142 C_ 130 GLU CD 142 0.651003 12.01 
+143 O2_ 130 GLU OE1 143 -0.692739 16 
+144 O2_ 130 GLU OE2 144 -0.692739 16 
+145 C_ 130 GLU C 145 0.533677 12.01 
+146 OB_ 130 GLU O 146 -0.507408 16 ; qtot -2.573
+; residue 131 GLU rtp GLU  q -1.0
+147 N_ 131 GLU N 147 -0.37142 14.01 
+148 HB_ 131 GLU H 148 0.242938 1.008 
+149 CT_ 131 GLU CA 149 -0.203341 12.01 
+150 H1_ 131 GLU HA 150 0.138083 1.008 
+151 CT_ 131 GLU CB 151 0.103653 12.01 
+152 HC_ 131 GLU HB1 152 -0.00555478 1.008 
+153 HC_ 131 GLU HB2 153 -0.00555478 1.008 
+154 C9_ 131 GLU CG 154 -0.0730815 12.01 
+155 HC_ 131 GLU HG1 155 -0.00549849 1.008 
+156 HC_ 131 GLU HG2 156 -0.00549849 1.008 
+157 C_ 131 GLU CD 157 0.651003 12.01 
+158 O2_ 131 GLU OE1 158 -0.692739 16 
+159 O2_ 131 GLU OE2 159 -0.692739 16 
+160 C_ 131 GLU C 160 0.533677 12.01 
+161 OB_ 131 GLU O 161 -0.507408 16 ; qtot -3.573
+; residue 132 GLY rtp GLY  q  0.0
+162 N_ 132 GLY N 162 -0.37142 14.01 
+163 HB_ 132 GLY H 163 0.242938 1.008 
+164 C1_ 132 GLY CA 164 -0.0225157 12.01 
+165 H1_ 132 GLY HA1 165 0.062365 1.008 
+166 H1_ 132 GLY HA2 166 0.062365 1.008 
+167 C_ 132 GLY C 167 0.533677 12.01 
+168 OB_ 132 GLY O 168 -0.507408 16 ; qtot -3.573
+; residue 133 TYR rtp TYR  q  0.0
+169 N_ 133 TYR N 169 -0.37142 14.01 
+170 HB_ 133 TYR H 170 0.242938 1.008 
+171 CT_ 133 TYR CA 171 -0.00125087 12.01 
+172 H1_ 133 TYR HA 172 0.078269 1.008 
+173 CT_ 133 TYR CB 173 -0.0135809 12.01 
+174 HC_ 133 TYR HB1 174 0.0263577 1.008 
+175 HC_ 133 TYR HB2 175 0.0263577 1.008 
+176 CA_ 133 TYR CG 176 -0.00098283 12.01 
+177 CA_ 133 TYR CD1 177 -0.170298 12.01 
+178 HA_ 133 TYR HD1 178 0.151803 1.008 
+179 CA_ 133 TYR CE1 179 -0.209164 12.01 
+180 HA_ 133 TYR HE1 180 0.147961 1.008 
+181 C_ 133 TYR CZ 181 0.288237 12.01 
+182 OH_ 133 TYR OH 182 -0.498474 16 
+183 HO_ 133 TYR HH 183 0.356678 1.008 
+184 CA_ 133 TYR CE2 184 -0.209164 12.01 
+185 HA_ 133 TYR HE2 185 0.147961 1.008 
+186 CA_ 133 TYR CD2 186 -0.170298 12.01 
+187 HA_ 133 TYR HD2 187 0.151803 1.008 
+188 C_ 133 TYR C 188 0.533677 12.01 
+189 OB_ 133 TYR O 189 -0.507408 16 ; qtot -3.573
+; residue 134 GLN rtp GLN  q  0.0
+190 N_ 134 GLN N 190 -0.37142 14.01 
+191 HB_ 134 GLN H 191 0.242938 1.008 
+192 CT_ 134 GLN CA 192 -0.00276979 12.01 
+193 H1_ 134 GLN HA 193 0.075946 1.008 
+194 CT_ 134 GLN CB 194 -0.00321654 12.01 
+195 HC_ 134 GLN HB1 195 0.0152785 1.008 
+196 HC_ 134 GLN HB2 196 0.0152785 1.008 
+197 C9_ 134 GLN CG 197 -0.0576296 12.01 
+198 HC_ 134 GLN HG1 198 0.0314506 1.008 
+199 HC_ 134 GLN HG2 199 0.0314506 1.008 
+200 C_ 134 GLN CD 200 0.621059 12.01 
+201 O_ 134 GLN OE1 201 -0.543773 16 
+202 N_ 134 GLN NE2 202 -0.840498 14.01 
+203 H_ 134 GLN HE21 203 0.379819 1.008 
+204 H_ 134 GLN HE22 204 0.379819 1.008 
+205 C_ 134 GLN C 205 0.533677 12.01 
+206 OB_ 134 GLN O 206 -0.507408 16 ; qtot -3.573
+; residue 135 ASP rtp ASP  q -1.0
+207 N_ 135 ASP N 207 -0.37142 14.01 
+208 HB_ 135 ASP H 208 0.242938 1.008 
+209 CT_ 135 ASP CA 209 -0.200644 12.01 
+210 H1_ 135 ASP HA 210 0.130621 1.008 
+211 CT_ 135 ASP CB 211 0.00319152 12.01 
+212 HC_ 135 ASP HB1 212 -0.0139196 1.008 
+213 HC_ 135 ASP HB2 213 -0.0139196 1.008 
+214 C6_ 135 ASP CG 214 0.681608 12.01 
+215 O2_ 135 ASP OD1 215 -0.689102 16 
+216 O2_ 135 ASP OD2 216 -0.689102 16 
+217 C_ 135 ASP C 217 0.533677 12.01 
+218 OB_ 135 ASP O 218 -0.507408 16 ; qtot -4.573
+; residue 136 TYR rtp TYR  q  0.0
+219 N_ 136 TYR N 219 -0.37142 14.01 
+220 HB_ 136 TYR H 220 0.242938 1.008 
+221 CT_ 136 TYR CA 221 -0.00125087 12.01 
+222 H1_ 136 TYR HA 222 0.078269 1.008 
+223 CT_ 136 TYR CB 223 -0.0135809 12.01 
+224 HC_ 136 TYR HB1 224 0.0263577 1.008 
+225 HC_ 136 TYR HB2 225 0.0263577 1.008 
+226 CA_ 136 TYR CG 226 -0.00098283 12.01 
+227 CA_ 136 TYR CD1 227 -0.170298 12.01 
+228 HA_ 136 TYR HD1 228 0.151803 1.008 
+229 CA_ 136 TYR CE1 229 -0.209164 12.01 
+230 HA_ 136 TYR HE1 230 0.147961 1.008 
+231 C_ 136 TYR CZ 231 0.288237 12.01 
+232 OH_ 136 TYR OH 232 -0.498474 16 
+233 HO_ 136 TYR HH 233 0.356678 1.008 
+234 CA_ 136 TYR CE2 234 -0.209164 12.01 
+235 HA_ 136 TYR HE2 235 0.147961 1.008 
+236 CA_ 136 TYR CD2 236 -0.170298 12.01 
+237 HA_ 136 TYR HD2 237 0.151803 1.008 
+238 C_ 136 TYR C 238 0.533677 12.01 
+239 OB_ 136 TYR O 239 -0.507408 16 ; qtot -4.573
+; residue 137 GLU rtp GLU  q -1.0
+240 N_ 137 GLU N 240 -0.37142 14.01 
+241 HB_ 137 GLU H 241 0.242938 1.008 
+242 CT_ 137 GLU CA 242 -0.203341 12.01 
+243 H1_ 137 GLU HA 243 0.138083 1.008 
+244 CT_ 137 GLU CB 244 0.103653 12.01 
+245 HC_ 137 GLU HB1 245 -0.00555478 1.008 
+246 HC_ 137 GLU HB2 246 -0.00555478 1.008 
+247 C9_ 137 GLU CG 247 -0.0730815 12.01 
+248 HC_ 137 GLU HG1 248 -0.00549849 1.008 
+249 HC_ 137 GLU HG2 249 -0.00549849 1.008 
+250 C_ 137 GLU CD 250 0.651003 12.01 
+251 O2_ 137 GLU OE1 251 -0.692739 16 
+252 O2_ 137 GLU OE2 252 -0.692739 16 
+253 C_ 137 GLU C 253 0.533677 12.01 
+254 OB_ 137 GLU O 254 -0.507408 16 ; qtot -5.573
+; residue 138 PRO rtp PRO  q  0.0
+255 N_ 138 PRO N 255 -0.227659 14.01 
+256 CT_ 138 PRO CD 256 0.0171549 12.01 
+257 H1_ 138 PRO HD1 257 0.0349351 1.008 
+258 H1_ 138 PRO HD2 258 0.0349351 1.008 
+259 CT_ 138 PRO CG 259 0.0168868 12.01 
+260 HC_ 138 PRO HG1 260 0.0190312 1.008 
+261 HC_ 138 PRO HG2 261 0.0190312 1.008 
+262 CT_ 138 PRO CB 262 -0.00625437 12.01 
+263 HC_ 138 PRO HB1 263 0.0226051 1.008 
+264 HC_ 138 PRO HB2 264 0.0226051 1.008 
+265 C7_ 138 PRO CA 265 -0.0237666 12.01 
+266 H1_ 138 PRO HA 266 0.0572722 1.008 
+267 C_ 138 PRO C 267 0.526797 12.01 
+268 OB_ 138 PRO O 268 -0.513573 16 ; qtot -5.573
+; residue 139 GLU rtp GLU  q -1.0
+269 N_ 139 GLU N 269 -0.37142 14.01 
+270 HB_ 139 GLU H 270 0.242938 1.008 
+271 CT_ 139 GLU CA 271 -0.203341 12.01 
+272 H1_ 139 GLU HA 272 0.138083 1.008 
+273 CT_ 139 GLU CB 273 0.103653 12.01 
+274 HC_ 139 GLU HB1 274 -0.00555478 1.008 
+275 HC_ 139 GLU HB2 275 -0.00555478 1.008 
+276 C9_ 139 GLU CG 276 -0.0730815 12.01 
+277 HC_ 139 GLU HG1 277 -0.00549849 1.008 
+278 HC_ 139 GLU HG2 278 -0.00549849 1.008 
+279 C_ 139 GLU CD 279 0.651003 12.01 
+280 O2_ 139 GLU OE1 280 -0.692739 16 
+281 O2_ 139 GLU OE2 281 -0.692739 16 
+282 C_ 139 GLU C 282 0.533677 12.01 
+283 OB_ 139 GLU O 283 -0.507408 16 ; qtot -6.573
+; residue 140 CALA rtp CALA q -1.0
+284 N_ 140 CALA N 284 -0.341399 14.01 
+285 HB_ 140 CALA H 285 0.239543 1.008 
+286 CT_ 140 CALA CA 286 -0.156091 12.01 
+287 H1_ 140 CALA HA 287 0.0953345 1.008 
+288 CT_ 140 CALA CB 288 -0.187006 12.01 
+289 HC_ 140 CALA HB1 289 0.068262 1.008 
+290 HC_ 140 CALA HB2 290 0.068262 1.008 
+291 HC_ 140 CALA HB3 291 0.068262 1.008 
+292 C_ 140 CALA C 292 0.690751 12.01 
+293 O2_ 140 CALA OC1 293 -0.7197 16 
+294 O2_ 140 CALA OC2 294 -0.7197 16 ; qtot -7.573
+
+[ bonds ] 
+;  ai    aj funct            c0            c1            c2            c3
+    1     2     1 
+    1     3     1 
+    1     4     1 
+    1     5     1 
+    5     6     1 
+    5     7     1 
+    5    13     1 
+    7     8     1 
+    7     9     1 
+    7    10     1 
+   10    11     1 
+   10    12     1 
+   13    14     1 
+   13    15     1 
+   15    16     1 
+   15    17     1 
+   17    18     1 
+   17    19     1 
+   17    27     1 
+   19    20     1 
+   19    21     1 
+   19    22     1 
+   22    23     1 
+   22    24     1 
+   24    25     1 
+   24    26     1 
+   27    28     1 
+   27    29     1 
+   29    30     1 
+   29    31     1 
+   31    32     1 
+   31    33     1 
+   31    42     1 
+   33    34     1 
+   33    35     1 
+   33    36     1 
+   36    37     1 
+   36    38     1 
+   36    39     1 
+   39    40     1 
+   39    41     1 
+   42    43     1 
+   42    44     1 
+   44    45     1 
+   44    46     1 
+   46    47     1 
+   46    48     1 
+   46    52     1 
+   48    49     1 
+   48    50     1 
+   48    51     1 
+   52    53     1 
+   52    54     1 
+   54    55     1 
+   54    56     1 
+   56    57     1 
+   56    58     1 
+   56    73     1 
+   58    59     1 
+   58    60     1 
+   58    61     1 
+   61    62     1 
+   61    71     1 
+   62    63     1 
+   62    64     1 
+   64    65     1 
+   64    66     1 
+   66    67     1 
+   66    69     1 
+   67    68     1 
+   69    70     1 
+   69    71     1 
+   71    72     1 
+   73    74     1 
+   73    75     1 
+   75    76     1 
+   75    77     1 
+   77    78     1 
+   77    79     1 
+   77    88     1 
+   79    80     1 
+   79    81     1 
+   79    82     1 
+   82    83     1 
+   82    84     1 
+   82    85     1 
+   85    86     1 
+   85    87     1 
+   88    89     1 
+   88    90     1 
+   90    91     1 
+   90    92     1 
+   92    93     1 
+   92    94     1 
+   92   105     1 
+   94    95     1 
+   94    96     1 
+   94    97     1 
+   97    98     1 
+   97    99     1 
+   97   100     1 
+  100   101     1 
+  101   102     1 
+  101   103     1 
+  101   104     1 
+  105   106     1 
+  105   107     1 
+  107   108     1 
+  107   117     1 
+  108   109     1 
+  108   110     1 
+  108   111     1 
+  111   112     1 
+  111   113     1 
+  111   114     1 
+  114   115     1 
+  114   116     1 
+  114   117     1 
+  117   118     1 
+  117   119     1 
+  119   120     1 
+  119   121     1 
+  121   122     1 
+  121   123     1 
+  123   124     1 
+  123   125     1 
+  123   130     1 
+  125   126     1 
+  125   127     1 
+  125   128     1 
+  128   129     1 
+  130   131     1 
+  130   132     1 
+  132   133     1 
+  132   134     1 
+  134   135     1 
+  134   136     1 
+  134   145     1 
+  136   137     1 
+  136   138     1 
+  136   139     1 
+  139   140     1 
+  139   141     1 
+  139   142     1 
+  142   143     1 
+  142   144     1 
+  145   146     1 
+  145   147     1 
+  147   148     1 
+  147   149     1 
+  149   150     1 
+  149   151     1 
+  149   160     1 
+  151   152     1 
+  151   153     1 
+  151   154     1 
+  154   155     1 
+  154   156     1 
+  154   157     1 
+  157   158     1 
+  157   159     1 
+  160   161     1 
+  160   162     1 
+  162   163     1 
+  162   164     1 
+  164   165     1 
+  164   166     1 
+  164   167     1 
+  167   168     1 
+  167   169     1 
+  169   170     1 
+  169   171     1 
+  171   172     1 
+  171   173     1 
+  171   188     1 
+  173   174     1 
+  173   175     1 
+  173   176     1 
+  176   177     1 
+  176   186     1 
+  177   178     1 
+  177   179     1 
+  179   180     1 
+  179   181     1 
+  181   182     1 
+  181   184     1 
+  182   183     1 
+  184   185     1 
+  184   186     1 
+  186   187     1 
+  188   189     1 
+  188   190     1 
+  190   191     1 
+  190   192     1 
+  192   193     1 
+  192   194     1 
+  192   205     1 
+  194   195     1 
+  194   196     1 
+  194   197     1 
+  197   198     1 
+  197   199     1 
+  197   200     1 
+  200   201     1 
+  200   202     1 
+  202   203     1 
+  202   204     1 
+  205   206     1 
+  205   207     1 
+  207   208     1 
+  207   209     1 
+  209   210     1 
+  209   211     1 
+  209   217     1 
+  211   212     1 
+  211   213     1 
+  211   214     1 
+  214   215     1 
+  214   216     1 
+  217   218     1 
+  217   219     1 
+  219   220     1 
+  219   221     1 
+  221   222     1 
+  221   223     1 
+  221   238     1 
+  223   224     1 
+  223   225     1 
+  223   226     1 
+  226   227     1 
+  226   236     1 
+  227   228     1 
+  227   229     1 
+  229   230     1 
+  229   231     1 
+  231   232     1 
+  231   234     1 
+  232   233     1 
+  234   235     1 
+  234   236     1 
+  236   237     1 
+  238   239     1 
+  238   240     1 
+  240   241     1 
+  240   242     1 
+  242   243     1 
+  242   244     1 
+  242   253     1 
+  244   245     1 
+  244   246     1 
+  244   247     1 
+  247   248     1 
+  247   249     1 
+  247   250     1 
+  250   251     1 
+  250   252     1 
+  253   254     1 
+  253   255     1 
+  255   256     1 
+  255   265     1 
+  256   257     1 
+  256   258     1 
+  256   259     1 
+  259   260     1 
+  259   261     1 
+  259   262     1 
+  262   263     1 
+  262   264     1 
+  262   265     1 
+  265   266     1 
+  265   267     1 
+  267   268     1 
+  267   269     1 
+  269   270     1 
+  269   271     1 
+  271   272     1 
+  271   273     1 
+  271   282     1 
+  273   274     1 
+  273   275     1 
+  273   276     1 
+  276   277     1 
+  276   278     1 
+  276   279     1 
+  279   280     1 
+  279   281     1 
+  282   283     1 
+  282   284     1 
+  284   285     1 
+  284   286     1 
+  286   287     1 
+  286   288     1 
+  286   292     1 
+  288   289     1 
+  288   290     1 
+  288   291     1 
+  292   293     1 
+  292   294     1 
+
+[ pairs ] 
+;  ai    aj funct            c0            c1            c2            c3
+    1     8     1 
+    1     9     1 
+    1    10     1 
+    1    14     1 
+    1    15     1 
+    2     6     1 
+    2     7     1 
+    2    13     1 
+    3     6     1 
+    3     7     1 
+    3    13     1 
+    4     6     1 
+    4     7     1 
+    4    13     1 
+    5    11     1 
+    5    12     1 
+    5    16     1 
+    5    17     1 
+    6     8     1 
+    6     9     1 
+    6    10     1 
+    6    14     1 
+    6    15     1 
+    7    14     1 
+    7    15     1 
+    8    11     1 
+    8    12     1 
+    8    13     1 
+    9    11     1 
+    9    12     1 
+    9    13     1 
+   10    13     1 
+   13    18     1 
+   13    19     1 
+   13    27     1 
+   14    16     1 
+   14    17     1 
+   15    20     1 
+   15    21     1 
+   15    22     1 
+   15    28     1 
+   15    29     1 
+   16    18     1 
+   16    19     1 
+   16    27     1 
+   17    23     1 
+   17    24     1 
+   17    30     1 
+   17    31     1 
+   18    20     1 
+   18    21     1 
+   18    22     1 
+   18    28     1 
+   18    29     1 
+   19    25     1 
+   19    26     1 
+   19    28     1 
+   19    29     1 
+   20    23     1 
+   20    24     1 
+   20    27     1 
+   21    23     1 
+   21    24     1 
+   21    27     1 
+   22    27     1 
+   23    25     1 
+   23    26     1 
+   27    32     1 
+   27    33     1 
+   27    42     1 
+   28    30     1 
+   28    31     1 
+   29    34     1 
+   29    35     1 
+   29    36     1 
+   29    43     1 
+   29    44     1 
+   30    32     1 
+   30    33     1 
+   30    42     1 
+   31    37     1 
+   31    38     1 
+   31    39     1 
+   31    45     1 
+   31    46     1 
+   32    34     1 
+   32    35     1 
+   32    36     1 
+   32    43     1 
+   32    44     1 
+   33    40     1 
+   33    41     1 
+   33    43     1 
+   33    44     1 
+   34    37     1 
+   34    38     1 
+   34    39     1 
+   34    42     1 
+   35    37     1 
+   35    38     1 
+   35    39     1 
+   35    42     1 
+   36    42     1 
+   37    40     1 
+   37    41     1 
+   38    40     1 
+   38    41     1 
+   42    47     1 
+   42    48     1 
+   42    52     1 
+   43    45     1 
+   43    46     1 
+   44    49     1 
+   44    50     1 
+   44    51     1 
+   44    53     1 
+   44    54     1 
+   45    47     1 
+   45    48     1 
+   45    52     1 
+   46    55     1 
+   46    56     1 
+   47    49     1 
+   47    50     1 
+   47    51     1 
+   47    53     1 
+   47    54     1 
+   48    53     1 
+   48    54     1 
+   49    52     1 
+   50    52     1 
+   51    52     1 
+   52    57     1 
+   52    58     1 
+   52    73     1 
+   53    55     1 
+   53    56     1 
+   54    59     1 
+   54    60     1 
+   54    61     1 
+   54    74     1 
+   54    75     1 
+   55    57     1 
+   55    58     1 
+   55    73     1 
+   56    62     1 
+   56    71     1 
+   56    76     1 
+   56    77     1 
+   57    59     1 
+   57    60     1 
+   57    61     1 
+   57    74     1 
+   57    75     1 
+   58    63     1 
+   58    64     1 
+   58    69     1 
+   58    72     1 
+   58    74     1 
+   58    75     1 
+   59    62     1 
+   59    71     1 
+   59    73     1 
+   60    62     1 
+   60    71     1 
+   60    73     1 
+   61    65     1 
+   61    66     1 
+   61    70     1 
+   61    73     1 
+   62    67     1 
+   62    69     1 
+   62    72     1 
+   63    65     1 
+   63    66     1 
+   63    71     1 
+   64    68     1 
+   64    70     1 
+   64    71     1 
+   65    67     1 
+   65    69     1 
+   66    72     1 
+   67    70     1 
+   67    71     1 
+   68    69     1 
+   70    72     1 
+   73    78     1 
+   73    79     1 
+   73    88     1 
+   74    76     1 
+   74    77     1 
+   75    80     1 
+   75    81     1 
+   75    82     1 
+   75    89     1 
+   75    90     1 
+   76    78     1 
+   76    79     1 
+   76    88     1 
+   77    83     1 
+   77    84     1 
+   77    85     1 
+   77    91     1 
+   77    92     1 
+   78    80     1 
+   78    81     1 
+   78    82     1 
+   78    89     1 
+   78    90     1 
+   79    86     1 
+   79    87     1 
+   79    89     1 
+   79    90     1 
+   80    83     1 
+   80    84     1 
+   80    85     1 
+   80    88     1 
+   81    83     1 
+   81    84     1 
+   81    85     1 
+   81    88     1 
+   82    88     1 
+   83    86     1 
+   83    87     1 
+   84    86     1 
+   84    87     1 
+   88    93     1 
+   88    94     1 
+   88   105     1 
+   89    91     1 
+   89    92     1 
+   90    95     1 
+   90    96     1 
+   90    97     1 
+   90   106     1 
+   90   107     1 
+   91    93     1 
+   91    94     1 
+   91   105     1 
+   92    98     1 
+   92    99     1 
+   92   100     1 
+   92   108     1 
+   92   117     1 
+   93    95     1 
+   93    96     1 
+   93    97     1 
+   93   106     1 
+   93   107     1 
+   94   101     1 
+   94   106     1 
+   94   107     1 
+   95    98     1 
+   95    99     1 
+   95   100     1 
+   95   105     1 
+   96    98     1 
+   96    99     1 
+   96   100     1 
+   96   105     1 
+   97   102     1 
+   97   103     1 
+   97   104     1 
+   97   105     1 
+   98   101     1 
+   99   101     1 
+  105   109     1 
+  105   110     1 
+  105   111     1 
+  105   114     1 
+  105   118     1 
+  105   119     1 
+  106   108     1 
+  106   117     1 
+  107   112     1 
+  107   113     1 
+  107   115     1 
+  107   116     1 
+  107   120     1 
+  107   121     1 
+  108   115     1 
+  108   116     1 
+  108   118     1 
+  108   119     1 
+  109   112     1 
+  109   113     1 
+  109   114     1 
+  109   117     1 
+  110   112     1 
+  110   113     1 
+  110   114     1 
+  110   117     1 
+  111   118     1 
+  111   119     1 
+  112   115     1 
+  112   116     1 
+  112   117     1 
+  113   115     1 
+  113   116     1 
+  113   117     1 
+  114   120     1 
+  114   121     1 
+  115   118     1 
+  115   119     1 
+  116   118     1 
+  116   119     1 
+  117   122     1 
+  117   123     1 
+  118   120     1 
+  118   121     1 
+  119   124     1 
+  119   125     1 
+  119   130     1 
+  120   122     1 
+  120   123     1 
+  121   126     1 
+  121   127     1 
+  121   128     1 
+  121   131     1 
+  121   132     1 
+  122   124     1 
+  122   125     1 
+  122   130     1 
+  123   129     1 
+  123   133     1 
+  123   134     1 
+  124   126     1 
+  124   127     1 
+  124   128     1 
+  124   131     1 
+  124   132     1 
+  125   131     1 
+  125   132     1 
+  126   129     1 
+  126   130     1 
+  127   129     1 
+  127   130     1 
+  128   130     1 
+  130   135     1 
+  130   136     1 
+  130   145     1 
+  131   133     1 
+  131   134     1 
+  132   137     1 
+  132   138     1 
+  132   139     1 
+  132   146     1 
+  132   147     1 
+  133   135     1 
+  133   136     1 
+  133   145     1 
+  134   140     1 
+  134   141     1 
+  134   142     1 
+  134   148     1 
+  134   149     1 
+  135   137     1 
+  135   138     1 
+  135   139     1 
+  135   146     1 
+  135   147     1 
+  136   143     1 
+  136   144     1 
+  136   146     1 
+  136   147     1 
+  137   140     1 
+  137   141     1 
+  137   142     1 
+  137   145     1 
+  138   140     1 
+  138   141     1 
+  138   142     1 
+  138   145     1 
+  139   145     1 
+  140   143     1 
+  140   144     1 
+  141   143     1 
+  141   144     1 
+  145   150     1 
+  145   151     1 
+  145   160     1 
+  146   148     1 
+  146   149     1 
+  147   152     1 
+  147   153     1 
+  147   154     1 
+  147   161     1 
+  147   162     1 
+  148   150     1 
+  148   151     1 
+  148   160     1 
+  149   155     1 
+  149   156     1 
+  149   157     1 
+  149   163     1 
+  149   164     1 
+  150   152     1 
+  150   153     1 
+  150   154     1 
+  150   161     1 
+  150   162     1 
+  151   158     1 
+  151   159     1 
+  151   161     1 
+  151   162     1 
+  152   155     1 
+  152   156     1 
+  152   157     1 
+  152   160     1 
+  153   155     1 
+  153   156     1 
+  153   157     1 
+  153   160     1 
+  154   160     1 
+  155   158     1 
+  155   159     1 
+  156   158     1 
+  156   159     1 
+  160   165     1 
+  160   166     1 
+  160   167     1 
+  161   163     1 
+  161   164     1 
+  162   168     1 
+  162   169     1 
+  163   165     1 
+  163   166     1 
+  163   167     1 
+  164   170     1 
+  164   171     1 
+  165   168     1 
+  165   169     1 
+  166   168     1 
+  166   169     1 
+  167   172     1 
+  167   173     1 
+  167   188     1 
+  168   170     1 
+  168   171     1 
+  169   174     1 
+  169   175     1 
+  169   176     1 
+  169   189     1 
+  169   190     1 
+  170   172     1 
+  170   173     1 
+  170   188     1 
+  171   177     1 
+  171   186     1 
+  171   191     1 
+  171   192     1 
+  172   174     1 
+  172   175     1 
+  172   176     1 
+  172   189     1 
+  172   190     1 
+  173   178     1 
+  173   179     1 
+  173   184     1 
+  173   187     1 
+  173   189     1 
+  173   190     1 
+  174   177     1 
+  174   186     1 
+  174   188     1 
+  175   177     1 
+  175   186     1 
+  175   188     1 
+  176   180     1 
+  176   181     1 
+  176   185     1 
+  176   188     1 
+  177   182     1 
+  177   184     1 
+  177   187     1 
+  178   180     1 
+  178   181     1 
+  178   186     1 
+  179   183     1 
+  179   185     1 
+  179   186     1 
+  180   182     1 
+  180   184     1 
+  181   187     1 
+  182   185     1 
+  182   186     1 
+  183   184     1 
+  185   187     1 
+  188   193     1 
+  188   194     1 
+  188   205     1 
+  189   191     1 
+  189   192     1 
+  190   195     1 
+  190   196     1 
+  190   197     1 
+  190   206     1 
+  190   207     1 
+  191   193     1 
+  191   194     1 
+  191   205     1 
+  192   198     1 
+  192   199     1 
+  192   200     1 
+  192   208     1 
+  192   209     1 
+  193   195     1 
+  193   196     1 
+  193   197     1 
+  193   206     1 
+  193   207     1 
+  194   201     1 
+  194   202     1 
+  194   206     1 
+  194   207     1 
+  195   198     1 
+  195   199     1 
+  195   200     1 
+  195   205     1 
+  196   198     1 
+  196   199     1 
+  196   200     1 
+  196   205     1 
+  197   203     1 
+  197   204     1 
+  197   205     1 
+  198   201     1 
+  198   202     1 
+  199   201     1 
+  199   202     1 
+  201   203     1 
+  201   204     1 
+  205   210     1 
+  205   211     1 
+  205   217     1 
+  206   208     1 
+  206   209     1 
+  207   212     1 
+  207   213     1 
+  207   214     1 
+  207   218     1 
+  207   219     1 
+  208   210     1 
+  208   211     1 
+  208   217     1 
+  209   215     1 
+  209   216     1 
+  209   220     1 
+  209   221     1 
+  210   212     1 
+  210   213     1 
+  210   214     1 
+  210   218     1 
+  210   219     1 
+  211   218     1 
+  211   219     1 
+  212   215     1 
+  212   216     1 
+  212   217     1 
+  213   215     1 
+  213   216     1 
+  213   217     1 
+  214   217     1 
+  217   222     1 
+  217   223     1 
+  217   238     1 
+  218   220     1 
+  218   221     1 
+  219   224     1 
+  219   225     1 
+  219   226     1 
+  219   239     1 
+  219   240     1 
+  220   222     1 
+  220   223     1 
+  220   238     1 
+  221   227     1 
+  221   236     1 
+  221   241     1 
+  221   242     1 
+  222   224     1 
+  222   225     1 
+  222   226     1 
+  222   239     1 
+  222   240     1 
+  223   228     1 
+  223   229     1 
+  223   234     1 
+  223   237     1 
+  223   239     1 
+  223   240     1 
+  224   227     1 
+  224   236     1 
+  224   238     1 
+  225   227     1 
+  225   236     1 
+  225   238     1 
+  226   230     1 
+  226   231     1 
+  226   235     1 
+  226   238     1 
+  227   232     1 
+  227   234     1 
+  227   237     1 
+  228   230     1 
+  228   231     1 
+  228   236     1 
+  229   233     1 
+  229   235     1 
+  229   236     1 
+  230   232     1 
+  230   234     1 
+  231   237     1 
+  232   235     1 
+  232   236     1 
+  233   234     1 
+  235   237     1 
+  238   243     1 
+  238   244     1 
+  238   253     1 
+  239   241     1 
+  239   242     1 
+  240   245     1 
+  240   246     1 
+  240   247     1 
+  240   254     1 
+  240   255     1 
+  241   243     1 
+  241   244     1 
+  241   253     1 
+  242   248     1 
+  242   249     1 
+  242   250     1 
+  242   256     1 
+  242   265     1 
+  243   245     1 
+  243   246     1 
+  243   247     1 
+  243   254     1 
+  243   255     1 
+  244   251     1 
+  244   252     1 
+  244   254     1 
+  244   255     1 
+  245   248     1 
+  245   249     1 
+  245   250     1 
+  245   253     1 
+  246   248     1 
+  246   249     1 
+  246   250     1 
+  246   253     1 
+  247   253     1 
+  248   251     1 
+  248   252     1 
+  249   251     1 
+  249   252     1 
+  253   257     1 
+  253   258     1 
+  253   259     1 
+  253   262     1 
+  253   266     1 
+  253   267     1 
+  254   256     1 
+  254   265     1 
+  255   260     1 
+  255   261     1 
+  255   263     1 
+  255   264     1 
+  255   268     1 
+  255   269     1 
+  256   263     1 
+  256   264     1 
+  256   266     1 
+  256   267     1 
+  257   260     1 
+  257   261     1 
+  257   262     1 
+  257   265     1 
+  258   260     1 
+  258   261     1 
+  258   262     1 
+  258   265     1 
+  259   266     1 
+  259   267     1 
+  260   263     1 
+  260   264     1 
+  260   265     1 
+  261   263     1 
+  261   264     1 
+  261   265     1 
+  262   268     1 
+  262   269     1 
+  263   266     1 
+  263   267     1 
+  264   266     1 
+  264   267     1 
+  265   270     1 
+  265   271     1 
+  266   268     1 
+  266   269     1 
+  267   272     1 
+  267   273     1 
+  267   282     1 
+  268   270     1 
+  268   271     1 
+  269   274     1 
+  269   275     1 
+  269   276     1 
+  269   283     1 
+  269   284     1 
+  270   272     1 
+  270   273     1 
+  270   282     1 
+  271   277     1 
+  271   278     1 
+  271   279     1 
+  271   285     1 
+  271   286     1 
+  272   274     1 
+  272   275     1 
+  272   276     1 
+  272   283     1 
+  272   284     1 
+  273   280     1 
+  273   281     1 
+  273   283     1 
+  273   284     1 
+  274   277     1 
+  274   278     1 
+  274   279     1 
+  274   282     1 
+  275   277     1 
+  275   278     1 
+  275   279     1 
+  275   282     1 
+  276   282     1 
+  277   280     1 
+  277   281     1 
+  278   280     1 
+  278   281     1 
+  282   287     1 
+  282   288     1 
+  282   292     1 
+  283   285     1 
+  283   286     1 
+  284   289     1 
+  284   290     1 
+  284   291     1 
+  284   293     1 
+  284   294     1 
+  285   287     1 
+  285   288     1 
+  285   292     1 
+  287   289     1 
+  287   290     1 
+  287   291     1 
+  287   293     1 
+  287   294     1 
+  288   293     1 
+  288   294     1 
+  289   292     1 
+  290   292     1 
+  291   292     1 
+
+[ angles ] 
+;  ai    aj    ak funct            c0            c1            c2            c3
+    2     1     3     1 
+    2     1     4     1 
+    2     1     5     1 
+    3     1     4     1 
+    3     1     5     1 
+    4     1     5     1 
+    1     5     6     1 
+    1     5     7     1 
+    1     5    13     1 
+    6     5     7     1 
+    6     5    13     1 
+    7     5    13     1 
+    5     7     8     1 
+    5     7     9     1 
+    5     7    10     1 
+    8     7     9     1 
+    8     7    10     1 
+    9     7    10     1 
+    7    10    11     1 
+    7    10    12     1 
+   11    10    12     1 
+    5    13    14     1 
+    5    13    15     1 
+   14    13    15     1 
+   13    15    16     1 
+   13    15    17     1 
+   16    15    17     1 
+   15    17    18     1 
+   15    17    19     1 
+   15    17    27     1 
+   18    17    19     1 
+   18    17    27     1 
+   19    17    27     1 
+   17    19    20     1 
+   17    19    21     1 
+   17    19    22     1 
+   20    19    21     1 
+   20    19    22     1 
+   21    19    22     1 
+   19    22    23     1 
+   19    22    24     1 
+   23    22    24     1 
+   22    24    25     1 
+   22    24    26     1 
+   25    24    26     1 
+   17    27    28     1 
+   17    27    29     1 
+   28    27    29     1 
+   27    29    30     1 
+   27    29    31     1 
+   30    29    31     1 
+   29    31    32     1 
+   29    31    33     1 
+   29    31    42     1 
+   32    31    33     1 
+   32    31    42     1 
+   33    31    42     1 
+   31    33    34     1 
+   31    33    35     1 
+   31    33    36     1 
+   34    33    35     1 
+   34    33    36     1 
+   35    33    36     1 
+   33    36    37     1 
+   33    36    38     1 
+   33    36    39     1 
+   37    36    38     1 
+   37    36    39     1 
+   38    36    39     1 
+   36    39    40     1 
+   36    39    41     1 
+   40    39    41     1 
+   31    42    43     1 
+   31    42    44     1 
+   43    42    44     1 
+   42    44    45     1 
+   42    44    46     1 
+   45    44    46     1 
+   44    46    47     1 
+   44    46    48     1 
+   44    46    52     1 
+   47    46    48     1 
+   47    46    52     1 
+   48    46    52     1 
+   46    48    49     1 
+   46    48    50     1 
+   46    48    51     1 
+   49    48    50     1 
+   49    48    51     1 
+   50    48    51     1 
+   46    52    53     1 
+   46    52    54     1 
+   53    52    54     1 
+   52    54    55     1 
+   52    54    56     1 
+   55    54    56     1 
+   54    56    57     1 
+   54    56    58     1 
+   54    56    73     1 
+   57    56    58     1 
+   57    56    73     1 
+   58    56    73     1 
+   56    58    59     1 
+   56    58    60     1 
+   56    58    61     1 
+   59    58    60     1 
+   59    58    61     1 
+   60    58    61     1 
+   58    61    62     1 
+   58    61    71     1 
+   62    61    71     1 
+   61    62    63     1 
+   61    62    64     1 
+   63    62    64     1 
+   62    64    65     1 
+   62    64    66     1 
+   65    64    66     1 
+   64    66    67     1 
+   64    66    69     1 
+   67    66    69     1 
+   66    67    68     1 
+   66    69    70     1 
+   66    69    71     1 
+   70    69    71     1 
+   61    71    69     1 
+   61    71    72     1 
+   69    71    72     1 
+   56    73    74     1 
+   56    73    75     1 
+   74    73    75     1 
+   73    75    76     1 
+   73    75    77     1 
+   76    75    77     1 
+   75    77    78     1 
+   75    77    79     1 
+   75    77    88     1 
+   78    77    79     1 
+   78    77    88     1 
+   79    77    88     1 
+   77    79    80     1 
+   77    79    81     1 
+   77    79    82     1 
+   80    79    81     1 
+   80    79    82     1 
+   81    79    82     1 
+   79    82    83     1 
+   79    82    84     1 
+   79    82    85     1 
+   83    82    84     1 
+   83    82    85     1 
+   84    82    85     1 
+   82    85    86     1 
+   82    85    87     1 
+   86    85    87     1 
+   77    88    89     1 
+   77    88    90     1 
+   89    88    90     1 
+   88    90    91     1 
+   88    90    92     1 
+   91    90    92     1 
+   90    92    93     1 
+   90    92    94     1 
+   90    92   105     1 
+   93    92    94     1 
+   93    92   105     1 
+   94    92   105     1 
+   92    94    95     1 
+   92    94    96     1 
+   92    94    97     1 
+   95    94    96     1 
+   95    94    97     1 
+   96    94    97     1 
+   94    97    98     1 
+   94    97    99     1 
+   94    97   100     1 
+   98    97    99     1 
+   98    97   100     1 
+   99    97   100     1 
+   97   100   101     1 
+  100   101   102     1 
+  100   101   103     1 
+  100   101   104     1 
+  102   101   103     1 
+  102   101   104     1 
+  103   101   104     1 
+   92   105   106     1 
+   92   105   107     1 
+  106   105   107     1 
+  105   107   108     1 
+  105   107   117     1 
+  108   107   117     1 
+  107   108   109     1 
+  107   108   110     1 
+  107   108   111     1 
+  109   108   110     1 
+  109   108   111     1 
+  110   108   111     1 
+  108   111   112     1 
+  108   111   113     1 
+  108   111   114     1 
+  112   111   113     1 
+  112   111   114     1 
+  113   111   114     1 
+  111   114   115     1 
+  111   114   116     1 
+  111   114   117     1 
+  115   114   116     1 
+  115   114   117     1 
+  116   114   117     1 
+  107   117   114     1 
+  107   117   118     1 
+  107   117   119     1 
+  114   117   118     1 
+  114   117   119     1 
+  118   117   119     1 
+  117   119   120     1 
+  117   119   121     1 
+  120   119   121     1 
+  119   121   122     1 
+  119   121   123     1 
+  122   121   123     1 
+  121   123   124     1 
+  121   123   125     1 
+  121   123   130     1 
+  124   123   125     1 
+  124   123   130     1 
+  125   123   130     1 
+  123   125   126     1 
+  123   125   127     1 
+  123   125   128     1 
+  126   125   127     1 
+  126   125   128     1 
+  127   125   128     1 
+  125   128   129     1 
+  123   130   131     1 
+  123   130   132     1 
+  131   130   132     1 
+  130   132   133     1 
+  130   132   134     1 
+  133   132   134     1 
+  132   134   135     1 
+  132   134   136     1 
+  132   134   145     1 
+  135   134   136     1 
+  135   134   145     1 
+  136   134   145     1 
+  134   136   137     1 
+  134   136   138     1 
+  134   136   139     1 
+  137   136   138     1 
+  137   136   139     1 
+  138   136   139     1 
+  136   139   140     1 
+  136   139   141     1 
+  136   139   142     1 
+  140   139   141     1 
+  140   139   142     1 
+  141   139   142     1 
+  139   142   143     1 
+  139   142   144     1 
+  143   142   144     1 
+  134   145   146     1 
+  134   145   147     1 
+  146   145   147     1 
+  145   147   148     1 
+  145   147   149     1 
+  148   147   149     1 
+  147   149   150     1 
+  147   149   151     1 
+  147   149   160     1 
+  150   149   151     1 
+  150   149   160     1 
+  151   149   160     1 
+  149   151   152     1 
+  149   151   153     1 
+  149   151   154     1 
+  152   151   153     1 
+  152   151   154     1 
+  153   151   154     1 
+  151   154   155     1 
+  151   154   156     1 
+  151   154   157     1 
+  155   154   156     1 
+  155   154   157     1 
+  156   154   157     1 
+  154   157   158     1 
+  154   157   159     1 
+  158   157   159     1 
+  149   160   161     1 
+  149   160   162     1 
+  161   160   162     1 
+  160   162   163     1 
+  160   162   164     1 
+  163   162   164     1 
+  162   164   165     1 
+  162   164   166     1 
+  162   164   167     1 
+  165   164   166     1 
+  165   164   167     1 
+  166   164   167     1 
+  164   167   168     1 
+  164   167   169     1 
+  168   167   169     1 
+  167   169   170     1 
+  167   169   171     1 
+  170   169   171     1 
+  169   171   172     1 
+  169   171   173     1 
+  169   171   188     1 
+  172   171   173     1 
+  172   171   188     1 
+  173   171   188     1 
+  171   173   174     1 
+  171   173   175     1 
+  171   173   176     1 
+  174   173   175     1 
+  174   173   176     1 
+  175   173   176     1 
+  173   176   177     1 
+  173   176   186     1 
+  177   176   186     1 
+  176   177   178     1 
+  176   177   179     1 
+  178   177   179     1 
+  177   179   180     1 
+  177   179   181     1 
+  180   179   181     1 
+  179   181   182     1 
+  179   181   184     1 
+  182   181   184     1 
+  181   182   183     1 
+  181   184   185     1 
+  181   184   186     1 
+  185   184   186     1 
+  176   186   184     1 
+  176   186   187     1 
+  184   186   187     1 
+  171   188   189     1 
+  171   188   190     1 
+  189   188   190     1 
+  188   190   191     1 
+  188   190   192     1 
+  191   190   192     1 
+  190   192   193     1 
+  190   192   194     1 
+  190   192   205     1 
+  193   192   194     1 
+  193   192   205     1 
+  194   192   205     1 
+  192   194   195     1 
+  192   194   196     1 
+  192   194   197     1 
+  195   194   196     1 
+  195   194   197     1 
+  196   194   197     1 
+  194   197   198     1 
+  194   197   199     1 
+  194   197   200     1 
+  198   197   199     1 
+  198   197   200     1 
+  199   197   200     1 
+  197   200   201     1 
+  197   200   202     1 
+  201   200   202     1 
+  200   202   203     1 
+  200   202   204     1 
+  203   202   204     1 
+  192   205   206     1 
+  192   205   207     1 
+  206   205   207     1 
+  205   207   208     1 
+  205   207   209     1 
+  208   207   209     1 
+  207   209   210     1 
+  207   209   211     1 
+  207   209   217     1 
+  210   209   211     1 
+  210   209   217     1 
+  211   209   217     1 
+  209   211   212     1 
+  209   211   213     1 
+  209   211   214     1 
+  212   211   213     1 
+  212   211   214     1 
+  213   211   214     1 
+  211   214   215     1 
+  211   214   216     1 
+  215   214   216     1 
+  209   217   218     1 
+  209   217   219     1 
+  218   217   219     1 
+  217   219   220     1 
+  217   219   221     1 
+  220   219   221     1 
+  219   221   222     1 
+  219   221   223     1 
+  219   221   238     1 
+  222   221   223     1 
+  222   221   238     1 
+  223   221   238     1 
+  221   223   224     1 
+  221   223   225     1 
+  221   223   226     1 
+  224   223   225     1 
+  224   223   226     1 
+  225   223   226     1 
+  223   226   227     1 
+  223   226   236     1 
+  227   226   236     1 
+  226   227   228     1 
+  226   227   229     1 
+  228   227   229     1 
+  227   229   230     1 
+  227   229   231     1 
+  230   229   231     1 
+  229   231   232     1 
+  229   231   234     1 
+  232   231   234     1 
+  231   232   233     1 
+  231   234   235     1 
+  231   234   236     1 
+  235   234   236     1 
+  226   236   234     1 
+  226   236   237     1 
+  234   236   237     1 
+  221   238   239     1 
+  221   238   240     1 
+  239   238   240     1 
+  238   240   241     1 
+  238   240   242     1 
+  241   240   242     1 
+  240   242   243     1 
+  240   242   244     1 
+  240   242   253     1 
+  243   242   244     1 
+  243   242   253     1 
+  244   242   253     1 
+  242   244   245     1 
+  242   244   246     1 
+  242   244   247     1 
+  245   244   246     1 
+  245   244   247     1 
+  246   244   247     1 
+  244   247   248     1 
+  244   247   249     1 
+  244   247   250     1 
+  248   247   249     1 
+  248   247   250     1 
+  249   247   250     1 
+  247   250   251     1 
+  247   250   252     1 
+  251   250   252     1 
+  242   253   254     1 
+  242   253   255     1 
+  254   253   255     1 
+  253   255   256     1 
+  253   255   265     1 
+  256   255   265     1 
+  255   256   257     1 
+  255   256   258     1 
+  255   256   259     1 
+  257   256   258     1 
+  257   256   259     1 
+  258   256   259     1 
+  256   259   260     1 
+  256   259   261     1 
+  256   259   262     1 
+  260   259   261     1 
+  260   259   262     1 
+  261   259   262     1 
+  259   262   263     1 
+  259   262   264     1 
+  259   262   265     1 
+  263   262   264     1 
+  263   262   265     1 
+  264   262   265     1 
+  255   265   262     1 
+  255   265   266     1 
+  255   265   267     1 
+  262   265   266     1 
+  262   265   267     1 
+  266   265   267     1 
+  265   267   268     1 
+  265   267   269     1 
+  268   267   269     1 
+  267   269   270     1 
+  267   269   271     1 
+  270   269   271     1 
+  269   271   272     1 
+  269   271   273     1 
+  269   271   282     1 
+  272   271   273     1 
+  272   271   282     1 
+  273   271   282     1 
+  271   273   274     1 
+  271   273   275     1 
+  271   273   276     1 
+  274   273   275     1 
+  274   273   276     1 
+  275   273   276     1 
+  273   276   277     1 
+  273   276   278     1 
+  273   276   279     1 
+  277   276   278     1 
+  277   276   279     1 
+  278   276   279     1 
+  276   279   280     1 
+  276   279   281     1 
+  280   279   281     1 
+  271   282   283     1 
+  271   282   284     1 
+  283   282   284     1 
+  282   284   285     1 
+  282   284   286     1 
+  285   284   286     1 
+  284   286   287     1 
+  284   286   288     1 
+  284   286   292     1 
+  287   286   288     1 
+  287   286   292     1 
+  288   286   292     1 
+  286   288   289     1 
+  286   288   290     1 
+  286   288   291     1 
+  289   288   290     1 
+  289   288   291     1 
+  290   288   291     1 
+  286   292   293     1 
+  286   292   294     1 
+  293   292   294     1 
+
+[ dihedrals ] 
+;  ai    aj    ak    al funct            c0            c1            c2            c3            c4            c5
+; parameters for types H N3 CT HP at LINE(930)
+2 1 5 6 9 0.0 0.5195720804 3
+; parameters for types H N3 CT CT at LINE(930)
+2 1 5 7 9 0.0 0.5195720804 3
+; parameters for types H N3 CT C at LINE(930)
+2 1 5 13 9 0.0 0.5195720804 3
+; parameters for types H N3 CT HP at LINE(930)
+3 1 5 6 9 0.0 0.5195720804 3
+; parameters for types H N3 CT CT at LINE(930)
+3 1 5 7 9 0.0 0.5195720804 3
+; parameters for types H N3 CT C at LINE(930)
+3 1 5 13 9 0.0 0.5195720804 3
+; parameters for types H N3 CT HP at LINE(930)
+4 1 5 6 9 0.0 0.5195720804 3
+; parameters for types H N3 CT CT at LINE(930)
+4 1 5 7 9 0.0 0.5195720804 3
+; parameters for types H N3 CT C at LINE(930)
+4 1 5 13 9 0.0 0.5195720804 3
+; parameters for types N3 CT CT HC at LINE(929)
+1 5 7 8 9 0.0 0.5195720804 3
+; parameters for types N3 CT CT HC at LINE(929)
+1 5 7 9 9 0.0 0.5195720804 3
+; parameters for types N3 CT CT C6 at LINE(817)
+1 5 7 10 9 180.0 8.8019106008 1
+1 5 7 10 9 180.0 3.9757594282 2
+1 5 7 10 9 180.0 0.0227119195 3
+1 5 7 10 9 0.0 1.4118750998 4
+1 5 7 10 9 0.0 0.7739056633 5
+1 5 7 10 9 180.0 0.7105677479 6
+; parameters for types HP CT CT HC at LINE(929)
+6 5 7 8 9 0.0 0.5195720804 3
+; parameters for types HP CT CT HC at LINE(929)
+6 5 7 9 9 0.0 0.5195720804 3
+; parameters for types HP CT CT C6 at LINE(929)
+6 5 7 10 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+13 5 7 8 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+13 5 7 9 9 0.0 0.5195720804 3
+; parameters for types C CT CT C6 at LINE(929)
+13 5 7 10 9 0.0 0.5195720804 3
+; parameters for types N3 CT C OB at LINE(942)
+1 5 13 14 9 0.0 0 0
+; parameters for types N3 CT C N at LINE(942)
+1 5 13 15 9 0.0 0 0
+; parameters for types HP CT C OB at LINE(942)
+6 5 13 14 9 0.0 0 0
+; parameters for types HP CT C N at LINE(942)
+6 5 13 15 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+7 5 13 14 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+7 5 13 15 9 0.0 0.668025808 1
+7 5 13 15 9 0.0 0.668025808 2
+7 5 13 15 9 0.0 1.336051616 3
+; parameters for types CT CT C6 O2 at LINE(729)
+5 7 10 11 9 180.0 0.6212608082 4
+5 7 10 11 9 180.0 1.1824088734 6
+5 7 10 11 9 180.0 2.9159310553 2
+; parameters for types CT CT C6 O2 at LINE(729)
+5 7 10 12 9 180.0 0.6212608082 4
+5 7 10 12 9 180.0 1.1824088734 6
+5 7 10 12 9 180.0 2.9159310553 2
+; parameters for types HC CT C6 O2 at LINE(953)
+8 7 10 11 9 0.0 0 0
+; parameters for types HC CT C6 O2 at LINE(953)
+8 7 10 12 9 0.0 0 0
+; parameters for types HC CT C6 O2 at LINE(953)
+9 7 10 11 9 0.0 0 0
+; parameters for types HC CT C6 O2 at LINE(953)
+9 7 10 12 9 0.0 0 0
+; parameters for types CT C N HB at LINE(918)
+5 13 15 16 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+5 13 15 17 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+14 13 15 16 9 0.0 6.68025808 1
+14 13 15 16 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+14 13 15 17 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+13 15 17 18 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+13 15 17 19 9 0.0 1.336051616 3
+13 15 17 19 9 0.0 6.68025808 1
+13 15 17 19 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+13 15 17 27 9 180.0 0.1135675806 1
+13 15 17 27 9 0.0 1.1189432284 2
+13 15 17 27 9 0.0 1.817033391 3
+13 15 17 27 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+16 15 17 18 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+16 15 17 19 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+16 15 17 27 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+15 17 19 20 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+15 17 19 21 9 0.0 0.5195720804 3
+; parameters for types N CT CT C5 at LINE(849)
+15 17 19 22 9 180.0 2.1042812952 1
+; parameters for types H1 CT CT HC at LINE(929)
+18 17 19 20 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+18 17 19 21 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C5 at LINE(929)
+18 17 19 22 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+27 17 19 20 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+27 17 19 21 9 0.0 0.5195720804 3
+; parameters for types C CT CT C5 at LINE(689)
+27 17 19 22 9 0.0 0.5701609851 1
+27 17 19 22 9 180.0 1.9897158271 2
+27 17 19 22 9 0.0 0.395802098 3
+27 17 19 22 9 180.0 1.3934980036 4
+27 17 19 22 9 0.0 0.3480392107 5
+27 17 19 22 9 180.0 0.3364238002 6
+; parameters for types N CT C OB at LINE(942)
+15 17 27 28 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+15 17 27 29 9 360.0 0.6580070175 1
+15 17 27 29 9 180.0 4.8264864628 2
+15 17 27 29 9 180.0 1.5999250034 3
+15 17 27 29 9 360.0 0.0637929521 4
+15 17 27 29 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+18 17 27 28 9 0.0 2.672103232 1
+18 17 27 28 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+18 17 27 29 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+19 17 27 28 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+19 17 27 29 9 0.0 0.668025808 1
+19 17 27 29 9 0.0 0.668025808 2
+19 17 27 29 9 0.0 1.336051616 3
+; parameters for types CT CT C5 O at LINE(728)
+17 19 22 23 9 180.0 3.34012904 1
+; parameters for types CT CT C5 N at LINE(827)
+17 19 22 24 9 180.0 3.4947776532 1
+17 19 22 24 9 180.0 0.604560163 2
+17 19 22 24 9 180.0 0.1182376941 3
+17 19 22 24 9 0.0 0.3350187746 4
+17 19 22 24 9 0.0 0.4335461948 5
+17 19 22 24 9 180.0 0.3542340963 6
+; parameters for types HC CT C5 O at LINE(780)
+20 19 22 23 9 0.0 2.672103232 1
+20 19 22 23 9 180.0 0.2672103232 3
+; parameters for types HC CT C5 N at LINE(952)
+20 19 22 24 9 0.0 0 0
+; parameters for types HC CT C5 O at LINE(780)
+21 19 22 23 9 0.0 2.672103232 1
+21 19 22 23 9 180.0 0.2672103232 3
+; parameters for types HC CT C5 N at LINE(952)
+21 19 22 24 9 0.0 0 0
+; parameters for types CT C5 N H at LINE(881)
+19 22 24 25 9 180.0 8.3503226 2
+; parameters for types CT C5 N H at LINE(881)
+19 22 24 26 9 180.0 8.3503226 2
+; parameters for types O C5 N H at LINE(798)
+23 22 24 25 9 0.0 6.68025808 1
+23 22 24 25 9 180.0 8.3503226 2
+; parameters for types O C5 N H at LINE(798)
+23 22 24 26 9 0.0 6.68025808 1
+23 22 24 26 9 180.0 8.3503226 2
+; parameters for types CT C N HB at LINE(918)
+17 27 29 30 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+17 27 29 31 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+28 27 29 30 9 0.0 6.68025808 1
+28 27 29 30 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+28 27 29 31 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+27 29 31 32 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+27 29 31 33 9 0.0 1.336051616 3
+27 29 31 33 9 0.0 6.68025808 1
+27 29 31 33 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+27 29 31 42 9 180.0 0.1135675806 1
+27 29 31 42 9 0.0 1.1189432284 2
+27 29 31 42 9 0.0 1.817033391 3
+27 29 31 42 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+30 29 31 32 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+30 29 31 33 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+30 29 31 42 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+29 31 33 34 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+29 31 33 35 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+29 31 33 36 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+32 31 33 34 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+32 31 33 35 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+32 31 33 36 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+42 31 33 34 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+42 31 33 35 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+42 31 33 36 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+29 31 42 43 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+29 31 42 44 9 360.0 0.6580070175 1
+29 31 42 44 9 180.0 4.8264864628 2
+29 31 42 44 9 180.0 1.5999250034 3
+29 31 42 44 9 360.0 0.0637929521 4
+29 31 42 44 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+32 31 42 43 9 0.0 2.672103232 1
+32 31 42 43 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+32 31 42 44 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+33 31 42 43 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+33 31 42 44 9 0.0 0.668025808 1
+33 31 42 44 9 0.0 0.668025808 2
+33 31 42 44 9 0.0 1.336051616 3
+; parameters for types CT CT C9 HC at LINE(928)
+31 33 36 37 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 HC at LINE(928)
+31 33 36 38 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 C at LINE(928)
+31 33 36 39 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+34 33 36 37 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+34 33 36 38 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+34 33 36 39 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+35 33 36 37 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+35 33 36 38 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+35 33 36 39 9 0.0 0.5177200012 3
+; parameters for types CT C9 C O2 at LINE(722)
+33 36 39 40 9 180.0 2.004077424 2
+; parameters for types CT C9 C O2 at LINE(722)
+33 36 39 41 9 180.0 2.004077424 2
+; parameters for types HC C9 C O2 at LINE(941)
+37 36 39 40 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+37 36 39 41 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+38 36 39 40 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+38 36 39 41 9 0.0 0 0
+; parameters for types CT C N HB at LINE(918)
+31 42 44 45 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+31 42 44 46 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+43 42 44 45 9 0.0 6.68025808 1
+43 42 44 45 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+43 42 44 46 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+42 44 46 47 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+42 44 46 48 9 0.0 1.336051616 3
+42 44 46 48 9 0.0 6.68025808 1
+42 44 46 48 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+42 44 46 52 9 180.0 0.1135675806 1
+42 44 46 52 9 0.0 1.1189432284 2
+42 44 46 52 9 0.0 1.817033391 3
+42 44 46 52 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+45 44 46 47 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+45 44 46 48 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+45 44 46 52 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+44 46 48 49 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+44 46 48 50 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+44 46 48 51 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+47 46 48 49 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+47 46 48 50 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+47 46 48 51 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+52 46 48 49 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+52 46 48 50 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+52 46 48 51 9 0.0 0.5195720804 3
+; parameters for types N CT C OB at LINE(942)
+44 46 52 53 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+44 46 52 54 9 360.0 0.6580070175 1
+44 46 52 54 9 180.0 4.8264864628 2
+44 46 52 54 9 180.0 1.5999250034 3
+44 46 52 54 9 360.0 0.0637929521 4
+44 46 52 54 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+47 46 52 53 9 0.0 2.672103232 1
+47 46 52 53 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+47 46 52 54 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+48 46 52 53 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+48 46 52 54 9 0.0 0.668025808 1
+48 46 52 54 9 0.0 0.668025808 2
+48 46 52 54 9 0.0 1.336051616 3
+; parameters for types CT C N HB at LINE(918)
+46 52 54 55 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+46 52 54 56 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+53 52 54 55 9 0.0 6.68025808 1
+53 52 54 55 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+53 52 54 56 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+52 54 56 57 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+52 54 56 58 9 0.0 1.336051616 3
+52 54 56 58 9 0.0 6.68025808 1
+52 54 56 58 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+52 54 56 73 9 180.0 0.1135675806 1
+52 54 56 73 9 0.0 1.1189432284 2
+52 54 56 73 9 0.0 1.817033391 3
+52 54 56 73 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+55 54 56 57 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+55 54 56 58 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+55 54 56 73 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+54 56 58 59 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+54 56 58 60 9 0.0 0.5195720804 3
+; parameters for types N CT CT CA at LINE(876)
+54 56 58 61 9 0.0 0 0
+; parameters for types H1 CT CT HC at LINE(929)
+57 56 58 59 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+57 56 58 60 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT CA at LINE(929)
+57 56 58 61 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+73 56 58 59 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+73 56 58 60 9 0.0 0.5195720804 3
+; parameters for types C CT CT CA at LINE(697)
+73 56 58 61 9 0.0 1.7368671008 1
+; parameters for types N CT C OB at LINE(942)
+54 56 73 74 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+54 56 73 75 9 360.0 0.6580070175 1
+54 56 73 75 9 180.0 4.8264864628 2
+54 56 73 75 9 180.0 1.5999250034 3
+54 56 73 75 9 360.0 0.0637929521 4
+54 56 73 75 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+57 56 73 74 9 0.0 2.672103232 1
+57 56 73 74 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+57 56 73 75 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+58 56 73 74 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+58 56 73 75 9 0.0 0.668025808 1
+58 56 73 75 9 0.0 0.668025808 2
+58 56 73 75 9 0.0 1.336051616 3
+; parameters for types CT CT CA CA at LINE(943)
+56 58 61 62 9 0.0 0 0
+; parameters for types CT CT CA CA at LINE(943)
+56 58 61 71 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+59 58 61 62 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+59 58 61 71 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+60 58 61 62 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+60 58 61 71 9 0.0 0 0
+; parameters for types CT CA CA HA at LINE(887)
+58 61 62 63 9 180.0 12.10796777 2
+; parameters for types CT CA CA CA at LINE(887)
+58 61 62 64 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+71 61 62 63 9 180.0 12.10796777 2
+; parameters for types CA CA CA CA at LINE(887)
+71 61 62 64 9 180.0 12.10796777 2
+; parameters for types CT CA CA CA at LINE(887)
+58 61 71 69 9 180.0 12.10796777 2
+; parameters for types CT CA CA HA at LINE(887)
+58 61 71 72 9 180.0 12.10796777 2
+; parameters for types CA CA CA CA at LINE(887)
+62 61 71 69 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+62 61 71 72 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+61 62 64 65 9 180.0 12.10796777 2
+; parameters for types CA CA CA C at LINE(887)
+61 62 64 66 9 180.0 12.10796777 2
+; parameters for types HA CA CA HA at LINE(887)
+63 62 64 65 9 180.0 12.10796777 2
+; parameters for types HA CA CA C at LINE(887)
+63 62 64 66 9 180.0 12.10796777 2
+; parameters for types CA CA C OH at LINE(900)
+62 64 66 67 9 180.0 12.10796777 2
+; parameters for types CA CA C CA at LINE(900)
+62 64 66 69 9 180.0 12.10796777 2
+; parameters for types HA CA C OH at LINE(900)
+65 64 66 67 9 180.0 12.10796777 2
+; parameters for types HA CA C CA at LINE(900)
+65 64 66 69 9 180.0 12.10796777 2
+; parameters for types CA C OH HO at LINE(920)
+64 66 67 68 9 180.0 7.682296792 2
+; parameters for types CA C OH HO at LINE(920)
+69 66 67 68 9 180.0 7.682296792 2
+; parameters for types CA C CA HA at LINE(900)
+64 66 69 70 9 180.0 12.10796777 2
+; parameters for types CA C CA CA at LINE(900)
+64 66 69 71 9 180.0 12.10796777 2
+; parameters for types OH C CA HA at LINE(900)
+67 66 69 70 9 180.0 12.10796777 2
+; parameters for types OH C CA CA at LINE(900)
+67 66 69 71 9 180.0 12.10796777 2
+; parameters for types C CA CA CA at LINE(887)
+66 69 71 61 9 180.0 12.10796777 2
+; parameters for types C CA CA HA at LINE(887)
+66 69 71 72 9 180.0 12.10796777 2
+; parameters for types HA CA CA CA at LINE(887)
+70 69 71 61 9 180.0 12.10796777 2
+; parameters for types HA CA CA HA at LINE(887)
+70 69 71 72 9 180.0 12.10796777 2
+; parameters for types CT C N HB at LINE(918)
+56 73 75 76 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+56 73 75 77 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+74 73 75 76 9 0.0 6.68025808 1
+74 73 75 76 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+74 73 75 77 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+73 75 77 78 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+73 75 77 79 9 0.0 1.336051616 3
+73 75 77 79 9 0.0 6.68025808 1
+73 75 77 79 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+73 75 77 88 9 180.0 0.1135675806 1
+73 75 77 88 9 0.0 1.1189432284 2
+73 75 77 88 9 0.0 1.817033391 3
+73 75 77 88 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+76 75 77 78 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+76 75 77 79 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+76 75 77 88 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+75 77 79 80 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+75 77 79 81 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+75 77 79 82 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+78 77 79 80 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+78 77 79 81 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+78 77 79 82 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+88 77 79 80 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+88 77 79 81 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+88 77 79 82 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+75 77 88 89 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+75 77 88 90 9 360.0 0.6580070175 1
+75 77 88 90 9 180.0 4.8264864628 2
+75 77 88 90 9 180.0 1.5999250034 3
+75 77 88 90 9 360.0 0.0637929521 4
+75 77 88 90 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+78 77 88 89 9 0.0 2.672103232 1
+78 77 88 89 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+78 77 88 90 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+79 77 88 89 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+79 77 88 90 9 0.0 0.668025808 1
+79 77 88 90 9 0.0 0.668025808 2
+79 77 88 90 9 0.0 1.336051616 3
+; parameters for types CT CT C9 HC at LINE(928)
+77 79 82 83 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 HC at LINE(928)
+77 79 82 84 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 C at LINE(928)
+77 79 82 85 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+80 79 82 83 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+80 79 82 84 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+80 79 82 85 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+81 79 82 83 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+81 79 82 84 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+81 79 82 85 9 0.0 0.5177200012 3
+; parameters for types CT C9 C O2 at LINE(722)
+79 82 85 86 9 180.0 2.004077424 2
+; parameters for types CT C9 C O2 at LINE(722)
+79 82 85 87 9 180.0 2.004077424 2
+; parameters for types HC C9 C O2 at LINE(941)
+83 82 85 86 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+83 82 85 87 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+84 82 85 86 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+84 82 85 87 9 0.0 0 0
+; parameters for types CT C N HB at LINE(918)
+77 88 90 91 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+77 88 90 92 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+89 88 90 91 9 0.0 6.68025808 1
+89 88 90 91 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+89 88 90 92 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+88 90 92 93 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+88 90 92 94 9 0.0 1.336051616 3
+88 90 92 94 9 0.0 6.68025808 1
+88 90 92 94 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+88 90 92 105 9 180.0 0.1135675806 1
+88 90 92 105 9 0.0 1.1189432284 2
+88 90 92 105 9 0.0 1.817033391 3
+88 90 92 105 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+91 90 92 93 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+91 90 92 94 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+91 90 92 105 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+90 92 94 95 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+90 92 94 96 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+90 92 94 97 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+93 92 94 95 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+93 92 94 96 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+93 92 94 97 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+105 92 94 95 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+105 92 94 96 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+105 92 94 97 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+90 92 105 106 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+90 92 105 107 9 360.0 0.6580070175 1
+90 92 105 107 9 180.0 4.8264864628 2
+90 92 105 107 9 180.0 1.5999250034 3
+90 92 105 107 9 360.0 0.0637929521 4
+90 92 105 107 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+93 92 105 106 9 0.0 2.672103232 1
+93 92 105 106 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+93 92 105 107 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+94 92 105 106 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+94 92 105 107 9 0.0 0.668025808 1
+94 92 105 107 9 0.0 0.668025808 2
+94 92 105 107 9 0.0 1.336051616 3
+; parameters for types CT CT C9 H1 at LINE(928)
+92 94 97 98 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 H1 at LINE(928)
+92 94 97 99 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 S at LINE(878)
+92 94 97 100 9 0.0 0 0
+; parameters for types HC CT C9 H1 at LINE(928)
+95 94 97 98 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 H1 at LINE(928)
+95 94 97 99 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 S at LINE(928)
+95 94 97 100 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 H1 at LINE(928)
+96 94 97 98 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 H1 at LINE(928)
+96 94 97 99 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 S at LINE(928)
+96 94 97 100 9 0.0 0.5177200012 3
+; parameters for types CT C9 S CT at LINE(886)
+94 97 100 101 9 0.0 1.1122613737 3
+; parameters for types H1 C9 S CT at LINE(886)
+98 97 100 101 9 0.0 1.1122613737 3
+; parameters for types H1 C9 S CT at LINE(886)
+99 97 100 101 9 0.0 1.1122613737 3
+; parameters for types C9 S CT H1 at LINE(934)
+97 100 101 102 9 0.0 1.1133790077 3
+; parameters for types C9 S CT H1 at LINE(934)
+97 100 101 103 9 0.0 1.1133790077 3
+; parameters for types C9 S CT H1 at LINE(934)
+97 100 101 104 9 0.0 1.1133790077 3
+; parameters for types CT C N CT at LINE(918)
+92 105 107 108 9 180.0 8.3503226 2
+; parameters for types CT C N C7 at LINE(918)
+92 105 107 117 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+106 105 107 108 9 180.0 8.3503226 2
+; parameters for types OB C N C7 at LINE(918)
+106 105 107 117 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+105 107 108 109 9 0.0 0 0
+; parameters for types C N CT H1 at LINE(946)
+105 107 108 110 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+105 107 108 111 9 0.0 1.336051616 3
+105 107 108 111 9 0.0 6.68025808 1
+105 107 108 111 9 0.0 6.68025808 2
+; parameters for types C7 N CT H1 at LINE(946)
+117 107 108 109 9 0.0 0 0
+; parameters for types C7 N CT H1 at LINE(946)
+117 107 108 110 9 0.0 0 0
+; parameters for types C7 N CT CT at LINE(946)
+117 107 108 111 9 0.0 0 0
+; parameters for types C N C7 CT at LINE(719)
+105 107 117 114 9 0.0 6.68025808 1
+105 107 117 114 9 0.0 6.68025808 2
+105 107 117 114 9 0.0 1.336051616 3
+; parameters for types C N C7 H1 at LINE(950)
+105 107 117 118 9 0.0 0 0
+; parameters for types C N C7 C at LINE(707)
+105 107 117 119 9 0.0 0.9018348408 2
+105 107 117 119 9 0.0 1.4028541968 3
+; parameters for types CT N C7 CT at LINE(950)
+108 107 117 114 9 0.0 0 0
+; parameters for types CT N C7 H1 at LINE(950)
+108 107 117 118 9 0.0 0 0
+; parameters for types CT N C7 C at LINE(950)
+108 107 117 119 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+107 108 111 112 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+107 108 111 113 9 0.0 0.5195720804 3
+; parameters for types N CT CT CT at LINE(929)
+107 108 111 114 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+109 108 111 112 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+109 108 111 113 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT CT at LINE(929)
+109 108 111 114 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+110 108 111 112 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+110 108 111 113 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT CT at LINE(929)
+110 108 111 114 9 0.0 0.5195720804 3
+; parameters for types CT CT CT HC at LINE(793)
+108 111 114 115 9 0.0 0.5344206464 3
+; parameters for types CT CT CT HC at LINE(793)
+108 111 114 116 9 0.0 0.5344206464 3
+; parameters for types CT CT CT C7 at LINE(737)
+108 111 114 117 9 0.0 0.6012232272 3
+108 111 114 117 9 180.0 0.668025808 1
+108 111 114 117 9 180.0 0.83503226 2
+; parameters for types HC CT CT HC at LINE(795)
+112 111 114 115 9 0.0 0.501019356 3
+; parameters for types HC CT CT HC at LINE(795)
+112 111 114 116 9 0.0 0.501019356 3
+; parameters for types HC CT CT C7 at LINE(791)
+112 111 114 117 9 0.0 0.5344206464 3
+; parameters for types HC CT CT HC at LINE(795)
+113 111 114 115 9 0.0 0.501019356 3
+; parameters for types HC CT CT HC at LINE(795)
+113 111 114 116 9 0.0 0.501019356 3
+; parameters for types HC CT CT C7 at LINE(791)
+113 111 114 117 9 0.0 0.5344206464 3
+; parameters for types CT CT C7 N at LINE(882)
+111 114 117 107 9 0.0 0.5195720804 3
+; parameters for types CT CT C7 H1 at LINE(882)
+111 114 117 118 9 0.0 0.5195720804 3
+; parameters for types CT CT C7 C at LINE(882)
+111 114 117 119 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 N at LINE(882)
+115 114 117 107 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 H1 at LINE(882)
+115 114 117 118 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 C at LINE(882)
+115 114 117 119 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 N at LINE(882)
+116 114 117 107 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 H1 at LINE(882)
+116 114 117 118 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 C at LINE(882)
+116 114 117 119 9 0.0 0.5195720804 3
+; parameters for types N C7 C OB at LINE(951)
+107 117 119 120 9 0.0 0 0
+; parameters for types N C7 C N at LINE(833)
+107 117 119 121 9 180.0 1.503058068 1
+107 117 119 121 9 180.0 5.2774038832 2
+107 117 119 121 9 180.0 1.837070972 3
+; parameters for types CT C7 C OB at LINE(951)
+114 117 119 120 9 0.0 0 0
+; parameters for types CT C7 C N at LINE(716)
+114 117 119 121 9 0.0 0.668025808 1
+114 117 119 121 9 0.0 0.668025808 2
+114 117 119 121 9 0.0 1.336051616 3
+; parameters for types H1 C7 C OB at LINE(766)
+118 117 119 120 9 0.0 2.672103232 1
+118 117 119 120 9 180.0 0.2672103232 3
+; parameters for types H1 C7 C N at LINE(951)
+118 117 119 121 9 0.0 0 0
+; parameters for types C7 C N HB at LINE(918)
+117 119 121 122 9 180.0 8.3503226 2
+; parameters for types C7 C N CT at LINE(918)
+117 119 121 123 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+120 119 121 122 9 0.0 6.68025808 1
+120 119 121 122 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+120 119 121 123 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+119 121 123 124 9 0.0 0 0
+; parameters for types C N CT C8 at LINE(681)
+119 121 123 125 9 0.0 6.68025808 1
+119 121 123 125 9 0.0 6.68025808 2
+119 121 123 125 9 0.0 1.336051616 3
+; parameters for types C N CT C at LINE(709)
+119 121 123 130 9 180.0 0.1135675806 1
+119 121 123 130 9 0.0 1.1189432284 2
+119 121 123 130 9 0.0 1.817033391 3
+119 121 123 130 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+122 121 123 124 9 0.0 0 0
+; parameters for types HB N CT C8 at LINE(946)
+122 121 123 125 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+122 121 123 130 9 0.0 0 0
+; parameters for types N CT C8 H1 at LINE(927)
+121 123 125 126 9 0.0 0.5177200012 3
+; parameters for types N CT C8 H1 at LINE(927)
+121 123 125 127 9 0.0 0.5177200012 3
+; parameters for types N CT C8 OH at LINE(841)
+121 123 125 128 9 180.0 0.83503226 1
+; parameters for types H1 CT C8 H1 at LINE(927)
+124 123 125 126 9 0.0 0.5177200012 3
+; parameters for types H1 CT C8 H1 at LINE(927)
+124 123 125 127 9 0.0 0.5177200012 3
+; parameters for types H1 CT C8 OH at LINE(927)
+124 123 125 128 9 0.0 0.5177200012 3
+; parameters for types C CT C8 H1 at LINE(927)
+130 123 125 126 9 0.0 0.5177200012 3
+; parameters for types C CT C8 H1 at LINE(927)
+130 123 125 127 9 0.0 0.5177200012 3
+; parameters for types C CT C8 OH at LINE(685)
+130 123 125 128 9 180.0 3.006116136 1
+; parameters for types N CT C OB at LINE(942)
+121 123 130 131 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+121 123 130 132 9 360.0 0.6580070175 1
+121 123 130 132 9 180.0 4.8264864628 2
+121 123 130 132 9 180.0 1.5999250034 3
+121 123 130 132 9 360.0 0.0637929521 4
+121 123 130 132 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+124 123 130 131 9 0.0 2.672103232 1
+124 123 130 131 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+124 123 130 132 9 0.0 0 0
+; parameters for types C8 CT C OB at LINE(942)
+125 123 130 131 9 0.0 0 0
+; parameters for types C8 CT C N at LINE(678)
+125 123 130 132 9 0.0 0.668025808 1
+125 123 130 132 9 0.0 0.668025808 2
+125 123 130 132 9 0.0 1.336051616 3
+; parameters for types CT C8 OH HO at LINE(808)
+123 125 128 129 9 0.0 0.2004077424 2
+123 125 128 129 9 0.0 0.668025808 3
+123 125 128 129 9 0.0 2.50509678 1
+; parameters for types H1 C8 OH HO at LINE(885)
+126 125 128 129 9 0.0 0.5578031463 3
+; parameters for types H1 C8 OH HO at LINE(885)
+127 125 128 129 9 0.0 0.5578031463 3
+; parameters for types CT C N HB at LINE(918)
+123 130 132 133 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+123 130 132 134 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+131 130 132 133 9 0.0 6.68025808 1
+131 130 132 133 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+131 130 132 134 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+130 132 134 135 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+130 132 134 136 9 0.0 1.336051616 3
+130 132 134 136 9 0.0 6.68025808 1
+130 132 134 136 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+130 132 134 145 9 180.0 0.1135675806 1
+130 132 134 145 9 0.0 1.1189432284 2
+130 132 134 145 9 0.0 1.817033391 3
+130 132 134 145 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+133 132 134 135 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+133 132 134 136 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+133 132 134 145 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+132 134 136 137 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+132 134 136 138 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+132 134 136 139 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+135 134 136 137 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+135 134 136 138 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+135 134 136 139 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+145 134 136 137 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+145 134 136 138 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+145 134 136 139 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+132 134 145 146 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+132 134 145 147 9 360.0 0.6580070175 1
+132 134 145 147 9 180.0 4.8264864628 2
+132 134 145 147 9 180.0 1.5999250034 3
+132 134 145 147 9 360.0 0.0637929521 4
+132 134 145 147 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+135 134 145 146 9 0.0 2.672103232 1
+135 134 145 146 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+135 134 145 147 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+136 134 145 146 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+136 134 145 147 9 0.0 0.668025808 1
+136 134 145 147 9 0.0 0.668025808 2
+136 134 145 147 9 0.0 1.336051616 3
+; parameters for types CT CT C9 HC at LINE(928)
+134 136 139 140 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 HC at LINE(928)
+134 136 139 141 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 C at LINE(928)
+134 136 139 142 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+137 136 139 140 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+137 136 139 141 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+137 136 139 142 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+138 136 139 140 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+138 136 139 141 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+138 136 139 142 9 0.0 0.5177200012 3
+; parameters for types CT C9 C O2 at LINE(722)
+136 139 142 143 9 180.0 2.004077424 2
+; parameters for types CT C9 C O2 at LINE(722)
+136 139 142 144 9 180.0 2.004077424 2
+; parameters for types HC C9 C O2 at LINE(941)
+140 139 142 143 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+140 139 142 144 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+141 139 142 143 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+141 139 142 144 9 0.0 0 0
+; parameters for types CT C N HB at LINE(918)
+134 145 147 148 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+134 145 147 149 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+146 145 147 148 9 0.0 6.68025808 1
+146 145 147 148 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+146 145 147 149 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+145 147 149 150 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+145 147 149 151 9 0.0 1.336051616 3
+145 147 149 151 9 0.0 6.68025808 1
+145 147 149 151 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+145 147 149 160 9 180.0 0.1135675806 1
+145 147 149 160 9 0.0 1.1189432284 2
+145 147 149 160 9 0.0 1.817033391 3
+145 147 149 160 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+148 147 149 150 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+148 147 149 151 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+148 147 149 160 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+147 149 151 152 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+147 149 151 153 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+147 149 151 154 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+150 149 151 152 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+150 149 151 153 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+150 149 151 154 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+160 149 151 152 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+160 149 151 153 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+160 149 151 154 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+147 149 160 161 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+147 149 160 162 9 360.0 0.6580070175 1
+147 149 160 162 9 180.0 4.8264864628 2
+147 149 160 162 9 180.0 1.5999250034 3
+147 149 160 162 9 360.0 0.0637929521 4
+147 149 160 162 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+150 149 160 161 9 0.0 2.672103232 1
+150 149 160 161 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+150 149 160 162 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+151 149 160 161 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+151 149 160 162 9 0.0 0.668025808 1
+151 149 160 162 9 0.0 0.668025808 2
+151 149 160 162 9 0.0 1.336051616 3
+; parameters for types CT CT C9 HC at LINE(928)
+149 151 154 155 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 HC at LINE(928)
+149 151 154 156 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 C at LINE(928)
+149 151 154 157 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+152 151 154 155 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+152 151 154 156 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+152 151 154 157 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+153 151 154 155 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+153 151 154 156 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+153 151 154 157 9 0.0 0.5177200012 3
+; parameters for types CT C9 C O2 at LINE(722)
+151 154 157 158 9 180.0 2.004077424 2
+; parameters for types CT C9 C O2 at LINE(722)
+151 154 157 159 9 180.0 2.004077424 2
+; parameters for types HC C9 C O2 at LINE(941)
+155 154 157 158 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+155 154 157 159 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+156 154 157 158 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+156 154 157 159 9 0.0 0 0
+; parameters for types CT C N HB at LINE(918)
+149 160 162 163 9 180.0 8.3503226 2
+; parameters for types CT C N C1 at LINE(918)
+149 160 162 164 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+161 160 162 163 9 0.0 6.68025808 1
+161 160 162 163 9 180.0 8.3503226 2
+; parameters for types OB C N C1 at LINE(918)
+161 160 162 164 9 180.0 8.3503226 2
+; parameters for types C N C1 H1 at LINE(939)
+160 162 164 165 9 0.0 0 0
+; parameters for types C N C1 H1 at LINE(939)
+160 162 164 166 9 0.0 0 0
+; parameters for types C N C1 C at LINE(703)
+160 162 164 167 9 0.0 0.2815399877 1
+160 162 164 167 9 0.0 1.2736317571 2
+160 162 164 167 9 180.0 0.0669063611 3
+160 162 164 167 9 0.0 0.2586205076 4
+; parameters for types HB N C1 H1 at LINE(939)
+163 162 164 165 9 0.0 0 0
+; parameters for types HB N C1 H1 at LINE(939)
+163 162 164 166 9 0.0 0 0
+; parameters for types HB N C1 C at LINE(939)
+163 162 164 167 9 0.0 0 0
+; parameters for types N C1 C OB at LINE(940)
+162 164 167 168 9 0.0 0 0
+; parameters for types N C1 C N at LINE(823)
+162 164 167 169 9 180.0 2.1510063795 1
+162 164 167 169 9 180.0 5.3380275446 2
+162 164 167 169 9 180.0 1.3340638241 3
+162 164 167 169 9 0.0 0.2508210189 4
+; parameters for types H1 C1 C OB at LINE(764)
+165 164 167 168 9 0.0 2.672103232 1
+165 164 167 168 9 180.0 0.2672103232 3
+; parameters for types H1 C1 C N at LINE(940)
+165 164 167 169 9 0.0 0 0
+; parameters for types H1 C1 C OB at LINE(764)
+166 164 167 168 9 0.0 2.672103232 1
+166 164 167 168 9 180.0 0.2672103232 3
+; parameters for types H1 C1 C N at LINE(940)
+166 164 167 169 9 0.0 0 0
+; parameters for types C1 C N HB at LINE(918)
+164 167 169 170 9 180.0 8.3503226 2
+; parameters for types C1 C N CT at LINE(918)
+164 167 169 171 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+168 167 169 170 9 0.0 6.68025808 1
+168 167 169 170 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+168 167 169 171 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+167 169 171 172 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+167 169 171 173 9 0.0 1.336051616 3
+167 169 171 173 9 0.0 6.68025808 1
+167 169 171 173 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+167 169 171 188 9 180.0 0.1135675806 1
+167 169 171 188 9 0.0 1.1189432284 2
+167 169 171 188 9 0.0 1.817033391 3
+167 169 171 188 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+170 169 171 172 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+170 169 171 173 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+170 169 171 188 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+169 171 173 174 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+169 171 173 175 9 0.0 0.5195720804 3
+; parameters for types N CT CT CA at LINE(876)
+169 171 173 176 9 0.0 0 0
+; parameters for types H1 CT CT HC at LINE(929)
+172 171 173 174 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+172 171 173 175 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT CA at LINE(929)
+172 171 173 176 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+188 171 173 174 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+188 171 173 175 9 0.0 0.5195720804 3
+; parameters for types C CT CT CA at LINE(697)
+188 171 173 176 9 0.0 1.7368671008 1
+; parameters for types N CT C OB at LINE(942)
+169 171 188 189 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+169 171 188 190 9 360.0 0.6580070175 1
+169 171 188 190 9 180.0 4.8264864628 2
+169 171 188 190 9 180.0 1.5999250034 3
+169 171 188 190 9 360.0 0.0637929521 4
+169 171 188 190 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+172 171 188 189 9 0.0 2.672103232 1
+172 171 188 189 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+172 171 188 190 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+173 171 188 189 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+173 171 188 190 9 0.0 0.668025808 1
+173 171 188 190 9 0.0 0.668025808 2
+173 171 188 190 9 0.0 1.336051616 3
+; parameters for types CT CT CA CA at LINE(943)
+171 173 176 177 9 0.0 0 0
+; parameters for types CT CT CA CA at LINE(943)
+171 173 176 186 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+174 173 176 177 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+174 173 176 186 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+175 173 176 177 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+175 173 176 186 9 0.0 0 0
+; parameters for types CT CA CA HA at LINE(887)
+173 176 177 178 9 180.0 12.10796777 2
+; parameters for types CT CA CA CA at LINE(887)
+173 176 177 179 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+186 176 177 178 9 180.0 12.10796777 2
+; parameters for types CA CA CA CA at LINE(887)
+186 176 177 179 9 180.0 12.10796777 2
+; parameters for types CT CA CA CA at LINE(887)
+173 176 186 184 9 180.0 12.10796777 2
+; parameters for types CT CA CA HA at LINE(887)
+173 176 186 187 9 180.0 12.10796777 2
+; parameters for types CA CA CA CA at LINE(887)
+177 176 186 184 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+177 176 186 187 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+176 177 179 180 9 180.0 12.10796777 2
+; parameters for types CA CA CA C at LINE(887)
+176 177 179 181 9 180.0 12.10796777 2
+; parameters for types HA CA CA HA at LINE(887)
+178 177 179 180 9 180.0 12.10796777 2
+; parameters for types HA CA CA C at LINE(887)
+178 177 179 181 9 180.0 12.10796777 2
+; parameters for types CA CA C OH at LINE(900)
+177 179 181 182 9 180.0 12.10796777 2
+; parameters for types CA CA C CA at LINE(900)
+177 179 181 184 9 180.0 12.10796777 2
+; parameters for types HA CA C OH at LINE(900)
+180 179 181 182 9 180.0 12.10796777 2
+; parameters for types HA CA C CA at LINE(900)
+180 179 181 184 9 180.0 12.10796777 2
+; parameters for types CA C OH HO at LINE(920)
+179 181 182 183 9 180.0 7.682296792 2
+; parameters for types CA C OH HO at LINE(920)
+184 181 182 183 9 180.0 7.682296792 2
+; parameters for types CA C CA HA at LINE(900)
+179 181 184 185 9 180.0 12.10796777 2
+; parameters for types CA C CA CA at LINE(900)
+179 181 184 186 9 180.0 12.10796777 2
+; parameters for types OH C CA HA at LINE(900)
+182 181 184 185 9 180.0 12.10796777 2
+; parameters for types OH C CA CA at LINE(900)
+182 181 184 186 9 180.0 12.10796777 2
+; parameters for types C CA CA CA at LINE(887)
+181 184 186 176 9 180.0 12.10796777 2
+; parameters for types C CA CA HA at LINE(887)
+181 184 186 187 9 180.0 12.10796777 2
+; parameters for types HA CA CA CA at LINE(887)
+185 184 186 176 9 180.0 12.10796777 2
+; parameters for types HA CA CA HA at LINE(887)
+185 184 186 187 9 180.0 12.10796777 2
+; parameters for types CT C N HB at LINE(918)
+171 188 190 191 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+171 188 190 192 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+189 188 190 191 9 0.0 6.68025808 1
+189 188 190 191 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+189 188 190 192 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+188 190 192 193 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+188 190 192 194 9 0.0 1.336051616 3
+188 190 192 194 9 0.0 6.68025808 1
+188 190 192 194 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+188 190 192 205 9 180.0 0.1135675806 1
+188 190 192 205 9 0.0 1.1189432284 2
+188 190 192 205 9 0.0 1.817033391 3
+188 190 192 205 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+191 190 192 193 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+191 190 192 194 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+191 190 192 205 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+190 192 194 195 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+190 192 194 196 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+190 192 194 197 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+193 192 194 195 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+193 192 194 196 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+193 192 194 197 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+205 192 194 195 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+205 192 194 196 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+205 192 194 197 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+190 192 205 206 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+190 192 205 207 9 360.0 0.6580070175 1
+190 192 205 207 9 180.0 4.8264864628 2
+190 192 205 207 9 180.0 1.5999250034 3
+190 192 205 207 9 360.0 0.0637929521 4
+190 192 205 207 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+193 192 205 206 9 0.0 2.672103232 1
+193 192 205 206 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+193 192 205 207 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+194 192 205 206 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+194 192 205 207 9 0.0 0.668025808 1
+194 192 205 207 9 0.0 0.668025808 2
+194 192 205 207 9 0.0 1.336051616 3
+; parameters for types CT CT C9 HC at LINE(928)
+192 194 197 198 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 HC at LINE(928)
+192 194 197 199 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 C at LINE(928)
+192 194 197 200 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+195 194 197 198 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+195 194 197 199 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+195 194 197 200 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+196 194 197 198 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+196 194 197 199 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+196 194 197 200 9 0.0 0.5177200012 3
+; parameters for types CT C9 C O at LINE(723)
+194 197 200 201 9 180.0 2.004077424 2
+; parameters for types CT C9 C N at LINE(941)
+194 197 200 202 9 0.0 0 0
+; parameters for types HC C9 C O at LINE(941)
+198 197 200 201 9 0.0 0 0
+; parameters for types HC C9 C N at LINE(941)
+198 197 200 202 9 0.0 0 0
+; parameters for types HC C9 C O at LINE(941)
+199 197 200 201 9 0.0 0 0
+; parameters for types HC C9 C N at LINE(941)
+199 197 200 202 9 0.0 0 0
+; parameters for types C9 C N H at LINE(918)
+197 200 202 203 9 180.0 8.3503226 2
+; parameters for types C9 C N H at LINE(918)
+197 200 202 204 9 180.0 8.3503226 2
+; parameters for types O C N H at LINE(800)
+201 200 202 203 9 0.0 6.68025808 1
+201 200 202 203 9 180.0 8.3503226 2
+; parameters for types O C N H at LINE(800)
+201 200 202 204 9 0.0 6.68025808 1
+201 200 202 204 9 180.0 8.3503226 2
+; parameters for types CT C N HB at LINE(918)
+192 205 207 208 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+192 205 207 209 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+206 205 207 208 9 0.0 6.68025808 1
+206 205 207 208 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+206 205 207 209 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+205 207 209 210 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+205 207 209 211 9 0.0 1.336051616 3
+205 207 209 211 9 0.0 6.68025808 1
+205 207 209 211 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+205 207 209 217 9 180.0 0.1135675806 1
+205 207 209 217 9 0.0 1.1189432284 2
+205 207 209 217 9 0.0 1.817033391 3
+205 207 209 217 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+208 207 209 210 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+208 207 209 211 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+208 207 209 217 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+207 209 211 212 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+207 209 211 213 9 0.0 0.5195720804 3
+; parameters for types N CT CT C6 at LINE(850)
+207 209 211 214 9 180.0 9.622908571 1
+207 209 211 214 9 180.0 4.0448930742 2
+207 209 211 214 9 0.0 0.2070895971 3
+207 209 211 214 9 0.0 0.8183316148 4
+207 209 211 214 9 0.0 0.437553711 5
+207 209 211 214 9 180.0 0.4742999203 6
+; parameters for types H1 CT CT HC at LINE(929)
+210 209 211 212 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+210 209 211 213 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C6 at LINE(929)
+210 209 211 214 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+217 209 211 212 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+217 209 211 213 9 0.0 0.5195720804 3
+; parameters for types C CT CT C6 at LINE(929)
+217 209 211 214 9 0.0 0.5195720804 3
+; parameters for types N CT C OB at LINE(942)
+207 209 217 218 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+207 209 217 219 9 360.0 0.6580070175 1
+207 209 217 219 9 180.0 4.8264864628 2
+207 209 217 219 9 180.0 1.5999250034 3
+207 209 217 219 9 360.0 0.0637929521 4
+207 209 217 219 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+210 209 217 218 9 0.0 2.672103232 1
+210 209 217 218 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+210 209 217 219 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+211 209 217 218 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+211 209 217 219 9 0.0 0.668025808 1
+211 209 217 219 9 0.0 0.668025808 2
+211 209 217 219 9 0.0 1.336051616 3
+; parameters for types CT CT C6 O2 at LINE(729)
+209 211 214 215 9 180.0 0.6212608082 4
+209 211 214 215 9 180.0 1.1824088734 6
+209 211 214 215 9 180.0 2.9159310553 2
+; parameters for types CT CT C6 O2 at LINE(729)
+209 211 214 216 9 180.0 0.6212608082 4
+209 211 214 216 9 180.0 1.1824088734 6
+209 211 214 216 9 180.0 2.9159310553 2
+; parameters for types HC CT C6 O2 at LINE(953)
+212 211 214 215 9 0.0 0 0
+; parameters for types HC CT C6 O2 at LINE(953)
+212 211 214 216 9 0.0 0 0
+; parameters for types HC CT C6 O2 at LINE(953)
+213 211 214 215 9 0.0 0 0
+; parameters for types HC CT C6 O2 at LINE(953)
+213 211 214 216 9 0.0 0 0
+; parameters for types CT C N HB at LINE(918)
+209 217 219 220 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+209 217 219 221 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+218 217 219 220 9 0.0 6.68025808 1
+218 217 219 220 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+218 217 219 221 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+217 219 221 222 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+217 219 221 223 9 0.0 1.336051616 3
+217 219 221 223 9 0.0 6.68025808 1
+217 219 221 223 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+217 219 221 238 9 180.0 0.1135675806 1
+217 219 221 238 9 0.0 1.1189432284 2
+217 219 221 238 9 0.0 1.817033391 3
+217 219 221 238 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+220 219 221 222 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+220 219 221 223 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+220 219 221 238 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+219 221 223 224 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+219 221 223 225 9 0.0 0.5195720804 3
+; parameters for types N CT CT CA at LINE(876)
+219 221 223 226 9 0.0 0 0
+; parameters for types H1 CT CT HC at LINE(929)
+222 221 223 224 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+222 221 223 225 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT CA at LINE(929)
+222 221 223 226 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+238 221 223 224 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+238 221 223 225 9 0.0 0.5195720804 3
+; parameters for types C CT CT CA at LINE(697)
+238 221 223 226 9 0.0 1.7368671008 1
+; parameters for types N CT C OB at LINE(942)
+219 221 238 239 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+219 221 238 240 9 360.0 0.6580070175 1
+219 221 238 240 9 180.0 4.8264864628 2
+219 221 238 240 9 180.0 1.5999250034 3
+219 221 238 240 9 360.0 0.0637929521 4
+219 221 238 240 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+222 221 238 239 9 0.0 2.672103232 1
+222 221 238 239 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+222 221 238 240 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+223 221 238 239 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+223 221 238 240 9 0.0 0.668025808 1
+223 221 238 240 9 0.0 0.668025808 2
+223 221 238 240 9 0.0 1.336051616 3
+; parameters for types CT CT CA CA at LINE(943)
+221 223 226 227 9 0.0 0 0
+; parameters for types CT CT CA CA at LINE(943)
+221 223 226 236 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+224 223 226 227 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+224 223 226 236 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+225 223 226 227 9 0.0 0 0
+; parameters for types HC CT CA CA at LINE(943)
+225 223 226 236 9 0.0 0 0
+; parameters for types CT CA CA HA at LINE(887)
+223 226 227 228 9 180.0 12.10796777 2
+; parameters for types CT CA CA CA at LINE(887)
+223 226 227 229 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+236 226 227 228 9 180.0 12.10796777 2
+; parameters for types CA CA CA CA at LINE(887)
+236 226 227 229 9 180.0 12.10796777 2
+; parameters for types CT CA CA CA at LINE(887)
+223 226 236 234 9 180.0 12.10796777 2
+; parameters for types CT CA CA HA at LINE(887)
+223 226 236 237 9 180.0 12.10796777 2
+; parameters for types CA CA CA CA at LINE(887)
+227 226 236 234 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+227 226 236 237 9 180.0 12.10796777 2
+; parameters for types CA CA CA HA at LINE(887)
+226 227 229 230 9 180.0 12.10796777 2
+; parameters for types CA CA CA C at LINE(887)
+226 227 229 231 9 180.0 12.10796777 2
+; parameters for types HA CA CA HA at LINE(887)
+228 227 229 230 9 180.0 12.10796777 2
+; parameters for types HA CA CA C at LINE(887)
+228 227 229 231 9 180.0 12.10796777 2
+; parameters for types CA CA C OH at LINE(900)
+227 229 231 232 9 180.0 12.10796777 2
+; parameters for types CA CA C CA at LINE(900)
+227 229 231 234 9 180.0 12.10796777 2
+; parameters for types HA CA C OH at LINE(900)
+230 229 231 232 9 180.0 12.10796777 2
+; parameters for types HA CA C CA at LINE(900)
+230 229 231 234 9 180.0 12.10796777 2
+; parameters for types CA C OH HO at LINE(920)
+229 231 232 233 9 180.0 7.682296792 2
+; parameters for types CA C OH HO at LINE(920)
+234 231 232 233 9 180.0 7.682296792 2
+; parameters for types CA C CA HA at LINE(900)
+229 231 234 235 9 180.0 12.10796777 2
+; parameters for types CA C CA CA at LINE(900)
+229 231 234 236 9 180.0 12.10796777 2
+; parameters for types OH C CA HA at LINE(900)
+232 231 234 235 9 180.0 12.10796777 2
+; parameters for types OH C CA CA at LINE(900)
+232 231 234 236 9 180.0 12.10796777 2
+; parameters for types C CA CA CA at LINE(887)
+231 234 236 226 9 180.0 12.10796777 2
+; parameters for types C CA CA HA at LINE(887)
+231 234 236 237 9 180.0 12.10796777 2
+; parameters for types HA CA CA CA at LINE(887)
+235 234 236 226 9 180.0 12.10796777 2
+; parameters for types HA CA CA HA at LINE(887)
+235 234 236 237 9 180.0 12.10796777 2
+; parameters for types CT C N HB at LINE(918)
+221 238 240 241 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+221 238 240 242 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+239 238 240 241 9 0.0 6.68025808 1
+239 238 240 241 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+239 238 240 242 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+238 240 242 243 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+238 240 242 244 9 0.0 1.336051616 3
+238 240 242 244 9 0.0 6.68025808 1
+238 240 242 244 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+238 240 242 253 9 180.0 0.1135675806 1
+238 240 242 253 9 0.0 1.1189432284 2
+238 240 242 253 9 0.0 1.817033391 3
+238 240 242 253 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+241 240 242 243 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+241 240 242 244 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+241 240 242 253 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+240 242 244 245 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+240 242 244 246 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+240 242 244 247 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+243 242 244 245 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+243 242 244 246 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+243 242 244 247 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+253 242 244 245 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+253 242 244 246 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+253 242 244 247 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+240 242 253 254 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+240 242 253 255 9 360.0 0.6580070175 1
+240 242 253 255 9 180.0 4.8264864628 2
+240 242 253 255 9 180.0 1.5999250034 3
+240 242 253 255 9 360.0 0.0637929521 4
+240 242 253 255 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+243 242 253 254 9 0.0 2.672103232 1
+243 242 253 254 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+243 242 253 255 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+244 242 253 254 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+244 242 253 255 9 0.0 0.668025808 1
+244 242 253 255 9 0.0 0.668025808 2
+244 242 253 255 9 0.0 1.336051616 3
+; parameters for types CT CT C9 HC at LINE(928)
+242 244 247 248 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 HC at LINE(928)
+242 244 247 249 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 C at LINE(928)
+242 244 247 250 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+245 244 247 248 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+245 244 247 249 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+245 244 247 250 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+246 244 247 248 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+246 244 247 249 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+246 244 247 250 9 0.0 0.5177200012 3
+; parameters for types CT C9 C O2 at LINE(722)
+244 247 250 251 9 180.0 2.004077424 2
+; parameters for types CT C9 C O2 at LINE(722)
+244 247 250 252 9 180.0 2.004077424 2
+; parameters for types HC C9 C O2 at LINE(941)
+248 247 250 251 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+248 247 250 252 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+249 247 250 251 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+249 247 250 252 9 0.0 0 0
+; parameters for types CT C N CT at LINE(918)
+242 253 255 256 9 180.0 8.3503226 2
+; parameters for types CT C N C7 at LINE(918)
+242 253 255 265 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+254 253 255 256 9 180.0 8.3503226 2
+; parameters for types OB C N C7 at LINE(918)
+254 253 255 265 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+253 255 256 257 9 0.0 0 0
+; parameters for types C N CT H1 at LINE(946)
+253 255 256 258 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+253 255 256 259 9 0.0 1.336051616 3
+253 255 256 259 9 0.0 6.68025808 1
+253 255 256 259 9 0.0 6.68025808 2
+; parameters for types C7 N CT H1 at LINE(946)
+265 255 256 257 9 0.0 0 0
+; parameters for types C7 N CT H1 at LINE(946)
+265 255 256 258 9 0.0 0 0
+; parameters for types C7 N CT CT at LINE(946)
+265 255 256 259 9 0.0 0 0
+; parameters for types C N C7 CT at LINE(719)
+253 255 265 262 9 0.0 6.68025808 1
+253 255 265 262 9 0.0 6.68025808 2
+253 255 265 262 9 0.0 1.336051616 3
+; parameters for types C N C7 H1 at LINE(950)
+253 255 265 266 9 0.0 0 0
+; parameters for types C N C7 C at LINE(707)
+253 255 265 267 9 0.0 0.9018348408 2
+253 255 265 267 9 0.0 1.4028541968 3
+; parameters for types CT N C7 CT at LINE(950)
+256 255 265 262 9 0.0 0 0
+; parameters for types CT N C7 H1 at LINE(950)
+256 255 265 266 9 0.0 0 0
+; parameters for types CT N C7 C at LINE(950)
+256 255 265 267 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+255 256 259 260 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+255 256 259 261 9 0.0 0.5195720804 3
+; parameters for types N CT CT CT at LINE(929)
+255 256 259 262 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+257 256 259 260 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+257 256 259 261 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT CT at LINE(929)
+257 256 259 262 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+258 256 259 260 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+258 256 259 261 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT CT at LINE(929)
+258 256 259 262 9 0.0 0.5195720804 3
+; parameters for types CT CT CT HC at LINE(793)
+256 259 262 263 9 0.0 0.5344206464 3
+; parameters for types CT CT CT HC at LINE(793)
+256 259 262 264 9 0.0 0.5344206464 3
+; parameters for types CT CT CT C7 at LINE(737)
+256 259 262 265 9 0.0 0.6012232272 3
+256 259 262 265 9 180.0 0.668025808 1
+256 259 262 265 9 180.0 0.83503226 2
+; parameters for types HC CT CT HC at LINE(795)
+260 259 262 263 9 0.0 0.501019356 3
+; parameters for types HC CT CT HC at LINE(795)
+260 259 262 264 9 0.0 0.501019356 3
+; parameters for types HC CT CT C7 at LINE(791)
+260 259 262 265 9 0.0 0.5344206464 3
+; parameters for types HC CT CT HC at LINE(795)
+261 259 262 263 9 0.0 0.501019356 3
+; parameters for types HC CT CT HC at LINE(795)
+261 259 262 264 9 0.0 0.501019356 3
+; parameters for types HC CT CT C7 at LINE(791)
+261 259 262 265 9 0.0 0.5344206464 3
+; parameters for types CT CT C7 N at LINE(882)
+259 262 265 255 9 0.0 0.5195720804 3
+; parameters for types CT CT C7 H1 at LINE(882)
+259 262 265 266 9 0.0 0.5195720804 3
+; parameters for types CT CT C7 C at LINE(882)
+259 262 265 267 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 N at LINE(882)
+263 262 265 255 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 H1 at LINE(882)
+263 262 265 266 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 C at LINE(882)
+263 262 265 267 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 N at LINE(882)
+264 262 265 255 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 H1 at LINE(882)
+264 262 265 266 9 0.0 0.5195720804 3
+; parameters for types HC CT C7 C at LINE(882)
+264 262 265 267 9 0.0 0.5195720804 3
+; parameters for types N C7 C OB at LINE(951)
+255 265 267 268 9 0.0 0 0
+; parameters for types N C7 C N at LINE(833)
+255 265 267 269 9 180.0 1.503058068 1
+255 265 267 269 9 180.0 5.2774038832 2
+255 265 267 269 9 180.0 1.837070972 3
+; parameters for types CT C7 C OB at LINE(951)
+262 265 267 268 9 0.0 0 0
+; parameters for types CT C7 C N at LINE(716)
+262 265 267 269 9 0.0 0.668025808 1
+262 265 267 269 9 0.0 0.668025808 2
+262 265 267 269 9 0.0 1.336051616 3
+; parameters for types H1 C7 C OB at LINE(766)
+266 265 267 268 9 0.0 2.672103232 1
+266 265 267 268 9 180.0 0.2672103232 3
+; parameters for types H1 C7 C N at LINE(951)
+266 265 267 269 9 0.0 0 0
+; parameters for types C7 C N HB at LINE(918)
+265 267 269 270 9 180.0 8.3503226 2
+; parameters for types C7 C N CT at LINE(918)
+265 267 269 271 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+268 267 269 270 9 0.0 6.68025808 1
+268 267 269 270 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+268 267 269 271 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+267 269 271 272 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+267 269 271 273 9 0.0 1.336051616 3
+267 269 271 273 9 0.0 6.68025808 1
+267 269 271 273 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+267 269 271 282 9 180.0 0.1135675806 1
+267 269 271 282 9 0.0 1.1189432284 2
+267 269 271 282 9 0.0 1.817033391 3
+267 269 271 282 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+270 269 271 272 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+270 269 271 273 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+270 269 271 282 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+269 271 273 274 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+269 271 273 275 9 0.0 0.5195720804 3
+; parameters for types N CT CT C9 at LINE(856)
+269 271 273 276 9 0.0 0.334012904 1
+; parameters for types H1 CT CT HC at LINE(929)
+272 271 273 274 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+272 271 273 275 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT C9 at LINE(929)
+272 271 273 276 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+282 271 273 274 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+282 271 273 275 9 0.0 0.5195720804 3
+; parameters for types C CT CT C9 at LINE(696)
+282 271 273 276 9 0.0 1.002038712 1
+; parameters for types N CT C OB at LINE(942)
+269 271 282 283 9 0.0 0 0
+; parameters for types N CT C N at LINE(842)
+269 271 282 284 9 360.0 0.6580070175 1
+269 271 282 284 9 180.0 4.8264864628 2
+269 271 282 284 9 180.0 1.5999250034 3
+269 271 282 284 9 360.0 0.0637929521 4
+269 271 282 284 9 360.0 0.0133637094 5
+; parameters for types H1 CT C OB at LINE(768)
+272 271 282 283 9 0.0 2.672103232 1
+272 271 282 283 9 180.0 0.2672103232 3
+; parameters for types H1 CT C N at LINE(942)
+272 271 282 284 9 0.0 0 0
+; parameters for types CT CT C OB at LINE(942)
+273 271 282 283 9 0.0 0 0
+; parameters for types CT CT C N at LINE(733)
+273 271 282 284 9 0.0 0.668025808 1
+273 271 282 284 9 0.0 0.668025808 2
+273 271 282 284 9 0.0 1.336051616 3
+; parameters for types CT CT C9 HC at LINE(928)
+271 273 276 277 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 HC at LINE(928)
+271 273 276 278 9 0.0 0.5177200012 3
+; parameters for types CT CT C9 C at LINE(928)
+271 273 276 279 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+274 273 276 277 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+274 273 276 278 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+274 273 276 279 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+275 273 276 277 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 HC at LINE(928)
+275 273 276 278 9 0.0 0.5177200012 3
+; parameters for types HC CT C9 C at LINE(928)
+275 273 276 279 9 0.0 0.5177200012 3
+; parameters for types CT C9 C O2 at LINE(722)
+273 276 279 280 9 180.0 2.004077424 2
+; parameters for types CT C9 C O2 at LINE(722)
+273 276 279 281 9 180.0 2.004077424 2
+; parameters for types HC C9 C O2 at LINE(941)
+277 276 279 280 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+277 276 279 281 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+278 276 279 280 9 0.0 0 0
+; parameters for types HC C9 C O2 at LINE(941)
+278 276 279 281 9 0.0 0 0
+; parameters for types CT C N HB at LINE(918)
+271 282 284 285 9 180.0 8.3503226 2
+; parameters for types CT C N CT at LINE(918)
+271 282 284 286 9 180.0 8.3503226 2
+; parameters for types OB C N HB at LINE(802)
+283 282 284 285 9 0.0 6.68025808 1
+283 282 284 285 9 180.0 8.3503226 2
+; parameters for types OB C N CT at LINE(918)
+283 282 284 286 9 180.0 8.3503226 2
+; parameters for types C N CT H1 at LINE(946)
+282 284 286 287 9 0.0 0 0
+; parameters for types C N CT CT at LINE(741)
+282 284 286 288 9 0.0 1.336051616 3
+282 284 286 288 9 0.0 6.68025808 1
+282 284 286 288 9 0.0 6.68025808 2
+; parameters for types C N CT C at LINE(709)
+282 284 286 292 9 180.0 0.1135675806 1
+282 284 286 292 9 0.0 1.1189432284 2
+282 284 286 292 9 0.0 1.817033391 3
+282 284 286 292 9 0.0 0.2672103232 4
+; parameters for types HB N CT H1 at LINE(946)
+285 284 286 287 9 0.0 0 0
+; parameters for types HB N CT CT at LINE(946)
+285 284 286 288 9 0.0 0 0
+; parameters for types HB N CT C at LINE(946)
+285 284 286 292 9 0.0 0 0
+; parameters for types N CT CT HC at LINE(929)
+284 286 288 289 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+284 286 288 290 9 0.0 0.5195720804 3
+; parameters for types N CT CT HC at LINE(929)
+284 286 288 291 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+287 286 288 289 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+287 286 288 290 9 0.0 0.5195720804 3
+; parameters for types H1 CT CT HC at LINE(929)
+287 286 288 291 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+292 286 288 289 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+292 286 288 290 9 0.0 0.5195720804 3
+; parameters for types C CT CT HC at LINE(929)
+292 286 288 291 9 0.0 0.5195720804 3
+; parameters for types N CT C O2 at LINE(942)
+284 286 292 293 9 0.0 0 0
+; parameters for types N CT C O2 at LINE(942)
+284 286 292 294 9 0.0 0 0
+; parameters for types H1 CT C O2 at LINE(942)
+287 286 292 293 9 0.0 0 0
+; parameters for types H1 CT C O2 at LINE(942)
+287 286 292 294 9 0.0 0 0
+; parameters for types CT CT C O2 at LINE(942)
+288 286 292 293 9 0.0 0 0
+; parameters for types CT CT C O2 at LINE(942)
+288 286 292 294 9 0.0 0 0
+
+[ dihedrals ] 
+;  ai    aj    ak    al funct            c0            c1            c2            c3
+; parameters for types CT N C OB at LINE(660)
+5 15 13 14 4 180.0 35.07135492 2
+; parameters for types CT O2 C6 O2 at LINE(655)
+7 11 10 12 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+13 17 15 16 4 180.0 3.674141944 2
+13 15 17 27 4 90.0 1.336051616 2 
+15 17 27 29 4 90.0 0.190396935 3 
+15 17 27 29 4 90.0 0.083503226 4 
+15 17 27 29 4 90.0 -0.03672226 5 
+15 17 27 29 4 160.888 2.171083876 1 
+15 17 27 29 4 90.0 -0.851716939 1 
+15 17 27 29 4 90.0 0.250509678 2 
+; parameters for types CT N C OB at LINE(660)
+17 29 27 28 4 180.0 35.07135492 2
+; parameters for types CT N C5 O at LINE(674)
+19 24 22 23 4 180.0 35.07135492 2
+; parameters for types C5 H N H at LINE(661)
+22 25 24 26 4 180.0 3.34012904 2
+; parameters for types C CT N HB at LINE(642)
+27 31 29 30 4 180.0 3.674141944 2
+27 29 31 42 4 90.0 1.336051616 2 
+29 31 42 44 4 160.888 2.171083876 1 
+29 31 42 44 4 90.0 -0.851716939 1 
+29 31 42 44 4 90.0 0.250509678 2 
+29 31 42 44 4 90.0 0.190396935 3 
+29 31 42 44 4 90.0 0.083503226 4 
+29 31 42 44 4 90.0 -0.03672226 5 
+; parameters for types CT N C OB at LINE(660)
+31 44 42 43 4 180.0 35.07135492 2
+; parameters for types C9 O2 C O2 at LINE(656)
+36 40 39 41 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+42 46 44 45 4 180.0 3.674141944 2
+42 44 46 52 4 90.0 1.336051616 2 
+44 46 52 54 4 90.0 0.250509678 2 
+44 46 52 54 4 90.0 0.083503226 4 
+44 46 52 54 4 90.0 -0.03672226 5 
+44 46 52 54 4 90.0 0.190396935 3 
+44 46 52 54 4 160.888 2.171083876 1 
+44 46 52 54 4 90.0 -0.851716939 1 
+; parameters for types CT N C OB at LINE(660)
+46 54 52 53 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+52 56 54 55 4 180.0 3.674141944 2
+52 54 56 73 4 90.0 1.336051616 2 
+54 56 73 75 4 90.0 -0.851716939 1 
+54 56 73 75 4 90.0 0.250509678 2 
+54 56 73 75 4 90.0 0.190396935 3 
+54 56 73 75 4 90.0 0.083503226 4 
+54 56 73 75 4 90.0 -0.03672226 5 
+54 56 73 75 4 160.888 2.171083876 1 
+; parameters for types CT N C OB at LINE(660)
+56 75 73 74 4 180.0 35.07135492 2
+; parameters for types CT CA CA CA at LINE(629)
+58 61 71 62 4 180.0 3.674141944 2
+; parameters for types CA CA CA HA at LINE(664)
+61 64 62 63 4 180.0 3.674141944 2
+; parameters for types CA CA CA HA at LINE(664)
+61 69 71 72 4 180.0 3.674141944 2
+; parameters for types CA C CA HA at LINE(664)
+62 66 64 65 4 180.0 3.674141944 2
+; parameters for types CA CA C OH at LINE(634)
+64 69 66 67 4 180.0 3.674141944 2
+; parameters for types C CA CA HA at LINE(664)
+66 71 69 70 4 180.0 3.674141944 2
+; parameters for types C CT N HB at LINE(642)
+73 77 75 76 4 180.0 3.674141944 2
+73 75 77 88 4 90.0 1.336051616 2 
+75 77 88 90 4 160.888 2.171083876 1 
+75 77 88 90 4 90.0 -0.851716939 1 
+75 77 88 90 4 90.0 0.250509678 2 
+75 77 88 90 4 90.0 0.083503226 4 
+75 77 88 90 4 90.0 -0.03672226 5 
+75 77 88 90 4 90.0 0.190396935 3 
+; parameters for types CT N C OB at LINE(660)
+77 90 88 89 4 180.0 35.07135492 2
+; parameters for types C9 O2 C O2 at LINE(656)
+82 86 85 87 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+88 92 90 91 4 180.0 3.674141944 2
+88 90 92 105 4 90.0 1.336051616 2 
+90 92 105 107 4 90.0 -0.851716939 1 
+90 92 105 107 4 90.0 0.250509678 2 
+90 92 105 107 4 90.0 0.190396935 3 
+90 92 105 107 4 90.0 0.083503226 4 
+90 92 105 107 4 90.0 -0.03672226 5 
+90 92 105 107 4 160.888 2.171083876 1 
+; parameters for types CT N C OB at LINE(660)
+92 107 105 106 4 180.0 35.07135492 2
+; parameters for types C CT N C7 at LINE(654)
+105 108 107 117 4 180.0 3.34012904 2
+; parameters for types C7 N C OB at LINE(660)
+117 121 119 120 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+119 123 121 122 4 180.0 3.674141944 2
+119 121 123 130 4 90.0 1.336051616 2 
+121 123 130 132 4 90.0 0.083503226 4 
+121 123 130 132 4 90.0 -0.03672226 5 
+121 123 130 132 4 90.0 0.190396935 3 
+121 123 130 132 4 160.888 2.171083876 1 
+121 123 130 132 4 90.0 -0.851716939 1 
+121 123 130 132 4 90.0 0.250509678 2 
+; parameters for types CT N C OB at LINE(660)
+123 132 130 131 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+130 134 132 133 4 180.0 3.674141944 2
+130 132 134 145 4 90.0 1.336051616 2 
+132 134 145 147 4 90.0 -0.851716939 1 
+132 134 145 147 4 90.0 0.250509678 2 
+132 134 145 147 4 90.0 0.190396935 3 
+132 134 145 147 4 90.0 0.083503226 4 
+132 134 145 147 4 90.0 -0.03672226 5 
+132 134 145 147 4 160.888 2.171083876 1 
+; parameters for types CT N C OB at LINE(660)
+134 147 145 146 4 180.0 35.07135492 2
+; parameters for types C9 O2 C O2 at LINE(656)
+139 143 142 144 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+145 149 147 148 4 180.0 3.674141944 2
+145 147 149 160 4 90.0 1.336051616 2 
+147 149 160 162 4 90.0 -0.851716939 1 
+147 149 160 162 4 90.0 0.250509678 2 
+147 149 160 162 4 90.0 0.190396935 3 
+147 149 160 162 4 90.0 0.083503226 4 
+147 149 160 162 4 90.0 -0.03672226 5 
+147 149 160 162 4 160.888 2.171083876 1 
+; parameters for types CT N C OB at LINE(660)
+149 162 160 161 4 180.0 35.07135492 2
+; parameters for types C9 O2 C O2 at LINE(656)
+154 158 157 159 4 180.0 35.07135492 2
+; parameters for types C C1 N HB at LINE(619)
+160 164 162 163 4 180.0 3.674141944 2
+; parameters for types C1 N C OB at LINE(660)
+164 169 167 168 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+167 171 169 170 4 180.0 3.674141944 2
+167 169 171 188 4 90.0 1.336051616 2 
+169 171 188 190 4 160.888 2.171083876 1 
+169 171 188 190 4 90.0 -0.851716939 1 
+169 171 188 190 4 90.0 0.250509678 2 
+169 171 188 190 4 90.0 0.190396935 3 
+169 171 188 190 4 90.0 0.083503226 4 
+169 171 188 190 4 90.0 -0.03672226 5 
+; parameters for types CT N C OB at LINE(660)
+171 190 188 189 4 180.0 35.07135492 2
+; parameters for types CT CA CA CA at LINE(629)
+173 176 186 177 4 180.0 3.674141944 2
+; parameters for types CA CA CA HA at LINE(664)
+176 179 177 178 4 180.0 3.674141944 2
+; parameters for types CA CA CA HA at LINE(664)
+176 184 186 187 4 180.0 3.674141944 2
+; parameters for types CA C CA HA at LINE(664)
+177 181 179 180 4 180.0 3.674141944 2
+; parameters for types CA CA C OH at LINE(634)
+179 184 181 182 4 180.0 3.674141944 2
+; parameters for types C CA CA HA at LINE(664)
+181 186 184 185 4 180.0 3.674141944 2
+; parameters for types C CT N HB at LINE(642)
+188 192 190 191 4 180.0 3.674141944 2
+188 190 192 205 4 90.0 1.336051616 2 
+190 192 205 207 4 90.0 -0.851716939 1 
+190 192 205 207 4 160.888 2.171083876 1 
+190 192 205 207 4 90.0 0.250509678 2 
+190 192 205 207 4 90.0 0.190396935 3 
+190 192 205 207 4 90.0 0.083503226 4 
+190 192 205 207 4 90.0 -0.03672226 5 
+; parameters for types CT N C OB at LINE(660)
+192 207 205 206 4 180.0 35.07135492 2
+; parameters for types C9 N C O at LINE(659)
+197 202 200 201 4 180.0 35.07135492 2
+; parameters for types C H N H at LINE(661)
+200 203 202 204 4 180.0 3.34012904 2
+; parameters for types C CT N HB at LINE(642)
+205 209 207 208 4 180.0 3.674141944 2
+205 207 209 217 4 90.0 1.336051616 2 
+207 209 217 219 4 160.888 2.171083876 1 
+207 209 217 219 4 90.0 0.190396935 3 
+207 209 217 219 4 90.0 0.083503226 4 
+207 209 217 219 4 90.0 -0.03672226 5 
+207 209 217 219 4 90.0 0.250509678 2 
+207 209 217 219 4 90.0 -0.851716939 1 
+; parameters for types CT N C OB at LINE(660)
+209 219 217 218 4 180.0 35.07135492 2
+; parameters for types CT O2 C6 O2 at LINE(655)
+211 215 214 216 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+217 221 219 220 4 180.0 3.674141944 2
+217 219 221 238 4 90.0 1.336051616 2 
+219 221 238 240 4 90.0 0.250509678 2 
+219 221 238 240 4 160.888 2.171083876 1 
+219 221 238 240 4 90.0 -0.851716939 1 
+219 221 238 240 4 90.0 0.190396935 3 
+219 221 238 240 4 90.0 0.083503226 4 
+219 221 238 240 4 90.0 -0.03672226 5 
+; parameters for types CT N C OB at LINE(660)
+221 240 238 239 4 180.0 35.07135492 2
+; parameters for types CT CA CA CA at LINE(629)
+223 226 236 227 4 180.0 3.674141944 2
+; parameters for types CA CA CA HA at LINE(664)
+226 229 227 228 4 180.0 3.674141944 2
+; parameters for types CA CA CA HA at LINE(664)
+226 234 236 237 4 180.0 3.674141944 2
+; parameters for types CA C CA HA at LINE(664)
+227 231 229 230 4 180.0 3.674141944 2
+; parameters for types CA CA C OH at LINE(634)
+229 234 231 232 4 180.0 3.674141944 2
+; parameters for types C CA CA HA at LINE(664)
+231 236 234 235 4 180.0 3.674141944 2
+; parameters for types C CT N HB at LINE(642)
+238 242 240 241 4 180.0 3.674141944 2
+238 240 242 253 4 90.0 1.336051616 2 
+240 242 253 255 4 90.0 0.250509678 2 
+240 242 253 255 4 90.0 0.190396935 3 
+240 242 253 255 4 90.0 0.083503226 4 
+240 242 253 255 4 90.0 -0.03672226 5 
+240 242 253 255 4 160.888 2.171083876 1 
+240 242 253 255 4 90.0 -0.851716939 1 
+; parameters for types CT N C OB at LINE(660)
+242 255 253 254 4 180.0 35.07135492 2
+; parameters for types C9 O2 C O2 at LINE(656)
+247 251 250 252 4 180.0 35.07135492 2
+; parameters for types C CT N C7 at LINE(654)
+253 256 255 265 4 180.0 3.34012904 2
+; parameters for types C7 N C OB at LINE(660)
+265 269 267 268 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+267 271 269 270 4 180.0 3.674141944 2
+267 269 271 282 4 90.0 1.336051616 2 
+269 271 282 284 4 160.888 2.171083876 1 
+269 271 282 284 4 90.0 -0.851716939 1 
+269 271 282 284 4 90.0 0.250509678 2 
+269 271 282 284 4 90.0 0.190396935 3 
+269 271 282 284 4 90.0 0.083503226 4 
+269 271 282 284 4 90.0 -0.03672226 5 
+; parameters for types CT N C OB at LINE(660)
+271 284 282 283 4 180.0 35.07135492 2
+; parameters for types C9 O2 C O2 at LINE(656)
+276 280 279 281 4 180.0 35.07135492 2
+; parameters for types C CT N HB at LINE(642)
+282 286 284 285 4 180.0 3.674141944 2
+282 284 286 292 4 90.0 1.336051616 2 
+; parameters for types CT O2 C O2 at LINE(656)
+286 293 292 294 4 180.0 35.07135492 2
+
+; Include Position restraint file
+
+;Include LIGAND topology
+;#include "./FAS.itp"
+
+; Include water topology
+[ moleculetype ] 
+; molname	nrexcl
+SOL		1 
+
+[ atoms ] 
+; 	at type	      res nr  res name	at name	      cg nr	charge	   mass
+1       OW_tip4pd    	1	SOL	 OW		1	0        16.00000
+2	HW       	1	SOL	HW2		1	0.5900 	  1.00800
+3	HW	        1	SOL	HW3		1	0.5900 	  1.00800
+4	MW		1	SOL	MW4		1      -1.1800    0.00000
+
+[ settles ] 
+; i	funct	doh	dhh ---> same as standard tip4p
+1	1	0.09572	0.15139 
+
+[ virtual_sites3 ] 
+; Dummy from			funct	a		b
+4	1	2	3	1	0.131937768	0.131937768 
+
+[ exclusions ] 
+1	2	3	4 
+2	1	3	4 
+3	1	2	4 
+4	1	2	3 
+
+
+
+; Include topology for ions
+[ moleculetype ] 
+; molname       nrexcl
+IB+             1        ; big positive ion
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    IB                  1       IB+            IB      1    1.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+CA              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    C0                  1       CA             CA      1    2.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+CL              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    Cl                  1       CL             CL      1   -1.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+NA              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    Na                  1       NA             NA      1    1.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+MG              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    MG                  1       MG             MG      1    2.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+K               1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    K                   1       K              K       1    1.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+RB              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    Rb                  1       RB             RB      1    1.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+CS              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    Cs                  1       CS             CS      1    1.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+LI              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    Li                  1       LI             LI      1    1.00000
+
+
+[ moleculetype ] 
+; molname       nrexcl
+ZN              1 
+
+[ atoms ] 
+; id    at type         res nr  residu name     at name  cg nr  charge
+   1    Zn                  1       ZN             ZN      1    2.00000
+
+[ system ] 
+; Name
+A-SYNC WITH FASUDIL in water 
+
+[ molecules ] 
+; Compound        #mols
+Protein_chain_A     1 
+SOL         8763 
+NA               8 
