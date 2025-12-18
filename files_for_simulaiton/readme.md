@@ -1,0 +1,1 @@
+Here there are structure files and topology files that can be used to run replica exchange simulations.
