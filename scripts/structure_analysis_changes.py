@@ -2092,7 +2092,10 @@ class ligand_interactions(contact_matrix, charge, aromatic, hydrophobic, hbond):
                     self.p_contact_map = dict_conv(self.p_contact_map, in_reps, rest=rest)
                     # self.p_contact_distance_map = dict_conv(self.p_contact_distance_map, in_reps, rest=rest)
 
-                    self.write_json_file(self.p_contact_map, self.out_file_dict['p_cm'], write=write)
+                    if self.w : self.write_json_file(self.p_contact_map, self.out_file_dict['p_cm_rw'], write=write)
+                    else : self.write_json_file(self.p_contact_map, self.out_file_dict['p_cm'], write=write)
+
+                    # self.write_json_file(self.p_contact_map, self.out_file_dict['p_cm'], write=write)
                     reset_dict([self.p_contact_map,self.p_contact_distance_map])
                     # reset_dict(self.p_contact_distance_map)
                 
