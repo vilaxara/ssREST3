@@ -152,15 +152,15 @@ def markers_colors():
 
 def plot_cm_all(input:dict, cbar_label:str, file_name:str=None, save_fig:bool = False, show_fig:bool = False, title_dict:dict = None, offset=None,
                 plot_args_in:dict = {'vmin': 0.0, 'vmax': 0.5, 'fig_size': (30,14), 'cax_coor': None, 'cmap': 'jet', 'aspect' : 'auto', 'rotation' : {'x' : 90, 'y' :0},
-                                  'tick_size' : {'x' : 18, 'y' : 18, 'cax' :25}, 'label_size' : {'x' : 30, 'y' : 30, 'cax' :30}, 'title_size' :20, 'dpi' : 310, 'labels' : {'x' :"Residues", 'y':"Residues" },
-                                  'nrows' : 2, 'ncols' : 5, 'xticks' : None, 'yticks' : None, 'tick_interval' : 2}):
+                                  'tick_size' : {'x' : 18, 'y' : 18, 'cax' :25}, 'label_size' : {'x' : 30, 'y' : 30, 'cax' :30}, 'title_size' :20, 'dpi' : 310, 'labels' : {'x' :"Residues", 'y':"Residues" , 'x_pos' : None, 'y_pos' : None},
+                                  'nrows' : 2, 'ncols' : 5, 'xticks' : None, 'yticks' : None, 'tick_interval' : 2, 'sup title':{'title' : None, 'fontsize': None, 'x': None, 'y': None}}):
     import matplotlib.pyplot as plt
     from mpl_toolkits.axes_grid1 import make_axes_locatable
     # [0.93, 0.2, 0.02, 0.6] defult cax
 
     plot_args:dict = {'vmin': 0.0, 'vmax': 0.5, 'fig_size': (30,14), 'cax_coor': None, 'cmap': 'jet', 'aspect' : 'auto', 'rotation' : {'x' : 90, 'y' :0},
-                        'tick_size' : {'x' : 18, 'y' : 18, 'cax' :25}, 'label_size' : {'x' : 30, 'y' : 30, 'cax' :30}, 'title_size' :20, 'dpi' : 310, 'labels' : {'x' :"Residues", 'y':"Residues" },
-                        'nrows' : 2, 'ncols' : 5, 'xticks' : None, 'yticks' : None, 'tick_interval' : 2}
+                        'tick_size' : {'x' : 18, 'y' : 18, 'cax' :25}, 'label_size' : {'x' : 30, 'y' : 30, 'cax' :30}, 'title_size' :20, 'dpi' : 310, 'labels' : {'x' :"Residues", 'y':"Residues", 'x_pos' : None, 'y_pos' : None },
+                        'nrows' : 2, 'ncols' : 5, 'xticks' : None, 'yticks' : None, 'tick_interval' : 2, 'sup title':{'title' : None, 'fontsize': None, 'x': None, 'y': None}}
     
     if plot_args_in :
 
@@ -192,14 +192,16 @@ def plot_cm_all(input:dict, cbar_label:str, file_name:str=None, save_fig:bool = 
             
     if plot_args['cax_coor'] : cax= fig.add_axes(plot_args['cax_coor'])
     # else : cax = fig.add_axes([axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().x1+0.02,axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0,0.02,axes[0,0].get_position().y1-axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0])
-    else : cax = fig.add_axes([axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().x1+0.12, axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0-0.034, 0.02, axes[0,0].get_position().y1-axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0+0.134])
+    # else : cax = fig.add_axes([axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().x1+0.12, axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0-0.034, 0.02, axes[0,0].get_position().y1-axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0+0.134])
+    else : cax = fig.add_axes([axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().x1+0.12, axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0+0.016, 0.02, axes[0,0].get_position().y1-axes[plot_args['nrows']-1,plot_args['ncols']-1].get_position().y0+0.05])
+    
     # else : 
     #     divider = make_axes_locatable(axes[0,0])
     #     cax = divider.append_axes("right", size="5%", pad=0.05)
         # plt.colorbar(im, cax=cax)
         
     cbar = fig.colorbar(images[-1],cax=cax)
-    cbar.set_label(cbar_label, size=plot_args['label_size']['cax'])
+    cbar.set_label(cbar_label, size=plot_args['label_size']['cax'], labelpad=20)
     cbar.ax.tick_params(labelsize=plot_args['tick_size']['cax'])
     # cbar.set_ticks([])
     # cbar.set_ticklabels([])
@@ -207,8 +209,9 @@ def plot_cm_all(input:dict, cbar_label:str, file_name:str=None, save_fig:bool = 
     # fig.text(0.5, 0.04, plot_args['labels']['x'], ha="center", fontsize=plot_args['label_size']['x'])
     # fig.text(-0.05, 0.5, plot_args['labels']['y'], va="center", rotation="vertical", fontsize=plot_args['label_size']['y'])
 
-    fig.supxlabel(plot_args['labels']['x'], size=plot_args['label_size']['x'])
-    fig.supylabel(plot_args['labels']['y'], size=plot_args['label_size']['y'])
+    fig.supxlabel(plot_args['labels']['x'], size=plot_args['label_size']['x'], y=plot_args['labels']['x_pos'])
+    fig.supylabel(plot_args['labels']['y'], size=plot_args['label_size']['y'], x=plot_args['labels']['y_pos'])
+    fig.text(plot_args['sup title']['x'], plot_args['sup title']['y'], plot_args['sup title']['title'], ha="center", fontsize=plot_args['sup title']['fontsize'])    
     
     # plt.tight_layout()
     # plt.grid(alpha=0.1)
@@ -470,3 +473,113 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
     return texts
 
 
+def reposition_first(array):
+    if len(array.shape) == 2:  # Check if it's 2D
+        # Reposition first row to the last
+        return np.vstack((array[1:], array[0]))
+    elif len(array.shape) == 3:  # Check if it's 3D
+        # Reposition first slice to the last
+        return np.concatenate((array[1:], array[:1]), axis=0)
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plot_colvar(colvar, trj_frames, num_cvs, labels, weights=None, out_dir=None):
+    """
+    Plot collective variables over time with corresponding histograms and reweighted histograms.
+
+    Parameters:
+        colvar (np.ndarray): Array of collective variables with time as the first column.
+        trj_frames (dict): Dictionary mapping frame indices to frame times.
+        num_cvs (int): Number of collective variables.
+        labels (dict): Dictionary of labels for the collective variables.
+        weights (np.ndarray, optional): Normalized weights for reweighting histograms. Must match the number of frames.
+        out_dir (str, optional): Directory to save the plot. If None, the plot is shown but not saved.
+    """
+    # Configure subplots
+    height_ratios = [1] * (num_cvs - 1)
+    fig, axes = plt.subplots(
+        num_cvs - 1, 2, figsize=(32, 40),
+        gridspec_kw={
+            'width_ratios': [4, 1],
+            'height_ratios': height_ratios,
+            'left': 0.1, 'right': 0.9,
+            'bottom': 0.1, 'top': 0.9,
+            'wspace': 0.02, 'hspace': 0.2
+        },
+        sharey=False,
+        # sharex=True
+    )
+
+    # Check if weights are provided
+    if weights is not None:
+        if len(weights) != colvar.shape[0]:
+            raise ValueError("Weights must match the number of frames in colvar.")
+        weights = weights / np.sum(weights)  # Normalize weights
+
+    # Loop over collective variables
+    for i in range(num_cvs - 1):
+        time = colvar.T[0] / 10**5  # Time in appropriate units
+        data = colvar.T[i + 1]  # Data for the i-th collective variable
+
+        # Line plot of collective variable over time
+        axes[i, 0].plot(time, data, color='r', label=labels.get(str(i + 1), f'CV {i + 1}'))
+        axes[i, 0].set_ylabel(labels.get(str(i + 1), f'CV {i + 1}'), size=35)
+        axes[i, 0].set_xlabel(r"Time ($\mu$s)", size=35)
+        axes[i, 0].tick_params(labelsize=25)
+        xticks=[frame_time[1] / 10**5 for frame_idx, frame_time in trj_frames.items()]
+
+        axes[i, 0].set_xticks(xticks)
+
+        # Add vertical lines for trajectory frames
+        for frame_idx, frame_time in trj_frames.items():
+            axes[i, 0].axvline(x=frame_time[1] / 10**5, color='black', linewidth=3, linestyle='--')
+
+        # Plot histogram
+        axes[i, 1].hist(data, bins=50, orientation='horizontal', density=True, color='black', histtype='step', linewidth=2)
+
+        # Plot reweighted histogram (if weights are provided)
+        if weights is not None:
+            # # Compute weighted histogram
+            # hist, bin_edges = np.histogram(data, bins=50, density=True, weights=weights)
+            # bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
+            # axes[i, 1].plot(hist, bin_centers, color='green', linewidth=2, label='Reweighted')
+            axes[i, 1].hist(data, bins=50, orientation='horizontal', density=True, color='green', histtype='step', linewidth=2, weights=weights)
+
+
+        axes[i, 1].tick_params(labelsize=25)
+        axes[i, 1].set_yticks([])
+
+    # Save or display the plot
+    if out_dir:
+        plt.savefig(f"{out_dir}/cv_plot.png", dpi=310, bbox_inches='tight')
+    else:
+        plt.show()
+
+def create_trj_frames(colvar_data, nreps=16):
+    """
+    Create trajectory frame intervals based on the given data.
+
+    Parameters:
+        colvar_data (list): A list or array-like structure containing the data.
+        nreps (int): Number of intervals (default is 16).
+        index (int): Index of the dataset to process (default is 100).
+
+    Returns:
+        dict: A dictionary where keys are strings of interval indices and values are lists of start and end points.
+    """
+    # Determine the total length and calculate interval size
+    total_frames = colvar_data.shape[0] - 1
+    interval_size = total_frames / nreps
+
+    # Initialize variables
+    a, b = 0, interval_size
+    trj_frames = {}
+
+    # Create intervals
+    for i in range(nreps):
+        trj_frames[str(i)] = [a, b]
+        a = b
+        b += interval_size
+
+    return trj_frames
